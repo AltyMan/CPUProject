@@ -14,8 +14,7 @@ module rol(A, B, Z);
    // (A << sh) moves bits left
    // (A >> (32 - sh)) wraps the bits around
    assign r = (A << sh) | (A >> (5'd32 - sh));
-
-   // Zero-extend to 64 bits (upper 32 are 0)
    assign Z = {32'b0, r};
 
 endmodule
+
