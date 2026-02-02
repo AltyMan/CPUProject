@@ -3,17 +3,13 @@
 // Half Adder
 module halfadder(a, b, sum, carry);
 
-  input  a, b;
-  output sum, carry;
+input  a, b;
+output sum, carry;
+
+assign sum   = a ^ b;
+assign carry = a & b;
+
   
-  reg sum;
-  reg carry;
-  
-  always@(a or b)
-      begin
-          sum   = a ^ b;
-          carry = a & b;
-      end
 endmodule
 
 
@@ -23,23 +19,15 @@ module fulladder(a, b, cin, sum, cout);
   input  a, b, cin;
   output sum, cout;
   
-  reg sum;
-  reg cout;
   
-  reg s1;
-  reg c1;
-  reg c2;
+  wire s1;
+  wire c1;
+  wire c2;
   
-  always@(a or b or cin)
-      begin
-          s1   = a ^ b;
-          c1   = a & b;
-  
-          sum  = s1 ^ cin;
-          c2   = s1 & cin;
-  
-          cout = c1 | c2;
-      end
+  halfadder HA1(a,  b,   s1, c1);
+  halfadder HA2(s1, cin, sum, c2);
+
+  assign cout = c1 | c2;
 endmodule
 
 
@@ -65,3 +53,4 @@ module RCA(A, B, Result);
               end
       end
 endmodule
+
