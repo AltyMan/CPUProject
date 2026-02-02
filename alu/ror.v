@@ -1,11 +1,19 @@
-// ROR (rotate right)
-// Rotates bits of A to the right by B[4:0] positions
-// Bits that fall off the right enter on the left
+`timescale 1ns/10ps
 
-module ror(input [31:0] A, input [31:0] B, output [63:0] Z);
-  wire [4:0] sh = B[4:0];
-  wire [31:0] r;
-  helper h();
-  assign r = h.ror32(A, sh);
-  assign Z = {{32{1'b0}}, r};
+module ror(A, B, Z);
+
+   input  [31:0] A, B;
+   output [63:0] Z;
+
+   wire   [4:0]  sh;
+   wire   [31:0] r;
+
+   assign sh = B[4:0];
+
+   // Rotate right:
+   // (A >> sh) moves bits right
+   // (A << (32 - sh)) wraps the bits around
+   assign r = (A >> sh) | (A << (5'd32 - sh));
+   assign Z = {32'b0, r};
+
 endmodule
