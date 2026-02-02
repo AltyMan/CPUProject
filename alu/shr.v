@@ -1,9 +1,15 @@
-// SHR (shift right logical)
-// Shifts A to the right and fills with zeros
-// Uses B[4:0] as the shift amount
-// This is a logical shift, no sign extension
+`timescale 1ns/10ps
 
-module shr(input [31:0] A, input [31:0] B, output [63:0] Z);
-  wire [4:0] sh = B[4:0];
-  assign Z = {{32{1'b0}}, (A >> sh)};
+module shr(A, B, Z);
+
+   input  [31:0] A, B;
+   output [63:0] Z;
+
+   wire   [4:0]  sh;
+   wire   [31:0] r;
+
+   assign sh = B[4:0];
+   assign r = A >> sh;
+   assign Z = {32'b0, r};
+
 endmodule
