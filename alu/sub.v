@@ -1,9 +1,18 @@
-// SUB operation
-// Subtracts B from A 
-   //(A - B)
-// Inputs are 32-bit because registers are 32-bit. Output is 64-bit to fit the Z register (even though subtraction)
-// SUB only needs 32 bits.
+`timescale 1ns/10ps
 
-module sub(input [31:0] A, input [31:0] B, output [63:0] Z);
-  assign Z = {{32{1'b0}}, (A - B)};
+module sub(A, B, Result);
+
+   input  [31:0] A, B;
+   output [31:0] Result;
+
+   wire   [31:0] Result;
+   wire   [31:0] B_inv;
+   wire   [31:0] B_neg;
+
+   assign B_inv = ~B;
+
+
+   RCA NEGATE_B(B_inv, 32'b00000000000000000000000000000001, B_neg);
+   RCA SUBTRACT(A, B_neg, Result);
+
 endmodule
