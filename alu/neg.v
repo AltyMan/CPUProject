@@ -1,4 +1,3 @@
-`timescale 1ns/10ps
 
 module neg(A, Result);
 
@@ -12,3 +11,4 @@ module neg(A, Result);
    RCA NEGATE(A_inv, 32'b00000000000000000000000000000001, Result);
 
 endmodule
+
