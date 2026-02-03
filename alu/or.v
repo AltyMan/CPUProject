@@ -1,4 +1,3 @@
-`timescale 1ns/10ps
 
 module orit(A, B, Result);
 
@@ -10,5 +9,6 @@ module orit(A, B, Result);
    assign Result = A | B;
 
 endmodule
+
 
 
