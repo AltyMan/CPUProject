@@ -1,5 +1,3 @@
-`timescale 1ns/10ps
-
 module shra(A, B, Z);
 
    input  [31:0] A, B;
@@ -13,3 +11,4 @@ module shra(A, B, Z);
    assign Z = {{32{r[31]}}, r};
 
 endmodule
+
