@@ -1,9 +1,7 @@
-// AND operation
-// AND between A and B
-// Both inputs are 32-bit values from the datapath
-// Result is placed in the lower 32 bits of Z
-
-module andf(input [31:0] A, input [31:0] B, output [63:0] Z);
-  assign Z = {{32{1'b0}}, (A & B)};
+module andf #(parameter DATA_WIDTH = 32)(
+    input [DATA_WIDTH-1:0] A, B,
+    output [DATA_WIDTH-1:0] C
+);
+wire   [DATA_WIDTH-1:0] C;
+assign C = A & B;
 endmodule
-

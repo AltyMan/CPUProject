@@ -19,7 +19,7 @@ module booth_tb;
     assign full_result = {HI, LO};
 
     // 2. Instantiate the Unit Under Test (UUT)
-    mul #(DATA_WIDTH) uut (
+    boothmul #(DATA_WIDTH) uut (
         .Q(Q), 
         .M(M), 
         .HI(HI), 

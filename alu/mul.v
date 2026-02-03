@@ -1,8 +1,7 @@
-module mul #(parameter DATA_WIDTH = 32, HALF_WIDTH = 16, INIT=32'h0)(
+module boothmul #(parameter DATA_WIDTH = 32, INIT=32'h0)(
     input [DATA_WIDTH-1:0] Q,
     input [DATA_WIDTH-1:0] M,
-    output [DATA_WIDTH-1:0] HI,
-    output [DATA_WIDTH-1:0] LO
+    output [2*DATA_WIDTH-1:0] A,
 );
 
 reg [2*DATA_WIDTH-1:0] prod;
@@ -24,8 +23,8 @@ always @(*) begin
             3'b000: partial = 0;
             3'b001: partial = Q_ext;
             3'b010: partial = Q_ext;
-            3'b011: partial = Q_ext << 1;
-            3'b100: partial = Q_neg << 1;
+            3'b011: partial = {Q_ext, 1'b0};
+            3'b100: partial = {Q_neg, 1'b0};
             3'b101: partial = Q_neg;
             3'b110: partial = Q_neg;
             3'b111: partial = 0;
@@ -34,7 +33,6 @@ always @(*) begin
 
     end
 end
-assign HI = prod[2*DATA_WIDTH-1:DATA_WIDTH];
-assign LO = prod[DATA_WIDTH-1:0];
+assign A = prod;
 
 endmodule

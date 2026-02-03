@@ -10,6 +10,7 @@ module DataPath(
 	input wire IRin, MARin,
 	input wire RAout, RBout, RCout, RZout,
 	input wire RYin, RAin, RBin, RCin, RZin,
+	input wire PCjump,
 	input wire MDRread
 );
 
@@ -50,7 +51,7 @@ register HI(clear, clock, Rin[16], BusMuxOut, BusMuxInHI);
 register LO(clear, clock, Rin[17], BusMuxOut, BusMuxInLO);
 register ZHigh(clear, clock, Rin[18], BusMuxOut, BusMuxInZHigh);
 register ZLow(clear, clock, Rin[19], BusMuxOut, BusMuxInZLow);
-register PC(clear, clock, Rin[20], BusMuxOut, BusMuxInPC);
+pc PC(clear, clock, Rin[20], PCjump, BusMuxOut, BusMuxInPC);
 mdr MDR(clear, clock, Rin[21], MDRread, BusMuxOut, Mdatain, BusMuxInMDR, Mdataout);
 register InPort(clear, clock, Rin[22], BusMuxOut, BusMuxInPort);
 register CSignExtended(clear, clock, Rin[23], BusMuxOut, BusMuxInCSignExtended);
