@@ -1,4 +1,3 @@
-`timescale 1ns/10ps
 
 module not(A, Result);
 
@@ -10,3 +9,4 @@ module not(A, Result);
    assign Result = ~A;
 
 endmodule
+
