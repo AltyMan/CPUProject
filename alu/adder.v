@@ -1,4 +1,3 @@
-`timescale 1ns/10ps
 
 // Half Adder
 module halfadder(a, b, sum, carry);
@@ -53,4 +52,5 @@ module RCA(A, B, Result);
               end
       end
 endmodule
+
 
