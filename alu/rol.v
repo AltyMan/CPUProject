@@ -1,4 +1,3 @@
-`timescale 1ns/10ps
 
 module rol(A, B, Z);
 
@@ -17,4 +16,5 @@ module rol(A, B, Z);
    assign Z = {32'b0, r};
 
 endmodule
+
 
