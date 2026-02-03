@@ -1,4 +1,3 @@
-`timescale 1ns/10ps
 
 module shl(A, B, Z);
 
@@ -13,3 +12,4 @@ module shl(A, B, Z);
    assign Z = {32'b0, r};
 
 endmodule
+
