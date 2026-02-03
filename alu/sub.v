@@ -1,4 +1,3 @@
-`timescale 1ns/10ps
 
 module sub(A, B, Result);
 
@@ -16,3 +15,4 @@ module sub(A, B, Result);
    RCA SUBTRACT(A, B_neg, Result);
 
 endmodule
+
