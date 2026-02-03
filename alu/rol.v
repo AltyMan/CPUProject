@@ -1,11 +1,10 @@
-
-module rol(A, B, Z);
-
-   input  [31:0] A, B;
-   output [63:0] Z;
+module rol #(parameter DATA_WIDTH = 32)(
+   input [DATA_WIDTH-1:0] A, B,
+   output [DATA_WIDTH-1:0] Z
+);
 
    wire   [4:0]  sh;
-   wire   [31:0] r;
+   wire   [DATA_WIDTH-1:0] r;
 
    assign sh = B[4:0];
 
@@ -13,7 +12,7 @@ module rol(A, B, Z);
    // (A << sh) moves bits left
    // (A >> (32 - sh)) wraps the bits around
    assign r = (A << sh) | (A >> (5'd32 - sh));
-   assign Z = {32'b0, r};
+   assign Z = r;
 
 endmodule
 

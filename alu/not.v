@@ -1,12 +1,8 @@
 
-module not(A, Result);
-
-   input  [31:0] A;
-   output [31:0] Result;
-
-   wire   [31:0] Result;
-
-   assign Result = ~A;
-
+module not #(parameter DATA_WIDTH = 32)(
+    input [DATA_WIDTH-1:0] A,
+    output [DATA_WIDTH-1:0] Result
+);
+wire   [DATA_WIDTH-1:0] Result;
+assign Result = ~A;
 endmodule
-
