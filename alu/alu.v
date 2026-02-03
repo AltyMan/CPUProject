@@ -1,8 +1,4 @@
-`include "alu/and.v"
-`include "alu/or.v"
-`include "alu/not.v"
-`include "alu/xor.v"
-`include "alu/nor.v"
+`include "alu/logic.v"
 `include "alu/neg.v"
 `include "alu/adder.v"
 `include "alu/mul.v"
@@ -12,6 +8,7 @@
 `include "alu/shl.v"
 `include "alu/shr.v"
 `include "alu/shra.v"
+
 module alu #(parameter DATA_WIDTH = 32, SEL_WIDTH = 16, INIT = 32'h0)(
     input wire [DATA_WIDTH-1:0] A,
     input wire [DATA_WIDTH-1:0] B,
@@ -21,6 +18,7 @@ module alu #(parameter DATA_WIDTH = 32, SEL_WIDTH = 16, INIT = 32'h0)(
 
 wire cin;
 assign cin = 1'b0;
+wire cout;
 
 wire [DATA_WIDTH-1:0] B_neg;
 assign B_neg = ~B + 1;
@@ -29,18 +27,18 @@ wire [DATA_WIDTH-1:0] Z_and, Z_or, Z_not, Z_xor, Z_nor, Z_neg, Z_rol, Z_ror, Z_s
 wire [DATA_WIDTH-1:0] Z_add, Z_sub; // Note overflow for add
 wire [2*DATA_WIDTH-1:0] Z_mul, Z_div;
 
-andf and(A, B, Z_and);
-orit or(A, B, Z_or);
-not not(A, Z_not);
-xor xor(A, B, Z_xor);
-nor nor(A, B, Z_nor);
+f_and andf(A, B, Z_and);
+f_or orf(A, B, Z_or);
+f_not notf(A, Z_not);
+f_xor xorf(A, B, Z_xor);
+f_nor norf(A, B, Z_nor);
 neg neg(A, Z_neg);
 rol rol(A, B, Z_rol);
 ror ror(A, B, Z_ror);
 shl shl(A, B, Z_shl);
 shr shr(A, B, Z_shr);
 shra shra(A, B, Z_shra);
-RCA add(A, B, Z_add);
+CLA32 add(A, B, cin, Z_add, cout);
 RCA sub(A, B_neg, Z_sub); // To be touched on later
 boothmul mul(A, B, Z_mul);
 nonresdiv div(A, B, Z_div);

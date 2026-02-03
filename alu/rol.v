@@ -11,9 +11,7 @@ module rol #(parameter DATA_WIDTH = 32)(
    // Rotate left:
    // (A << sh) moves bits left
    // (A >> (32 - sh)) wraps the bits around
-   assign r = (A << sh) | (A >> (5'd32 - sh));
+   assign r = (A << sh) | (A >> (6'd32 - sh));
    assign Z = r;
 
 endmodule
-
-

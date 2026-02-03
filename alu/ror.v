@@ -11,7 +11,7 @@ module ror#(parameter DATA_WIDTH = 32)(
    // Rotate right:
    // (A >> sh) moves bits right
    // (A << (32 - sh)) wraps the bits around
-   assign r = (A >> sh) | (A << (5'd32 - sh));
+   assign r = (A >> sh) | (A << (6'd32 - sh));
    assign Z = r;
 
 endmodule

@@ -1,7 +1,7 @@
 module boothmul #(parameter DATA_WIDTH = 32, INIT=32'h0)(
     input [DATA_WIDTH-1:0] Q,
     input [DATA_WIDTH-1:0] M,
-    output [2*DATA_WIDTH-1:0] A,
+    output [2*DATA_WIDTH-1:0] A
 );
 
 reg [2*DATA_WIDTH-1:0] prod;
