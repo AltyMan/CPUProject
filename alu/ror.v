@@ -1,4 +1,3 @@
-`timescale 1ns/10ps
 
 module ror(A, B, Z);
 
@@ -17,3 +16,4 @@ module ror(A, B, Z);
    assign Z = {32'b0, r};
 
 endmodule
+
