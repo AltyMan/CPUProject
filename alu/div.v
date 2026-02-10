@@ -5,7 +5,7 @@
 //---...---//
 // Division by zero is safely handled
 
-module div #(parameter integer DATA_WIDTH = 32)(
+module nonresdiv #(parameter integer DATA_WIDTH = 32)(
   input  wire [DATA_WIDTH-1:0] Q,   // dividend
   input  wire [DATA_WIDTH-1:0] M,   // divisor
   output wire [2*DATA_WIDTH-1:0] Z  // {remainder, quotient}
@@ -35,13 +35,13 @@ module div #(parameter integer DATA_WIDTH = 32)(
   reg signed [DATA_WIDTH-1:0] A_s;  // signed remainder
 
   always @(*) begin
-    if (M_mag == '0) begin
+    if (M_mag == 32'h0) begin
       // divide-by-zero
       Q_u = {DATA_WIDTH{1'b1}};
       A_u = Q_mag;
     end else begin
-      A_reg = '0;
-      Q_reg = Q_mag;
+      A_reg = {DATA_WIDTH+1{1'b0}};
+      Q_reg = Q_mag;  // extend and keep sign for dividend
       M_reg = {1'b0, M_mag};   // extend and force positive divisor
 
       for (i = 0; i < DATA_WIDTH; i = i + 1) begin

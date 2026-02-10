@@ -7,7 +7,7 @@ module Bus (
 	input [31:0]BusMuxInHI, input [31:0]BusMuxInLO, input [31:0]BusMuxInZHigh, input [31:0]BusMuxInZLow,
 	input [31:0]BusMuxInPC, input [31:0]BusMuxInMDR, input [31:0]BusMuxInPort, input [31:0]BusMuxInCSignExtended,
 	//Encoder
-	input [24:0] Rout, // R0out to R15out, HIout, LOout, ZHighout, ZLowout, PCout, MDRout, InPortout, CSignExtendedout
+	input [31:0] Rout, // R0out to R15out, HIout, LOout, ZHighout, ZLowout, PCout, MDRout, InPortout, CSignExtendedout
 
 	output wire [31:0]BusMuxOut
 );

@@ -29,39 +29,43 @@ wire [2*DATA_WIDTH-1:0] Z_mul, Z_div;
 
 f_and andf(A, B, Z_and);
 f_or orf(A, B, Z_or);
-f_not notf(A, Z_not);
+f_not notf(B, Z_not);
 f_xor xorf(A, B, Z_xor);
 f_nor norf(A, B, Z_nor);
-neg neg(A, Z_neg);
+neg neg(B, Z_neg);
 rol rol(A, B, Z_rol);
 ror ror(A, B, Z_ror);
 shl shl(A, B, Z_shl);
 shr shr(A, B, Z_shr);
 shra shra(A, B, Z_shra);
 CLA32 add(A, B, cin, Z_add, cout);
-RCA sub(A, B_neg, Z_sub); // To be touched on later
+CLA32 sub(A, B_neg, cin, Z_sub, cout);
 boothmul mul(A, B, Z_mul);
 nonresdiv div(A, B, Z_div);
 
 reg [2*DATA_WIDTH-1:0] Z;
 
+initial begin
+    Z = {2*DATA_WIDTH{1'b0}};
+end
+
 always @ (*) begin
     case (ALU_Sel)
-        16'd0: Z = Z_and;
-        16'd1: Z = Z_or;
-        16'd2: Z = Z_not;
-        16'd3: Z = Z_xor;
-        16'd4: Z = Z_nor;
-        16'd5: Z = Z_neg;
-        16'd6: Z = Z_rol;
-        16'd7: Z = Z_ror;
-        16'd8: Z = Z_shl;
-        16'd9: Z = Z_shr;
-        16'd10: Z = Z_shra;
-        16'd11: Z = Z_add;
-        16'd12: Z = Z_sub;
-        16'd13: Z = Z_mul;
-        16'd14: Z = Z_div;
+        16'd1: Z = Z_and;
+        16'd2: Z = Z_or;
+        16'd3: Z = Z_not;
+        16'd4: Z = Z_xor;
+        16'd5: Z = Z_nor;
+        16'd6: Z = Z_neg;
+        16'd7: Z = Z_rol;
+        16'd8: Z = Z_ror;
+        16'd9: Z = Z_shl;
+        16'd10: Z = Z_shr;
+        16'd11: Z = Z_shra;
+        16'd12: Z = Z_add;
+        16'd13: Z = Z_sub;
+        16'd14: Z = Z_mul;
+        16'd15: Z = Z_div;
         default: Z = {2*DATA_WIDTH{1'b0}};
     endcase
 end

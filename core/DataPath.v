@@ -1,15 +1,17 @@
+`include "core/registers.v"
+`include "core/Bus.v"
+
 module DataPath(
 	input wire clock, clear,
 	// Data inputs
-	input wire [31:0] A,
-	input wire [31:0] B,
 	input wire [31:0] Mdatain,
+	input wire [15:0] ALUControl,
 	// Control signals: out = select, in = enable
-	input wire [23:0] Rin,  // R0in to R15in
-	input wire [23:0] Rout, // R0out to R15out
+	input wire [31:0] Rin,  // R0in to R15in
+	input wire [31:0] Rout, // R0out to R15out
 	input wire IRin, MARin,
-	input wire RAout, RBout, RCout, RZout,
-	input wire RYin, RAin, RBin, RCin, RZin,
+	input wire RZout,
+	input wire RYin, RBin,
 	input wire PCjump,
 	input wire MDRread
 );
@@ -25,7 +27,9 @@ wire [31:0] BusMuxOut;
 wire [31:0] IROut, MAROut, Mdataout;
 
 wire [31:0] Yregout;
-wire [31:0] Zregin;
+
+wire [31:0] ALUResultHigh, ALUResultLow;
+wire [31:0] ZHighIn, ZLowIn;
 
 //Devices
 
@@ -49,8 +53,8 @@ register R15(clear, clock, Rin[15], BusMuxOut, BusMuxInR15);
 
 register HI(clear, clock, Rin[16], BusMuxOut, BusMuxInHI);
 register LO(clear, clock, Rin[17], BusMuxOut, BusMuxInLO);
-register ZHigh(clear, clock, Rin[18], BusMuxOut, BusMuxInZHigh);
-register ZLow(clear, clock, Rin[19], BusMuxOut, BusMuxInZLow);
+register ZHigh(clear, clock, Rin[18], ZHighIn, BusMuxInZHigh);
+register ZLow(clear, clock, Rin[19], ZLowIn, BusMuxInZLow);
 pc PC(clear, clock, Rin[20], PCjump, BusMuxOut, BusMuxInPC);
 mdr MDR(clear, clock, Rin[21], MDRread, BusMuxOut, Mdatain, BusMuxInMDR, Mdataout);
 register InPort(clear, clock, Rin[22], BusMuxOut, BusMuxInPort);
@@ -58,13 +62,14 @@ register CSignExtended(clear, clock, Rin[23], BusMuxOut, BusMuxInCSignExtended);
 ir IR(clear, clock, IRin, BusMuxOut, IROut);
 mar MAR(clear, clock, MARin, BusMuxOut, MAROut);
 
+register RY(clear, clock, RYin, BusMuxOut, Yregout);
+
 // HERE: work on designing ALU operations & RY/RZ registers
-// Old/existing code:
-//register RY(clear, clock, RYin, BusMuxOut, Yregout);
-//register RA(clear, clock, RAin, Yregout, BusMuxInRA);
-//register RB(clear, clock, RBin, BusMuxOut, BusMuxInRB);
-//adder add(A, BusMuxOut, Zregin);
-//register RZ(clear, clock, RZin, Zregin, BusMuxInRZ);
+alu ALU(Yregout, BusMuxOut, ALUControl, ALUResultHigh, ALUResultLow);
+
+// Route ALU results to Z registers or back through bus
+assign ZHighIn = (ALUControl != 16'd0) ? ALUResultHigh : BusMuxOut;
+assign ZLowIn = (ALUControl != 16'd0) ? ALUResultLow : BusMuxOut;
 
 //Bus
 Bus bus(
