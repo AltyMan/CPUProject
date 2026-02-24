@@ -83,10 +83,7 @@ module cla4(
     assign Sum[3] = p[3] ^ c3;
 
     assign P = p[3] & p[2] & p[1] & p[0];
-    assign G = g[3]
-             | (p[3] & g[2])
-             | (p[3] & p[2] & g[1])
-             | (p[3] & p[2] & p[1] & g[0]);
+    assign G = g[3] | (p[3] & g[2]) | (p[3] & p[2] & g[1]) | (p[3] & p[2] & p[1] & g[0]);
 
 endmodule
 
@@ -129,3 +126,4 @@ module CLA32(
     assign Cout = Cblk[8];
 
 endmodule
+
