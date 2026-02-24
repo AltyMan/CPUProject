@@ -20,8 +20,10 @@ wire cin;
 assign cin = 1'b0;
 wire cout;
 
-wire [DATA_WIDTH-1:0] B_neg;
-assign B_neg = ~B + 1;
+// wire [DATA_WIDTH-1:0] B_neg;
+// assign B_neg = ~B + 1;
+
+wire [DATA_WIDTH-1:0] B_inv = ~B;
 
 wire [DATA_WIDTH-1:0] Z_and, Z_or, Z_not, Z_xor, Z_nor, Z_neg, Z_rol, Z_ror, Z_shl, Z_shr, Z_shra;
 wire [DATA_WIDTH-1:0] Z_add, Z_sub; // Note overflow for add
@@ -39,7 +41,13 @@ shl shl(A, B, Z_shl);
 shr shr(A, B, Z_shr);
 shra shra(A, B, Z_shra);
 CLA32 add(A, B, cin, Z_add, cout);
-CLA32 sub(A, B_neg, cin, Z_sub, cout);
+////////////////////////////////////////////////////////
+// Old 
+// CLA32 sub(A, B_neg, cin, Z_sub, cout);
+
+// New
+CLA32 sub(A, B_inv, 1'b1, Z_sub, cout);
+/////////////////////////////////////////////////////////    
 boothmul mul(A, B, Z_mul);
 nonresdiv div(A, B, Z_div);
 
