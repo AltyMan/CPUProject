@@ -2,7 +2,6 @@
 
 Work Distribution: 
 ## Phase 1  
-  - https://queensuca-my.sharepoint.com/:w:/r/personal/22mqp1_queensu_ca/_layouts/15/Doc.aspx?sourcedoc=%7B7A73F796-082A-4940-8171-1C90EAF3D736%7D&file=ELEC%20374%20Phase%201%20Report.docx&fromShare=true&action=default&mobileredirect=true
 ## Phase 2 
 
 ---
