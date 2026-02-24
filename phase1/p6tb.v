@@ -97,13 +97,13 @@ always @(Present_state) begin
             #20 Rout[21] <= 0; Rin[3] <= 0; // initialize R3 with the value 0x34
         end
         Reg_load2a: begin
-            Mdatain <= 32'd0;
+            Mdatain <= -32'd7;
             MDRread <= 1; Rin[21] <= 1;
             #20 MDRread <= 0; Rin[21] <= 0;
         end
         Reg_load2b: begin
             Rout[21] <= 1; Rin[1] <= 1; // MDRout, R1in
-            #20 Rout[21] <= 0; Rin[1] <= 0; // initialize R1 with the value 0x45
+            #20 Rout[21] <= 0; Rin[1] <= 0; // initialize R1 with the value -7
         end
         T0: begin
             Rout[20] <= 1; MARin <= 1; Rin[19] <= 1; // PCout, MARin, Zin->ZLowin
@@ -123,8 +123,8 @@ always @(Present_state) begin
             #20 Rout[3] <= 0; RYin <= 0;
         end
         T4: begin
-            Rout[1] <= 1; ALUControl <= 16'd15; Rin[18] <= 1; Rin[19] <= 1; // R1out, DIV operation, Zin->ZLowin
-            #20 Rout[1] <= 0; ALUControl <= 16'd0; Rin[18] <= 0; Rin[19] <= 0;
+            Rout[1] <= 1; ALUControl <= 16'd15; Rin[18] <= 1; Rin[19] <= 1; // R1out, DIV operation, Zin->ZLowin & ZHighin
+            #20 Rout[1] <= 0; ALUControl <= 16'd0; Rin[18] <= 0; Rin[19] <= 0; // expected output: 0xFFFFFFFE for quotient, 0x5 for remainder
         end
         T5: begin
             Rout[19] <= 1; Rin[17] <= 1; // Zlowout, LOin

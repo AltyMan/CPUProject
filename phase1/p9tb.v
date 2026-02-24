@@ -105,7 +105,7 @@ always @(Present_state) begin
         end
         Reg_load2b: begin
             Rout[21] <= 1; Rin[0] <= 1; // MDRout, R0in
-            #20 Rout[21] <= 0; Rin[0] <= 0; // initialize R0 with the value 0x45
+            #20 Rout[21] <= 0; Rin[0] <= 0; // initialize R0 with the value 0x3F
         end
         Reg_load3a: begin
             Mdatain <= 32'h00000004;
@@ -114,7 +114,7 @@ always @(Present_state) begin
         end
         Reg_load3b: begin
             Rout[21] <= 1; Rin[4] <= 1; // MDRout, R4in
-            #20 Rout[21] <= 0; Rin[4] <= 0; // initialize R4 with the value 0x67
+            #20 Rout[21] <= 0; Rin[4] <= 0; // initialize R4 with the value 0x4
         end
         T0: begin
             Rout[20] <= 1; MARin <= 1; Rin[19] <= 1; // PCout, MARin, Zin->ZLowin
@@ -135,7 +135,7 @@ always @(Present_state) begin
         end
         T4: begin
             Rout[4] <= 1; ALUControl <= 16'd9; Rin[19] <= 1; // R4out, SHL operation, Zin->ZLowin
-            #20 Rout[4] <= 0; ALUControl <= 16'd0; Rin[19] <= 0;
+            #20 Rout[4] <= 0; ALUControl <= 16'd0; Rin[19] <= 0; // expected output: 1111110000
         end
         T5: begin
             Rout[19] <= 1; Rin[7] <= 1; // Zlowout, R7in

@@ -16,11 +16,8 @@ module alu #(parameter DATA_WIDTH = 32, SEL_WIDTH = 16, INIT = 32'h0)(
     output wire [DATA_WIDTH-1:0] ZHigh, ZLow
 );
 
-wire cin;
-assign cin = 1'b0;
+reg cin;
 wire cout;
-
-wire [DATA_WIDTH-1:0] B_inv = ~B;
 
 wire [DATA_WIDTH-1:0] Z_and, Z_or, Z_not, Z_xor, Z_nor, Z_neg, Z_rol, Z_ror, Z_shl, Z_shr, Z_shra;
 wire [DATA_WIDTH-1:0] Z_add, Z_sub; // Note overflow for add
@@ -38,8 +35,7 @@ shl shl(A, B, Z_shl);
 shr shr(A, B, Z_shr);
 shra shra(A, B, Z_shra);
 CLA32 add(A, B, cin, Z_add, cout);
-// CLA32 sub(A, B_inv, 1'b1, Z_sub, cout); // Old
-CLA32 sub(A, B_inv, cin, Z_sub, cout); // New
+CLA32 sub(A, B, cin, Z_sub, cout);
 boothmul mul(A, B, Z_mul);
 nonresdiv div(A, B, Z_div);
 
@@ -62,8 +58,8 @@ always @ (*) begin
         16'd9: Z = Z_shl;
         16'd10: Z = Z_shr;
         16'd11: Z = Z_shra;
-        16'd12: begin Z = Z_add; assign cin = 1'b0; end
-        16'd13: begin Z = Z_sub; assign cin = 1'b1; end
+        16'd12: begin cin = 1'b0; Z = Z_add; end
+        16'd13: begin cin = 1'b1; Z = Z_sub; end
         16'd14: Z = Z_mul;
         16'd15: Z = Z_div;
         default: Z = {2*DATA_WIDTH{1'b0}};

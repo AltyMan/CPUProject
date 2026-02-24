@@ -135,7 +135,7 @@ always @(Present_state) begin
         end
         T4: begin
             Rout[6] <= 1; ALUControl <= 16'd12; Rin[19] <= 1; // R6out, ADD operation, Zin->ZLowin
-            #20 Rout[6] <= 0; ALUControl <= 16'd0; Rin[19] <= 0;
+            #20 Rout[6] <= 0; ALUControl <= 16'd0; Rin[19] <= 0; // expected output: 0x79
         end
         T5: begin
             Rout[19] <= 1; Rin[2] <= 1; // Zlowout, R2in

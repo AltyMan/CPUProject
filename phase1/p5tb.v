@@ -124,7 +124,7 @@ always @(Present_state) begin
         end
         T4: begin
             Rout[1] <= 1; ALUControl <= 16'd14; Rin[18] <= 1; Rin[19] <= 1; // R1out, MUL operation, Zin->ZLowin
-            #20 Rout[1] <= 0; ALUControl <= 16'd0; Rin[18] <= 0; Rin[19] <= 0;
+            #20 Rout[1] <= 0; ALUControl <= 16'd0; Rin[18] <= 0; Rin[19] <= 0; // expected output: 0xFFFFFFEC
         end
         T5: begin
             Rout[19] <= 1; Rin[17] <= 1; // Zlowout, LOin

@@ -120,7 +120,7 @@ always @(Present_state) begin
         end
         T3: begin
             Rout[7] <= 1; ALUControl <= 16'd6; Rin[19] <= 1; // R7out, NEG operation, Zin->ZLowin
-            #20 Rout[7] <= 0; ALUControl <= 16'd0; Rin[19] <= 0;
+            #20 Rout[7] <= 0; ALUControl <= 16'd0; Rin[19] <= 0; // expected output: -69
         end
         T4: begin
             Rout[19] <= 1; Rin[4] <= 1; // Zlowout, R4in
