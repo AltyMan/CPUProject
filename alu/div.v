@@ -8,74 +8,51 @@
 module nonresdiv #(parameter integer DATA_WIDTH = 32)(
   input  wire [DATA_WIDTH-1:0] Q,   // dividend
   input  wire [DATA_WIDTH-1:0] M,   // divisor
-  output wire [2*DATA_WIDTH-1:0] Z  // {remainder, quotient}
+  output reg  [2*DATA_WIDTH-1:0] Z  // {remainder, quotient}
 );
 
-  //main regs
-  reg  signed [DATA_WIDTH:0]   A_reg;   // remainder
-  reg  signed [DATA_WIDTH:0]   M_reg;   // divisor (extended)
-  reg         [DATA_WIDTH-1:0] Q_reg;   // quotient
-  reg         [2*DATA_WIDTH:0] AQ_reg;
-
+  reg signed [DATA_WIDTH:0] A_reg;
+  reg        [DATA_WIDTH-1:0] Q_reg;
   integer i;
 
-  //prep for algorithm, check signs
+  // Extract signs
   wire Q_sign = Q[DATA_WIDTH-1];
   wire M_sign = M[DATA_WIDTH-1];
-  wire Q_out_sign = Q_sign ^ M_sign;   // quotient sign
-  wire A_out_sign = Q_sign;             // remainder follows dividend
-  
-  wire [DATA_WIDTH-1:0] Q_mag = Q_sign ? (~Q + 1'b1) : Q; //check if signed
+
+  // Pre-compute abs. vals
+  wire [DATA_WIDTH-1:0] Q_mag = Q_sign ? (~Q + 1'b1) : Q;
   wire [DATA_WIDTH-1:0] M_mag = M_sign ? (~M + 1'b1) : M;
-
-  reg [DATA_WIDTH-1:0] Q_u;   // unsigned quotient
-  reg [DATA_WIDTH-1:0] A_u;   // unsigned remainder
-
-  reg signed [DATA_WIDTH-1:0] Q_s;  // signed quotient
-  reg signed [DATA_WIDTH-1:0] A_s;  // signed remainder
-
+  
+  wire signed [DATA_WIDTH:0] M_ext = {1'b0, M_mag}; // Extended M_mag
   always @(*) begin
-    if (M_mag == 32'h0) begin
-      // divide-by-zero
-      Q_u = {DATA_WIDTH{1'b1}};
-      A_u = Q_mag;
+    if (M == 0) begin
+      Z = {Q_mag, {DATA_WIDTH{1'b1}}}; // Fast exit for div by zero 
     end else begin
-      A_reg = {DATA_WIDTH+1{1'b0}};
-      Q_reg = Q_mag;  // extend and keep sign for dividend
-      M_reg = {1'b0, M_mag};   // extend and force positive divisor
+      A_reg = 0;
+      Q_reg = Q_mag;
 
       for (i = 0; i < DATA_WIDTH; i = i + 1) begin
-        AQ_reg = {A_reg, Q_reg};
-        AQ_reg = AQ_reg << 1;
-
-        A_reg  = AQ_reg[2*DATA_WIDTH : DATA_WIDTH];
-        Q_reg  = AQ_reg[DATA_WIDTH-1 : 0];
-
+        // Hardwired bit-shift
+        A_reg = {A_reg[DATA_WIDTH-1:0], Q_reg[DATA_WIDTH-1]};
+        Q_reg = {Q_reg[DATA_WIDTH-2:0], 1'b0};
+        // Add/Sub operation
         if (A_reg >= 0)
-          A_reg = A_reg - M_reg;
+          A_reg = A_reg - M_ext;
         else
-          A_reg = A_reg + M_reg;
-
-        if (A_reg >= 0)
-          Q_reg[0] = 1'b1;
-        else
-          Q_reg[0] = 1'b0;
+          A_reg = A_reg + M_ext;
+        // Set quotient bit
+        Q_reg[0] = (A_reg >= 0) ? 1'b1 : 1'b0;
       end
+      // Final remainder restoration
+      if (A_reg < 0) begin
+        A_reg = A_reg + M_ext;
+      end
+      // Apply output signs
+      if (Q_sign ^ M_sign) Q_reg = ~Q_reg + 1'b1;
+      if (Q_sign)          A_reg = ~A_reg + 1'b1;
 
-      if (A_reg < 0)
-        A_reg = A_reg + M_reg;
-
-      Q_u = Q_reg;
-      A_u = A_reg[DATA_WIDTH-1:0];
+      Z = {A_reg[DATA_WIDTH-1:0], Q_reg};
     end
-
-
-    //apply signs
-    Q_s = Q_out_sign ? (~Q_u + 1'b1) : Q_u;
-    A_s = A_out_sign ? (~A_u + 1'b1) : A_u;
   end
-
-  // {remainder, quotient}
-  assign Z = {A_s, Q_s};
 
 endmodule
