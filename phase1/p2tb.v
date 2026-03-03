@@ -1,6 +1,6 @@
 `timescale 1ns / 10ps
 
-module p1tb();
+module tb();
     reg clock, clear;
     reg [31:0] Mdatain;
     reg [15:0] ALUControl;
@@ -36,8 +36,8 @@ initial begin
 end
 
 initial begin
-    $dumpfile("phase1/p1tb.vcd");
-    $dumpvars(0, p1tb);
+    $dumpfile("phase1/p2tb.vcd");
+    $dumpvars(0, tb);
     // initialize variables
     clear = 1;
     Mdatain = 32'h0;

@@ -7,8 +7,8 @@ module DataPath(
 	input wire [31:0] Mdatain,
 	input wire [15:0] ALUControl,
 	// Control signals: out = select, in = enable
-	input wire [31:0] Rin,  // R0in to R15in
-	input wire [31:0] Rout, // R0out to R15out
+	input wire [31:0] Rin,
+	input wire [31:0] Rout,
 	input wire IRin, MARin,
 	input wire RZout,
 	input wire RYin, RBin,
@@ -64,10 +64,9 @@ mar MAR(clear, clock, MARin, BusMuxOut, MAROut);
 
 register RY(clear, clock, RYin, BusMuxOut, Yregout);
 
-// HERE: work on designing ALU operations & RY/RZ registers
 alu ALU(Yregout, BusMuxOut, ALUControl, ALUResultHigh, ALUResultLow);
 
-// Route ALU results to Z registers or back through bus
+// ALU results routed through mux
 assign ZHighIn = (ALUControl != 16'd0) ? ALUResultHigh : BusMuxOut;
 assign ZLowIn = (ALUControl != 16'd0) ? ALUResultLow : BusMuxOut;
 

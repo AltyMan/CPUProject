@@ -28,7 +28,7 @@ initial q = INIT;
 always @(posedge clock)
 	begin
         if (clear) begin
-            q <= 32'h00000000;
+            q <= INIT;
         end
 		else if (enable) begin
             if (jump_signal) begin
@@ -52,7 +52,7 @@ initial ir = INIT;
 always @ (posedge clock)
 	begin
 		if (clear) begin
-			ir <= {DATA_WIDTH_IN{1'b0}};
+			ir <= INIT;
 		end
 		else if (enable) begin
 			ir <= BusMuxOut;
@@ -61,23 +61,23 @@ always @ (posedge clock)
 assign IROut = ir[DATA_WIDTH_OUT-1:0];
 endmodule
 
-module mar #(parameter DATA_WIDTH = 32, INIT = 32'h0)(
+module mar #(parameter DATA_WIDTH_IN = 32, DATA_WIDTH_OUT = 9, INIT = 32'h0)(
 	input clear, clock, enable, 
-	input [DATA_WIDTH-1:0]BusMuxOut,
-	output wire [DATA_WIDTH-1:0]MAROut
+	input [DATA_WIDTH_IN-1:0]BusMuxOut,
+	output wire [DATA_WIDTH_OUT-1:0]MAROut
 );
 reg [DATA_WIDTH-1:0]q;
 initial q = INIT;
 always @ (posedge clock)
 	begin
 		if (clear) begin
-			q <= {DATA_WIDTH{1'b0}};
+			q <= {DATA_WIDTH_IN{1'b0}};
 		end
 		else if (enable) begin
 			q <= BusMuxOut;
 		end
 	end
-assign MAROut = q[DATA_WIDTH-1:0];
+assign MAROut = q[DATA_WIDTH_OUT-1:0];
 endmodule
 
 module mdr #(parameter DATA_WIDTH_IN = 32, DATA_WIDTH_OUT = 32, INIT = 32'h0)(
@@ -99,4 +99,5 @@ always @ (posedge clock)
 		end
 	end
 assign BusMuxIn = q[DATA_WIDTH_OUT-1:0];
+assign Mdataout = q[DATA_WIDTH_OUT-1:0];
 endmodule
