@@ -14,6 +14,8 @@ module DataPath(
 	input wire RYin, RBin,
 	input wire PCjump,
 	input wire MDRread
+	// Control signals from control unit
+	input wire Gra, Grb, Grc, BAout // for later: Rin and Rout come from control unit too
 );
 
 wire [31:0] BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInR3, BusMuxInR4, BusMuxInR5, BusMuxInR6, BusMuxInR7,
@@ -31,10 +33,12 @@ wire [31:0] Yregout;
 wire [31:0] ALUResultHigh, ALUResultLow;
 wire [31:0] ZHighIn, ZLowIn;
 
+wire [31:0] resultR0;
+
 //Devices
 
 // Generate R0 to R15 registers
-register R0(clear, clock, Rin[0], BusMuxOut, BusMuxInR0);
+register R0(clear, clock, Rin[0], BusMuxOut, resultR0);
 register R1(clear, clock, Rin[1], BusMuxOut, BusMuxInR1);
 register R2(clear, clock, Rin[2], BusMuxOut, BusMuxInR2);
 register R3(clear, clock, Rin[3], BusMuxOut, BusMuxInR3);
@@ -63,6 +67,9 @@ ir IR(clear, clock, IRin, BusMuxOut, IROut);
 mar MAR(clear, clock, MARin, BusMuxOut, MAROut);
 
 register RY(clear, clock, RYin, BusMuxOut, Yregout);
+
+// New r0 logic
+reg0logic R0Logic(BAout, resultR0, BusMuxInR0);
 
 alu ALU(Yregout, BusMuxOut, ALUControl, ALUResultHigh, ALUResultLow);
 

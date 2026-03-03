@@ -17,6 +17,16 @@ always @ (posedge clock)
 assign BusMuxIn = q[DATA_WIDTH_OUT-1:0];
 endmodule
 
+module reg0logic #(parameter DATA_WIDTH_IN = 32, DATA_WIDTH_OUT = 32, INIT = 32'h0)(
+	input BAout,
+	input [DATA_WIDTH_IN-1:0]qOut,
+	output wire [DATA_WIDTH_OUT-1:0]BusMuxInR0
+);
+wire g1;
+not (g1, BAout);
+assign BusMuxInR0 = qOut & {DATA_WIDTH_IN{g1}};
+endmodule
+
 module pc #(parameter DATA_WIDTH = 32, INIT = 32'h0) (
 	input clear, clock, enable, 
 	input jump_signal,
