@@ -4,23 +4,20 @@ module ram (clock, read, write, address, write_data, read_data);
   input write;
   input [8:0] address;
   input [31:0] write_data;
-  output reg [31:0] read_data;
+  output wire [31:0] read_data;
 
   reg [31:0] memory [511:0];
+  
+  initial begin
+    $readmemh("memory.hex", memory);
+  end
 
   always @(posedge clock)
   begin
-    if (read == 1)
-      read_data <= memory[address];
-    
     if (write == 1)
       memory[address] <= write_data;
   end
 
-  initial begin
-    $readmemh("memory.hex", memory);
-  end
+  assign read_data = (read == 1) ? memory[address] : 32'b0;
   
 endmodule
-
-  
