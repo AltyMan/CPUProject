@@ -7,16 +7,24 @@ module DataPath(
 	input wire [31:0] Mdatain,
 	input wire [15:0] ALUControl,
 	// Control signals: out = select, in = enable
-	input wire [31:0] Rin,
-	input wire [31:0] Rout,
+	input wire GPR_Rin,
+    input wire GPR_Rout,
+    input wire [15:0] RinHI,  // Enables for HI, LO, ZHigh, etc.
+    input wire [15:0] RoutHI, // Selects for HI, LO, ZHigh, etc.
 	input wire IRin, MARin,
 	input wire RZout,
 	input wire RYin, RBin,
 	input wire PCjump,
 	input wire MDRread
 	// Control signals from control unit
-	input wire Gra, Grb, Grc, BAout // for later: Rin and Rout come from control unit too
+	input wire Gra, Grb, Grc, BAout, Cout
 );
+
+wire [31:0] IROut, MAROut, Mdataout;
+
+wire [15:0] Renable;
+wire [15:0] Rselect;
+wire [31:0] CSignExtended_Val;
 
 wire [31:0] BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInR3, BusMuxInR4, BusMuxInR5, BusMuxInR6, BusMuxInR7,
 			BusMuxInR8, BusMuxInR9, BusMuxInR10, BusMuxInR11, BusMuxInR12, BusMuxInR13,
@@ -26,14 +34,33 @@ wire [31:0] BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInR3, BusMuxInR4, BusMuxIn
 
 wire [31:0] BusMuxOut;
 
-wire [31:0] IROut, MAROut, Mdataout;
-
 wire [31:0] Yregout;
 
 wire [31:0] ALUResultHigh, ALUResultLow;
 wire [31:0] ZHighIn, ZLowIn;
 
 wire [31:0] resultR0;
+
+SelectEncode encode_unit(
+	.IROut(IROut),
+	.Gra(Gra),
+	.Grb(Grb),
+	.Grc(Grc),
+	.Rin(GPR_Rin),
+	.Rout(GPR_Rout),
+	.BAout(BAout),
+	.Cout(Cout),
+	.Renable(Renable),
+	.Rselect(Rselect),
+	.CSignExtended(CSignExtended_Val)
+);
+
+// Reconstruct the 32-bit Rin and Rout signals for the rest of your DataPath
+wire [31:0] Rin = {RinHI, Renable};
+wire [31:0] Rout = {RoutHI[15:8], Cout, RoutHI[6:0], Rselect};
+
+// Pass the combinational sign-extended value straight to the bus mux
+assign BusMuxInCSignExtended = CSignExtended_Val;
 
 //Devices
 
@@ -62,7 +89,7 @@ register ZLow(clear, clock, Rin[19], ZLowIn, BusMuxInZLow);
 pc PC(clear, clock, Rin[20], PCjump, BusMuxOut, BusMuxInPC);
 mdr MDR(clear, clock, Rin[21], MDRread, BusMuxOut, Mdatain, BusMuxInMDR, Mdataout);
 register InPort(clear, clock, Rin[22], BusMuxOut, BusMuxInPort);
-register CSignExtended(clear, clock, Rin[23], BusMuxOut, BusMuxInCSignExtended);
+
 ir IR(clear, clock, IRin, BusMuxOut, IROut);
 mar MAR(clear, clock, MARin, BusMuxOut, MAROut);
 

@@ -3,4 +3,4 @@
 *.gtkw
 *.vcd
 dump/
-.DS_Store
+**/.DS_Store

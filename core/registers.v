@@ -76,7 +76,7 @@ module mar #(parameter DATA_WIDTH_IN = 32, DATA_WIDTH_OUT = 9, INIT = 32'h0)(
 	input [DATA_WIDTH_IN-1:0]BusMuxOut,
 	output wire [DATA_WIDTH_OUT-1:0]MAROut
 );
-reg [DATA_WIDTH-1:0]q;
+reg [DATA_WIDTH_IN-1:0]q;
 initial q = INIT;
 always @ (posedge clock)
 	begin
