@@ -33,23 +33,23 @@ module pc #(parameter DATA_WIDTH = 32, INIT = 32'h0) (
 	input [DATA_WIDTH-1:0] branch_address,
 	output wire [DATA_WIDTH-1:0]PCOut
 );
-reg [DATA_WIDTH-1:0]q;
-initial q = INIT;
+reg [DATA_WIDTH-1:0]pc_q;
+initial pc_q = INIT;
 always @(posedge clock)
 	begin
         if (clear) begin
-            q <= INIT;
+            pc_q <= INIT;
         end
 		else if (enable) begin
             if (jump_signal) begin
-                q <= branch_address;
+                pc_q <= branch_address;
             end 
 			else begin
-                q <= q + 4;
+                pc_q <= pc_q + 4;
 			end
         end
     end
-assign PCOut = q[DATA_WIDTH-1:0];
+assign PCOut = pc_q[DATA_WIDTH-1:0];
 endmodule
 
 module ir #(parameter DATA_WIDTH_IN = 32, DATA_WIDTH_OUT = 32, INIT = 32'h0)(
@@ -57,18 +57,18 @@ module ir #(parameter DATA_WIDTH_IN = 32, DATA_WIDTH_OUT = 32, INIT = 32'h0)(
 	input [DATA_WIDTH_IN-1:0]BusMuxOut,
 	output wire [DATA_WIDTH_OUT-1:0]IROut
 );
-reg [DATA_WIDTH_IN-1:0]ir;
-initial ir = INIT;
+reg [DATA_WIDTH_IN-1:0]ir_q;
+initial ir_q = INIT;
 always @ (posedge clock)
 	begin
 		if (clear) begin
-			ir <= INIT;
+			ir_q <= INIT;
 		end
 		else if (enable) begin
-			ir <= BusMuxOut;
+			ir_q <= BusMuxOut;
 		end
 	end
-assign IROut = ir[DATA_WIDTH_OUT-1:0];
+assign IROut = ir_q[DATA_WIDTH_OUT-1:0];
 endmodule
 
 module mar #(parameter DATA_WIDTH_IN = 32, DATA_WIDTH_OUT = 9, INIT = 32'h0)(
@@ -76,18 +76,18 @@ module mar #(parameter DATA_WIDTH_IN = 32, DATA_WIDTH_OUT = 9, INIT = 32'h0)(
 	input [DATA_WIDTH_IN-1:0]BusMuxOut,
 	output wire [DATA_WIDTH_OUT-1:0]MAROut
 );
-reg [DATA_WIDTH_IN-1:0]q;
-initial q = INIT;
+reg [DATA_WIDTH_IN-1:0]mar_q;
+initial mar_q = INIT;
 always @ (posedge clock)
 	begin
 		if (clear) begin
-			q <= {DATA_WIDTH_IN{1'b0}};
+			mar_q <= {DATA_WIDTH_IN{1'b0}};
 		end
 		else if (enable) begin
-			q <= BusMuxOut;
+			mar_q <= BusMuxOut;
 		end
 	end
-assign MAROut = q[DATA_WIDTH_OUT-1:0];
+assign MAROut = mar_q[DATA_WIDTH_OUT-1:0];
 endmodule
 
 module mdr #(parameter DATA_WIDTH_IN = 32, DATA_WIDTH_OUT = 32, INIT = 32'h0)(
@@ -97,19 +97,19 @@ module mdr #(parameter DATA_WIDTH_IN = 32, DATA_WIDTH_OUT = 32, INIT = 32'h0)(
 	output wire [DATA_WIDTH_OUT-1:0]BusMuxIn,
 	output wire [DATA_WIDTH_OUT-1:0]Mdataout
 );
-reg [DATA_WIDTH_IN-1:0]q;
-initial q = INIT;
+reg [DATA_WIDTH_IN-1:0]mdr_q;
+initial mdr_q = INIT;
 always @ (posedge clock)
 	begin 
 		if (clear) begin
-			q <= {DATA_WIDTH_IN{1'b0}};
+			mdr_q <= {DATA_WIDTH_IN{1'b0}};
 		end
 		else if (enable) begin
-			q <= read ? Mdatain : BusMuxOut;
+			mdr_q <= read ? Mdatain : BusMuxOut;
 		end
 	end
-assign BusMuxIn = q[DATA_WIDTH_OUT-1:0];
-assign Mdataout = q[DATA_WIDTH_OUT-1:0];
+assign BusMuxIn = mdr_q[DATA_WIDTH_OUT-1:0];
+assign Mdataout = mdr_q[DATA_WIDTH_OUT-1:0];
 endmodule
 
 module inport #(parameter DATA_WIDTH = 32)(
@@ -117,18 +117,18 @@ module inport #(parameter DATA_WIDTH = 32)(
 	input wire [DATA_WIDTH-1:0]InData,
 	output wire [DATA_WIDTH-1:0]BusMuxIn
 );
-reg [DATA_WIDTH-1:0]q;
-initial q = 0;
-always @ (posedge clock or posedge strobe)
+reg [DATA_WIDTH-1:0]inport_q;
+initial inport_q = 0;
+always @ (posedge clear or posedge strobe)
 	begin 
 		if (clear) begin
-			q <= {DATA_WIDTH{1'b0}};
+			inport_q <= {DATA_WIDTH{1'b0}};
 		end
 		else begin
-			q <= InData;
+			inport_q <= InData;
 		end
 	end
-assign BusMuxIn = q[DATA_WIDTH-1:0];
+assign BusMuxIn = inport_q[DATA_WIDTH-1:0];
 endmodule
 
 module outport #(parameter DATA_WIDTH = 32)(
@@ -136,16 +136,16 @@ module outport #(parameter DATA_WIDTH = 32)(
 	input wire [DATA_WIDTH-1:0]BusMuxOut,
 	output wire [DATA_WIDTH-1:0]OutData
 );
-reg [DATA_WIDTH-1:0]q;
-initial q = 0;
+reg [DATA_WIDTH-1:0]outport_q;
+initial outport_q = 0;
 always @ (posedge clock)
 	begin 
 		if (clear) begin
-			q <= {DATA_WIDTH{1'b0}};
+			outport_q <= {DATA_WIDTH{1'b0}};
 		end
 		else if (enable) begin
-			q <= BusMuxOut;
+			outport_q <= BusMuxOut;
 		end
 	end
-assign OutData = q[DATA_WIDTH-1:0];
+assign OutData = outport_q[DATA_WIDTH-1:0];
 endmodule

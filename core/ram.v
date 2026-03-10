@@ -1,4 +1,4 @@
-module ram (clock, read, write, address, write_data, read_data);
+module RAM (clock, read, write, address, write_data, read_data);
   input clock;
   input read;
   input write;
@@ -6,10 +6,10 @@ module ram (clock, read, write, address, write_data, read_data);
   input [31:0] write_data;
   output wire [31:0] read_data;
 
-  reg [31:0] memory [511:0];
+  reg [31:0] memory [0:511];
   
   initial begin
-    $readmemh("memory.hex", memory);
+    $readmemh("core/memory.hex", memory);
   end
 
   always @(posedge clock)

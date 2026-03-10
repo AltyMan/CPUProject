@@ -1,11 +1,11 @@
 `include "core/registers.v"
 `include "core/Bus.v"
+`include "core/CONFF.v"
+`include "core/SelectEncode.v"
+`include "core/ram.v"
 
 module DataPath(
 	input wire clock, clear,
-	// Data inputs
-	input wire [31:0] Mdatain,
-	input wire [15:0] ALUControl,
 	// Control signals: out = select, in = enable
 	input wire GPR_Rin,
     input wire GPR_Rout,
@@ -16,17 +16,18 @@ module DataPath(
 	input wire RYin, RBin,
 	input wire PCjump,
 	input wire MDRread,
+	// ALU control signals
+	input wire [15:0] ALUControl,
 	// Control signals from control unit
 	input wire Gra, Grb, Grc, BAout, Cout,
 	// Control signals for RAM
 	input wire RAMread, RAMwrite,
 	// Control signals from/for ports
-	input wire InPortStrobe, OutPortEnable,
-	// Outport data
-	output wire [31:0] OutPortData
+	input wire InPortStrobe, OutPortEnable
 );
 
-wire [31:0] IROut, MAROut, Mdataout;
+wire [31:0] IROut, Mdatain, Mdataout;
+wire [8:0] MAROut;
 
 wire [15:0] Renable;
 wire [15:0] Rselect;
@@ -46,6 +47,8 @@ wire [31:0] ALUResultHigh, ALUResultLow;
 wire [31:0] ZHighIn, ZLowIn;
 
 wire [31:0] resultR0;
+
+wire [31:0] OutPortData;
 
 
 // CON FF internal signals
@@ -145,7 +148,7 @@ RAM ram(
 	.clock(clock),
 	.read(RAMread),
 	.write(RAMwrite),
-	.address(MAROut[8:0]), // 9-bit address from MAR
+	.address(MAROut), // 9-bit address from MAR
 	.write_data(BusMuxOut),   // Data to write from the bus
 	.read_data(Mdatain)      // Data read goes to Mdatain for MDR
 );
