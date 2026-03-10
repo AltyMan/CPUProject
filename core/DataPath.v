@@ -43,6 +43,12 @@ wire [31:0] ZHighIn, ZLowIn;
 
 wire [31:0] resultR0;
 
+
+// CON FF internal signals
+wire [3:0] CON_IR;
+wire CON_out_internal;
+
+
 SelectEncode encode_unit(
 	.IROut(IROut),
 	.Gra(Gra),
@@ -64,8 +70,12 @@ wire [31:0] Rout = {RoutHI[15:8], Cout, RoutHI[6:0], Rselect};
 // Pass the combinational sign-extended value straight to the bus mux
 assign BusMuxInCSignExtended = CSignExtended_Val;
 
-//Devices
 
+// Pull branch condition field from IR
+assign CON_IR = IROut[22:19];
+
+//Devices
+	
 // Generate R0 to R15 registers
 register R0(clear, clock, Rin[0], BusMuxOut, resultR0);
 register R1(clear, clock, Rin[1], BusMuxOut, BusMuxInR1);
@@ -97,6 +107,11 @@ mar MAR(clear, clock, MARin, BusMuxOut, MAROut);
 
 register RY(clear, clock, RYin, BusMuxOut, Yregout);
 
+
+	
+// CON FF
+CON_FF con_ff(.clk(clock), .reset(clear), .CONin(CONin), .cond(CON_IR), .bus(BusMuxOut), .CON(CON_out_internal));
+	
 // New r0 logic
 reg0logic R0Logic(BAout, resultR0, BusMuxInR0);
 
@@ -129,3 +144,4 @@ RAM ram(
 );
 
 endmodule
+
