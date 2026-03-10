@@ -15,11 +15,15 @@ module DataPath(
 	input wire RZout,
 	input wire RYin, RBin,
 	input wire PCjump,
-	input wire MDRread
+	input wire MDRread,
 	// Control signals from control unit
-	input wire Gra, Grb, Grc, BAout, Cout
+	input wire Gra, Grb, Grc, BAout, Cout,
 	// Control signals for RAM
-	input wire RAMread, RAMwrite
+	input wire RAMread, RAMwrite,
+	// Control signals from/for ports
+	input wire InPortStrobe, OutPortEnable,
+	// Outport data
+	output wire [31:0] OutPortData
 );
 
 wire [31:0] IROut, MAROut, Mdataout;
@@ -43,6 +47,11 @@ wire [31:0] ZHighIn, ZLowIn;
 
 wire [31:0] resultR0;
 
+
+// CON FF internal signals
+wire [3:0] CON_IR;
+wire CON_out_internal;
+
 SelectEncode encode_unit(
 	.IROut(IROut),
 	.Gra(Gra),
@@ -57,15 +66,19 @@ SelectEncode encode_unit(
 	.CSignExtended(CSignExtended_Val)
 );
 
-// Reconstruct the 32-bit Rin and Rout signals for the rest of your DataPath
+// Reconstruct the 32-bit Rin and Rout signals for the rest of the DataPath
 wire [31:0] Rin = {RinHI, Renable};
 wire [31:0] Rout = {RoutHI[15:8], Cout, RoutHI[6:0], Rselect};
 
 // Pass the combinational sign-extended value straight to the bus mux
 assign BusMuxInCSignExtended = CSignExtended_Val;
 
-//Devices
 
+// Pull branch condition field from IR
+assign CON_IR = IROut[22:19];
+
+//Devices
+	
 // Generate R0 to R15 registers
 register R0(clear, clock, Rin[0], BusMuxOut, resultR0);
 register R1(clear, clock, Rin[1], BusMuxOut, BusMuxInR1);
@@ -90,13 +103,23 @@ register ZHigh(clear, clock, Rin[18], ZHighIn, BusMuxInZHigh);
 register ZLow(clear, clock, Rin[19], ZLowIn, BusMuxInZLow);
 pc PC(clear, clock, Rin[20], PCjump, BusMuxOut, BusMuxInPC);
 mdr MDR(clear, clock, Rin[21], MDRread, BusMuxOut, Mdatain, BusMuxInMDR, Mdataout);
-register InPort(clear, clock, Rin[22], BusMuxOut, BusMuxInPort);
+inport InPort(clear, InPortStrobe, BusMuxOut, BusMuxInPort);
+outport OutPort(clear, clock, OutPortEnable, BusMuxOut, OutPortData);
 
 ir IR(clear, clock, IRin, BusMuxOut, IROut);
 mar MAR(clear, clock, MARin, BusMuxOut, MAROut);
 
 register RY(clear, clock, RYin, BusMuxOut, Yregout);
 
+// CON FF
+CON_FF con_ff(
+	.clk(clock),
+	.reset(clear),
+	.CONin(CONin),
+	.cond(CON_IR),
+	.bus(BusMuxOut),
+	.CON(CON_out_internal));
+	
 // New r0 logic
 reg0logic R0Logic(BAout, resultR0, BusMuxInR0);
 
@@ -118,7 +141,6 @@ Bus bus(
 	);
 
 //RAM
-
 RAM ram(
 	.clock(clock),
 	.read(RAMread),
@@ -129,3 +151,4 @@ RAM ram(
 );
 
 endmodule
+
