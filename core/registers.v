@@ -111,3 +111,41 @@ always @ (posedge clock)
 assign BusMuxIn = q[DATA_WIDTH_OUT-1:0];
 assign Mdataout = q[DATA_WIDTH_OUT-1:0];
 endmodule
+
+module inport #(parameter DATA_WIDTH = 32)(
+	input clear, clock, enable,
+	input wire [DATA_WIDTH-1:0]InData,
+	output wire [DATA_WIDTH-1:0]BusMuxIn
+);
+reg [DATA_WIDTH-1:0]q;
+initial q = 0;
+always @ (posedge clock)
+	begin 
+		if (clear) begin
+			q <= {DATA_WIDTH{1'b0}};
+		end
+		else if (enable) begin
+			q <= InData;
+		end
+	end
+assign BusMuxIn = q[DATA_WIDTH-1:0];
+endmodule
+
+module outport #(parameter DATA_WIDTH = 32)(
+	input clear, clock, enable,
+	input wire [DATA_WIDTH-1:0]BusMuxOut,
+	output wire [DATA_WIDTH-1:0]OutData
+);
+reg [DATA_WIDTH-1:0]q;
+initial q = 0;
+always @ (posedge clock)
+	begin 
+		if (clear) begin
+			q <= {DATA_WIDTH{1'b0}};
+		end
+		else if (enable) begin
+			q <= BusMuxOut;
+		end
+	end
+assign OutData = q[DATA_WIDTH-1:0];
+endmodule

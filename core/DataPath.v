@@ -18,6 +18,8 @@ module DataPath(
 	input wire MDRread
 	// Control signals from control unit
 	input wire Gra, Grb, Grc, BAout, Cout
+	// Control signals for RAM
+	input wire RAMread, RAMwrite
 );
 
 wire [31:0] IROut, MAROut, Mdataout;
@@ -114,5 +116,16 @@ Bus bus(
 	BusMuxInPC, BusMuxInMDR, BusMuxInPort, BusMuxInCSignExtended,
 	Rout, BusMuxOut
 	);
+
+//RAM
+
+RAM ram(
+	.clock(clock),
+	.read(RAMread),
+	.write(RAMwrite),
+	.address(MAROut[8:0]), // 9-bit address from MAR
+	.write_data(BusMuxOut),   // Data to write from the bus
+	.read_data(Mdatain)      // Data read goes to Mdatain for MDR
+);
 
 endmodule
