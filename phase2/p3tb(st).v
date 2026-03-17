@@ -42,7 +42,7 @@ module tb();
     end
 
     initial begin
-        $dumpfile("phase2/p1tb.vcd");
+        $dumpfile("phase2/p3tb(st).vcd");
         $dumpvars(0, tb);
         
         // initialize variables

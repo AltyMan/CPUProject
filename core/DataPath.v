@@ -16,6 +16,7 @@ module DataPath(
 	input wire RYin, RBin,
 	input wire PCjump,
 	input wire MDRread,
+	input wire CONin,
 	// ALU control signals
 	input wire [15:0] ALUControl,
 	// Control signals from control unit
@@ -54,6 +55,8 @@ wire [31:0] OutPortData;
 // CON FF internal signals
 wire [3:0] CON_IR;
 wire CON_out_internal;
+wire PCjump_eff;
+assign PCjump_eff = PCjump & CON_out_internal;
 
 SelectEncode encode_unit(
 	.IROut(IROut),
@@ -104,7 +107,7 @@ register HI(clear, clock, Rin[16], BusMuxOut, BusMuxInHI);
 register LO(clear, clock, Rin[17], BusMuxOut, BusMuxInLO);
 register ZHigh(clear, clock, Rin[18], ZHighIn, BusMuxInZHigh);
 register ZLow(clear, clock, Rin[19], ZLowIn, BusMuxInZLow);
-pc PC(clear, clock, Rin[20], PCjump, BusMuxOut, BusMuxInPC);
+pc PC(clear, clock, Rin[20], PCjump_eff, BusMuxOut, BusMuxInPC);
 mdr MDR(clear, clock, Rin[21], MDRread, BusMuxOut, Mdatain, BusMuxInMDR, Mdataout);
 inport InPort(clear, InPortStrobe, BusMuxOut, BusMuxInPort);
 outport OutPort(clear, clock, OutPortEnable, BusMuxOut, OutPortData);
@@ -150,7 +153,7 @@ RAM ram(
 	.write(RAMwrite),
 	.address(MAROut), // 9-bit address from MAR
 	.write_data(BusMuxOut),   // Data to write from the bus
-	.read_data(Mdatain)      // Data read goes to Mdatain for MDR
+	.read_data(Mdatain)     // Data read goes to Mdatain for MDR
 );
 
 endmodule

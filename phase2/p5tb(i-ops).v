@@ -42,7 +42,7 @@ module tb();
     end
 
     initial begin
-        $dumpfile("phase2/p2tb(ldi).vcd");
+        $dumpfile("phase2/p5tb(i-ops).vcd");
         $dumpvars(0, tb);
         
         // initialize variables
@@ -91,7 +91,7 @@ module tb();
             C2_T0: Present_state <= C2_T1; C2_T1: Present_state <= C2_T2;
             C2_T2: Present_state <= C2_T3; C2_T3: Present_state <= C2_T4;
             C2_T4: Present_state <= C2_T5; C2_T5: Present_state <= C2_T6;
-            C2_T6: Present_state <= C2_T7; C2_T7: Present_state <= C3_T0;
+            C2_T6: Present_state <= C2_T7; C2_T7: Present_state <= C2_T7; // Halt simulation loop
             // Case 3
             C3_T0: Present_state <= C3_T1; C3_T1: Present_state <= C3_T2;
             C3_T2: Present_state <= C3_T3; C3_T3: Present_state <= C3_T4;
@@ -105,56 +105,52 @@ module tb();
 
     // Control Signal Assertions
     always @(Present_state) begin
-        case (Present_state)
-            Default: begin
-                RinHI <= 16'h0; RoutHI <= 16'h0; MARin <= 0; IRin <= 0;
-                RYin <= 0; RAMread <= 0; MDRread <= 0; Gra <= 0; Grb <= 0;
-                BAout <= 0; Cout <= 0; GPR_Rin <= 0; ALUControl <= 16'd0;
-            end
-            
-            // COMMON FETCH & DECODE STAGES (T0 - T4)
-            C1_T0, C2_T0, C3_T0, C4_T0: begin // PCout, MARin, IncPC, Zin
-                RoutHI[4] <= 1; MARin <= 1; RinHI[3] <= 1;
-                #20 RoutHI[4] <= 0; MARin <= 0; RinHI[3] <= 0;
-            end
-            C1_T1, C2_T1, C3_T1, C4_T1: begin // Zlowout, PCin, Read, MDRin
-                RoutHI[3] <= 1; RinHI[4] <= 1; RAMread <= 1; RinHI[5] <= 1; MDRread <= 1;
-                #20 RoutHI[3] <= 0; RinHI[4] <= 0; RAMread <= 0; RinHI[5] <= 0; MDRread <= 0;
-            end
-            C1_T2, C2_T2, C3_T2, C4_T2: begin // MDRout, IRin
-                RoutHI[5] <= 1; IRin <= 1; 
-                #20 RoutHI[5] <= 0; IRin <= 0;
-            end
-            C1_T3, C2_T3, C3_T3, C4_T3: begin // Grb, BAout, Yin
-                Grb <= 1; BAout <= 1; RYin <= 1; 
-                #20 Grb <= 0; BAout <= 0; RYin <= 0;
-            end
-            C1_T4, C2_T4, C3_T4, C4_T4: begin // Cout, ADD, Zin
-                Cout <= 1; ALUControl <= 16'd12; RinHI[3] <= 1; 
-                #20 Cout <= 0; ALUControl <= 16'd0; RinHI[3] <= 0;
-            end
+    case (Present_state)
+        Default: begin
+            RinHI <= 16'h0; RoutHI <= 16'h0; MARin <= 0; IRin <= 0;
+            RYin <= 0; RAMread <= 0; RAMwrite <= 0; MDRread <= 0;
+            Gra <= 0; Grb <= 0; BAout <= 0; Cout <= 0;
+            GPR_Rin <= 0; ALUControl <= 16'd0;
+        end
+        
+        // COMMON FETCH & DECODE STAGES (T0 - T4)
+        C1_T0, C2_T0: begin // PCout, MARin, IncPC, Zin
+            RoutHI[4] <= 1; MARin <= 1; RinHI[3] <= 1;
+            #20 RoutHI[4] <= 0; MARin <= 0; RinHI[3] <= 0;
+        end
+        C1_T1, C2_T1: begin // Zlowout, PCin, Read, MDRin
+            RoutHI[3] <= 1; RinHI[4] <= 1; RAMread <= 1; RinHI[5] <= 1; MDRread <= 1;
+            #20 RoutHI[3] <= 0; RinHI[4] <= 0; RAMread <= 0; RinHI[5] <= 0; MDRread <= 0;
+        end
+        C1_T2, C2_T2: begin // MDRout, IRin
+            RoutHI[5] <= 1; IRin <= 1; 
+            #20 RoutHI[5] <= 0; IRin <= 0;
+        end
+        C1_T3, C2_T3: begin // Grb, BAout, Yin
+            Grb <= 1; BAout <= 1; RYin <= 1; 
+            #20 Grb <= 0; BAout <= 0; RYin <= 0;
+        end
+        C1_T4, C2_T4: begin // Cout, ADD, Zin
+            Cout <= 1; ALUControl <= 16'd12; RinHI[3] <= 1; 
+            #20 Cout <= 0; ALUControl <= 16'd0; RinHI[3] <= 0;
+        end
 
-            // T5 BRANCH: Memory access vs Immediate load
-            C1_T5, C2_T5: begin // LD T5: Zlowout, MARin 
-                RoutHI[3] <= 1; MARin <= 1;
-                #20 RoutHI[3] <= 0; MARin <= 0;
-            end
-            C3_T5, C4_T5: begin // LDI T5: Zlowout, Gra, Rin
-                // Route the calculated immediate directly into destination register Ra
-                RoutHI[3] <= 1; Gra <= 1; GPR_Rin <= 1; 
-                #20 RoutHI[3] <= 0; Gra <= 0; GPR_Rin <= 0;
-            end
+        // STi STAGES (T5 - T7)
+        C1_T5, C2_T5: begin // Zlowout, MARin
+            RoutHI[3] <= 1; MARin <= 1;
+            #20 RoutHI[3] <= 0; MARin <= 0;
+        end
 
-            // LD ONLY STAGES (T6 - T7)
-            C1_T6, C2_T6: begin // LD T6: Read, MDRin
-                RAMread <= 1; RinHI[5] <= 1; MDRread <= 1; 
-                #20 RAMread <= 0; RinHI[5] <= 0; MDRread <= 0;
-            end
-            C1_T7, C2_T7: begin // LD T7: MDRout, Gra, Rin
-                RoutHI[5] <= 1; Gra <= 1; GPR_Rin <= 1; 
-                #20 RoutHI[5] <= 0; Gra <= 0; GPR_Rin <= 0;
-            end
-        endcase
-    end
+        C1_T6, C2_T6: begin // Cout, MDRin
+            Cout <= 1; RinHI[5] <= 1; MDRread <= 1;
+            #20 Cout <= 0; RinHI[5] <= 0; MDRread <= 0;
+        end
+
+        C1_T7, C2_T7: begin // Write
+            RAMwrite <= 1;
+            #20 RAMwrite <= 0;
+        end
+    endcase
+end
 
 endmodule

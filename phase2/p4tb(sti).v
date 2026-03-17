@@ -42,7 +42,7 @@ module tb();
     end
 
     initial begin
-        $dumpfile("phase2/p1tb.vcd");
+        $dumpfile("phase2/p4tb(sti).vcd");
         $dumpvars(0, tb);
         
         // initialize variables
@@ -113,7 +113,9 @@ module tb();
             GPR_Rin <= 0; ALUControl <= 16'd0;
         end
         
-        // COMMON FETCH & DECODE STAGES (T0 - T4)
+        // addi, andi, and ori T0-T5
+        // to test andi, change ALUControl (on line 136) to 16'd1
+        // to test ori, change ALUControl to 16'd2
         C1_T0, C2_T0: begin // PCout, MARin, IncPC, Zin
             RoutHI[4] <= 1; MARin <= 1; RinHI[3] <= 1;
             #20 RoutHI[4] <= 0; MARin <= 0; RinHI[3] <= 0;
@@ -126,26 +128,27 @@ module tb();
             RoutHI[5] <= 1; IRin <= 1; 
             #20 RoutHI[5] <= 0; IRin <= 0;
         end
-        C1_T3, C2_T3: begin // Grb, BAout, Yin
-            Grb <= 1; BAout <= 1; RYin <= 1; 
-            #20 Grb <= 0; BAout <= 0; RYin <= 0;
+        C1_T3, C2_T3: begin // Grb, Yin
+            Grb <= 1; RYin <= 1; 
+            #20 Grb <= 0; RYin <= 0;
         end
-        C1_T4, C2_T4: begin // Cout, ADD, Zin
+        C1_T4, C2_T4: begin // Cout, ALU op, Zin
             Cout <= 1; ALUControl <= 16'd12; RinHI[3] <= 1; 
             #20 Cout <= 0; ALUControl <= 16'd0; RinHI[3] <= 0;
         end
 
-        // STi STAGES (T5 - T7)
-        C1_T5, C2_T5: begin // Zlowout, MARin
-            RoutHI[3] <= 1; MARin <= 1;
-            #20 RoutHI[3] <= 0; MARin <= 0;
+        C1_T5, C2_T5: begin // Zlowout, Gra, Rin
+            RoutHI[3] <= 1; Gra <= 1; GPR_Rin <= 1;
+            #20 RoutHI[3] <= 0; Gra <= 0; GPR_Rin <= 0;
         end
 
+        // NOT USED
         C1_T6, C2_T6: begin // Cout, MDRin
             Cout <= 1; RinHI[5] <= 1; MDRread <= 1;
             #20 Cout <= 0; RinHI[5] <= 0; MDRread <= 0;
         end
 
+        // NOT USED
         C1_T7, C2_T7: begin // Write
             RAMwrite <= 1;
             #20 RAMwrite <= 0;
