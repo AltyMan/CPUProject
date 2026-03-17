@@ -40,6 +40,7 @@ Work Distribution:
 - Implement:
   - Load and Store 
   - CONFF
+  - Bus connection
   
 
 
@@ -51,6 +52,6 @@ Work Distribution:
 
 ### Amit
 - Implement:
-  - Update the bus
+  - Update the bus connection
   - MAR/ MDR
 
