@@ -39,19 +39,18 @@ Work Distribution:
 ### Fayez
 - Implement:
   - Load and Store 
-  - 
-  - 
+  - CONFF
+  
 
 
 ### Yehia
 - Work on:
   - Memory Subsystem integration
-    - MAR
-    - MDR
     - Memory module connections
+    - Test Benches
 
 ### Amit
 - Implement:
-  - XXXX
-  - 
+  - Update the bus
+  - MAR/ MDR
 
