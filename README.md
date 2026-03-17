@@ -47,7 +47,7 @@ Work Distribution:
 - Work on:
   - Memory Subsystem integration
     - Memory module connections
-    - Test Benches
+  - Test Benches
 
 ### Amit
 - Implement:
