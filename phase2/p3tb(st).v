@@ -53,22 +53,22 @@ module tb();
         Gra = 0; Grb = 0; Grc = 0; BAout = 0; Cout = 0;
         RAMread = 0; RAMwrite = 0; InPortStrobe = 0; OutPortEnable = 0;
 
-        // Preload target memory locations for LD operations
-        dp.ram.memory[8'h65] = 32'h00000084; // Case 1 target data
-        dp.ram.memory[8'hC9] = 32'h0000002B; // Case 2 target data (0x57 + 0x72 = 0xC9)
+        //Done, Faze
 
-        // 2. Preload R2 as required for Cases 2 and 4
-        dp.R2.q = 32'h00000057;
-
-        // 3. Preload the 4 instructions into RAM (Addresses 0, 4, 8, 12)
-        // Format: [31:27 Opcode] [26:22 Ra] [21:17 Rb] [16:0 c]
-        // Case 1 & 3: Ra=R7(00111), Rb=R0(00000), c=0x65 -> Hex: 0x01C00065
-        dp.ram.memory[0] = 32'h01C00065; 
-        dp.ram.memory[8] = 32'h01C00065; 
-
-        // Case 2 & 4: Ra=R0(00000), Rb=R2(00010), c=0x72 -> Hex: 0x00080072
-        dp.ram.memory[4] = 32'h00080072;
-        dp.ram.memory[12]= 32'h00080072;
+        // Initialize memory contents as required by the lab
+        dp.ram.memory[8'h1F] = 32'h000000D4;   // Case 1 initial value
+        dp.ram.memory[8'h82] = 32'h000000A7;   // Case 2 initial value
+        
+        // Preload R6 = 0x63
+        dp.R6.q = 32'h00000063;
+        
+        // Case 1: st 0x1F, R6
+        // store R6 -> memory[0x1F]
+        dp.ram.memory[0] = 32'h????001F;  
+        
+        // Case 2: st 0x1F(R6), R6
+        // store R6 -> memory[R6 + 0x1F] = 0x82
+        dp.ram.memory[4] = 32'h????001F;
         // -----------------------------------------------------------------
 
         // Release clear to start the state machine
