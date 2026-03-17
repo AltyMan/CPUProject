@@ -60,15 +60,27 @@ module tb();
         // 2. Preload R2 as required for Cases 2 and 4
         dp.R2.q = 32'h00000057;
 
+        // Case 1: ld R7, 0x65
+        dp.ram.memory[0]  = 32'h01C00065;
+        
+        // Case 2: ld R0, 0x72(R2)
+        dp.ram.memory[4]  = 32'h00080072;
+        
+        // Case 3: ldi R7, 0x65
+        dp.ram.memory[8]  = 32'h09C00065;
+        
+        // Case 4: ldi R0, 0x72(R2)
+        dp.ram.memory[12] = 32'h08080072;
+
         // 3. Preload the 4 instructions into RAM (Addresses 0, 4, 8, 12)
         // Format: [31:27 Opcode] [26:22 Ra] [21:17 Rb] [16:0 c]
         // Case 1 & 3: Ra=R7(00111), Rb=R0(00000), c=0x65 -> Hex: 0x01C00065
-        dp.ram.memory[0] = 32'h01C00065; 
-        dp.ram.memory[8] = 32'h01C00065; 
+        //dp.ram.memory[0] = 32'h01C00065; 
+        //dp.ram.memory[8] = 32'h01C00065; 
 
         // Case 2 & 4: Ra=R0(00000), Rb=R2(00010), c=0x72 -> Hex: 0x00080072
-        dp.ram.memory[4] = 32'h00080072;
-        dp.ram.memory[12]= 32'h00080072;
+        //dp.ram.memory[4] = 32'h00080072;
+        //dp.ram.memory[12]= 32'h00080072;
         // -----------------------------------------------------------------
 
         // Release clear to start the state machine
