@@ -12,20 +12,20 @@ module SelectEncode(
     output wire [31:0] CSignExtended
 );
 
-wire [4:0] opcode;
+wire [3:0] opcode;
 assign opcode = IROut[31:27];
-wire [4:0] ra;
+wire [3:0] ra;
 assign ra = IROut[26:23];
-wire [4:0] rb;
+wire [3:0] rb;
 assign rb = IROut[22:19];
-wire [4:0] rc;
+wire [3:0] rc;
 assign rc = IROut[18:15];
 
-wire [4:0] s1, s2, s3;
-wire [4:0] s;
-assign s1 = (Gra) ? ra : 5'b0000;
-assign s2 = (Grb) ? rb : 5'b0000;
-assign s3 = (Grc) ? rc : 5'b0000;
+wire [3:0] s1, s2, s3;
+wire [3:0] s;
+assign s1 = (Gra) ? ra : 4'b0000;
+assign s2 = (Grb) ? rb : 4'b0000;
+assign s3 = (Grc) ? rc : 4'b0000;
 assign s = s1 | s2 | s3;
 
 wire [15:0] decoder_out;

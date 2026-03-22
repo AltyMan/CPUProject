@@ -40,12 +40,14 @@ always @(posedge clock)
         if (clear) begin
             pc_q <= INIT;
         end
+		else if (jump_signal) begin
+            pc_q <= branch_address;
+        end
 		else if (enable) begin
-            if (jump_signal) begin
-                pc_q <= branch_address;
-            end 
-			else begin
-                pc_q <= pc_q + 4;
+        	if (branch_address == pc_q) begin
+            	pc_q <= pc_q + 4;
+			end else begin
+				pc_q <= branch_address;
 			end
         end
     end
