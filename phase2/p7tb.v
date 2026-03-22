@@ -57,14 +57,12 @@ module tb();
         #20 clear = 0;
         
         #600;
-        $display("\n===============================================");
-        $display("   INPUT/OUTPUT INSTRUCTION SIMULATION RESULTS");
-        $display("===============================================");
-        $display("Case 1 (out R7) | R7 preloaded with 0xCAFEBABE:");
-        $display(" -> OutPort Final Value = %h (Expected: cafebabe)", dp.OutPortData);
-        $display("Case 2 (in R5)  | InPort preloaded with 0xFACEB00C:");
-        $display(" -> R5 Final Value      = %h (Expected: faceb00c)", dp.R5.q);
-        $display("===============================================\n");
+        $display("\nInput/Output Port Results:");
+        $display("Case 1 (out R7): R7 preloaded with 0xCAFEBABE");
+        $display("OutPort Final Value = %h (Expected: cafebabe)", dp.OutPortData);
+        $display("Case 2 (in R5):InPort preloaded with 0xFACEB00C");
+        $display("R5 Final Value      = %h (Expected: faceb00c)", dp.R5.q);
+        $display("\n");
         $finish; 
     end
 
