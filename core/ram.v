@@ -1,15 +1,14 @@
-module RAM (clock, read, write, address, write_data, read_data);
-  input clock;
-  input read;
-  input write;
-  input [8:0] address;
-  input [31:0] write_data;
-  output wire [31:0] read_data;
+module RAM #(parameter INIT_FILE = "core/memory.hex") (
+    input clock, read, write,
+    input [8:0] address,
+    input [31:0] write_data,
+    output wire [31:0] read_data
+);
 
   reg [31:0] memory [0:511];
   
   initial begin
-    $readmemh("core/memory.hex", memory);
+    $readmemh(INIT_FILE, memory);
   end
 
   always @(posedge clock)
