@@ -1,13 +1,13 @@
-`include "alu/logic.v"
-`include "alu/neg.v"
-`include "alu/adder.v"
-`include "alu/mul.v"
-`include "alu/div.v"
-`include "alu/rol.v"
-`include "alu/ror.v"
-`include "alu/shl.v"
-`include "alu/shr.v"
-`include "alu/shra.v"
+`include "phase2/alu/logic.v"
+`include "phase2/alu/neg.v"
+`include "phase2/alu/adder.v"
+`include "phase2/alu/mul.v"
+`include "phase2/alu/div.v"
+`include "phase2/alu/rol.v"
+`include "phase2/alu/ror.v"
+`include "phase2/alu/shl.v"
+`include "phase2/alu/shr.v"
+`include "phase2/alu/shra.v"
 
 module alu #(parameter DATA_WIDTH = 32, SEL_WIDTH = 16, INIT = 32'h0)(
     input wire [DATA_WIDTH-1:0] A,

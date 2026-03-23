@@ -48,11 +48,11 @@ module tb();
         RAMread = 0; RAMwrite = 0; InPortStrobe = 0; OutPortEnable = 0;
 
         // Load instructions into RAM 
-        // Case 1: jr R12 -> Ra=R12(1100). Hex: 06000000
-        dp.ram.memory[16] = 32'h06000000; 
+        // Case 1: jr R12 -> Opcode = 10100. Ra=1100. Hex: A6000000
+        dp.ram.memory[16] = 32'hA6000000; 
         
-        // Case 2: jal R12, R4 -> Ra=R12(1100), Rb=R4(0100). Hex: 06200000
-        dp.ram.memory[32] = 32'h06200000; 
+        // Case 2: jal R4 -> Opcode = 10011. Ra=0100. Hex: 9A000000
+        dp.ram.memory[32] = 32'h9A000000;
 
         #20 clear = 0;
         
@@ -116,13 +116,13 @@ module tb();
             end
 
             // JAL EXECUTION
-            C2_T3: begin // PCout, Gra, Rin
-                RoutHI[4] <= 1; Gra <= 1; GPR_Rin <= 1; 
-                #20 RoutHI[4] <= 0; Gra <= 0; GPR_Rin <= 0;
+            C2_T3: begin // PCout, Rin
+                RoutHI[4] <= 1; GPR_Rin <= 1; 
+                #20 RoutHI[4] <= 0; GPR_Rin <= 0;
             end
             C2_T4: begin // Grb, Rout, PCin
-                Grb <= 1; GPR_Rout <= 1; RinHI[4] <= 1; 
-                #20 Grb <= 0; GPR_Rout <= 0; RinHI[4] <= 0;
+                Gra <= 1; GPR_Rout <= 1; RinHI[4] <= 1; 
+                #20 Gra <= 0; GPR_Rout <= 0; RinHI[4] <= 0;
             end
         endcase
     end
