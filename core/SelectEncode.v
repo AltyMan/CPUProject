@@ -26,7 +26,10 @@ wire [3:0] s;
 assign s1 = (Gra) ? ra : 4'b0000;
 assign s2 = (Grb) ? rb : 4'b0000;
 assign s3 = (Grc) ? rc : 4'b0000;
-assign s = s1 | s2 | s3;
+
+wire op_jal = (opcode == 5'b10011);
+
+assign s = (op_jal & Rin) ? 4'd12 : (s1 | s2 | s3);
 
 wire [15:0] decoder_out;
 assign decoder_out = 16'b1 << s[3:0]; // 4-to-16 decoder to create one-hot vector

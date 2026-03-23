@@ -3,29 +3,24 @@
 `include "core/CONFF.v"
 `include "core/SelectEncode.v"
 `include "core/ram.v"
+`include "core/control.v"
+`include "core/alu/alu.v"
 
 module DataPath(
-	input wire clock, clear,
-	// Control signals: out = select, in = enable
-	input wire GPR_Rin,
-    input wire GPR_Rout,
-    input wire [15:0] RinHI,  // Enables for HI, LO, ZHigh, etc.
-    input wire [15:0] RoutHI, // Selects for HI, LO, ZHigh, etc.
-	input wire IRin, MARin,
-	input wire RZout,
-	input wire RYin, RBin,
-	input wire PCjump,
-	input wire MDRread,
-	input wire CONin,
-	// ALU control signals
-	input wire [15:0] ALUControl,
-	// Control signals from control unit
-	input wire Gra, Grb, Grc, BAout, Cout,
-	// Control signals for RAM
-	input wire RAMread, RAMwrite,
-	// Control signals from/for ports
-	input wire InPortStrobe, OutPortEnable
+	input wire clock, clear, stop
 );
+
+// Control signals: out = select, in = enable
+wire GPR_Rin, GPR_Rout;
+wire Gra, Grb, Grc, BAout, Cout;
+wire [15:0] RinHI, RoutHI; // Enables/Selects for HI, LO, ZHigh, etc.
+wire IRin, MARin, RZout, RYin, RBin, PCjump, MDRread, CONin;
+// ALU control signals
+wire [15:0] ALUControl;
+// Memory/IO
+wire RAMread, RAMwrite;
+wire InPortStrobe, OutPortEnable;
+wire [31:0] icache_data; // new for instruction fetch
 
 wire [31:0] IROut, Mdatain, Mdataout;
 wire [8:0] MAROut;
@@ -72,13 +67,12 @@ SelectEncode encode_unit(
 	.CSignExtended(CSignExtended_Val)
 );
 
-// Reconstruct the 32-bit Rin and Rout signals for the rest of the DataPath
+// Reconstruct 32-bit Rin and Rout signals
 wire [31:0] Rin = {RinHI, Renable};
 wire [31:0] Rout = {RoutHI[15:8], Cout, RoutHI[6:0], Rselect};
 
 // Pass the combinational sign-extended value straight to the bus mux
 assign BusMuxInCSignExtended = CSignExtended_Val;
-
 
 // Pull branch condition field from IR
 assign CON_IR = IROut[22:19];
@@ -112,7 +106,7 @@ mdr MDR(clear, clock, Rin[21], MDRread, BusMuxOut, Mdatain, BusMuxInMDR, Mdataou
 inport InPort(clear, InPortStrobe, BusMuxOut, BusMuxInPort);
 outport OutPort(clear, clock, OutPortEnable, BusMuxOut, OutPortData);
 
-ir IR(clear, clock, IRin, BusMuxOut, IROut);
+ir IR(clear, clock, IRin, icache_data, IROut); // no longer bus, directly from icache
 mar MAR(clear, clock, MARin, BusMuxOut, MAROut);
 
 register RY(clear, clock, RYin, BusMuxOut, Yregout);
@@ -146,15 +140,44 @@ Bus bus(
 	Rout, BusMuxOut
 	);
 
-//RAM
-RAM ram(
-	.clock(clock),
-	.read(RAMread),
-	.write(RAMwrite),
-	.address(MAROut), // 9-bit address from MAR
-	.write_data(BusMuxOut),   // Data to write from the bus
-	.read_data(Mdatain)     // Data read goes to Mdatain for MDR
+// Instruction Cache (Read-Only)
+RAM #(.INIT_FILE("core/instructions.mem")) l1_icache(
+    .clock(clock),
+    .read(1'b1), // always read
+    .write(1'b0), // never write
+    .address(BusMuxInPC[8:0]),
+    .write_data(32'd0),
+    .read_data(icache_data)
+);
+
+// Data Cache (Read/Write)
+RAM #(.INIT_FILE("core/data.mem")) l1_dcache(
+    .clock(clock),
+    .read(RAMread),
+    .write(RAMwrite),
+    .address(MAROut),
+    .write_data(Mdataout),
+    .read_data(Mdatain)
+);
+
+//Control Unit
+control CU(
+    .clock(clock),
+    .reset(clear),
+    .stop(Stop),
+    .IR(IROut),
+    .CON_FF(CON_out_internal),
+
+    .GPR_Rin(GPR_Rin), .GPR_Rout(GPR_Rout),
+    .RinHI(RinHI), .RoutHI(RoutHI),
+    .IRin(IRin), .MARin(MARin), 
+    .RZout(RZout), .RYin(RYin), .RBin(RBin), 
+    .PCjump(PCjump), .MDRread(MDRread), .CONin(CONin),
+    .ALUControl(ALUControl),
+    .Gra(Gra), .Grb(Grb), .Grc(Grc), 
+    .BAout(BAout), .Cout(Cout),
+    .RAMread(RAMread), .RAMwrite(RAMwrite),
+    .InPortStrobe(InPortStrobe), .OutPortEnable(OutPortEnable)
 );
 
 endmodule
-

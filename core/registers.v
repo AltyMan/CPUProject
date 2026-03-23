@@ -45,7 +45,7 @@ always @(posedge clock)
         end
 		else if (enable) begin
         	if (branch_address == pc_q) begin
-            	pc_q <= pc_q + 4;
+            	pc_q <= pc_q + 1;
 			end else begin
 				pc_q <= branch_address;
 			end
