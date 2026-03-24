@@ -33,14 +33,10 @@ module phase3_tb();
         
         // Failsafe Timeout (prevents infinite loops)
         #25000; 
-        $display("\n========================================================");
-        $display("   SIMULATION TIMEOUT REACHED");
-        $display("   Final R14 = %h", dp.BusMuxInR14);
-        $display("========================================================\n");
-        $fdisplay(log_fd, "\n========================================================");
-        $fdisplay(log_fd, "   SIMULATION TIMEOUT REACHED");
-        $fdisplay(log_fd, "   Final R14 = %h", dp.BusMuxInR14);
-        $fdisplay(log_fd, "========================================================\n");
+        $display("Simulation Timeout Reached");
+        $display("Final R14 = %h", dp.BusMuxInR14);
+        $fdisplay(log_fd, "Simulation Timeout Reached");
+        $fdisplay(log_fd, "Final R14 = %h", dp.BusMuxInR14);
         $fclose(log_fd);
         $finish;
     end
@@ -51,12 +47,8 @@ module phase3_tb();
         if (!clear) begin
             // 1. Log the start of a new instruction
             if (dp.CU.state == 3'd1) begin
-                $display("\n--------------------------------------------------------");
-                $display("[%0t ns] FETCH: PC = %03h | IR = %08h", $time, dp.BusMuxInPC, dp.IROut);
-                $display("--------------------------------------------------------");
-                $fdisplay(log_fd, "\n--------------------------------------------------------");
-                $fdisplay(log_fd, "[%0t ns] FETCH: PC = %03h | IR = %08h", $time, dp.BusMuxInPC, dp.IROut);
-                $fdisplay(log_fd, "--------------------------------------------------------");
+                $display("\n[%0t ns] FETCH: PC = %03h | IR = %08h", $time, dp.BusMuxInPC, dp.IROut);
+                $fdisplay(log_fd, "\n[%0t ns] FETCH: PC = %03h | IR = %08h", $time, dp.BusMuxInPC, dp.IROut);
             end
             
             // 2. Log the current state and bus value
@@ -67,32 +59,29 @@ module phase3_tb();
                      
             // 3. Log General Purpose Register Writes
             if (dp.GPR_Rin) begin
-                $display("          -> REG WRITE: Latched %8h (Renable mask: %b)", dp.BusMuxOut, dp.Renable);
-                $fdisplay(log_fd, "          -> REG WRITE: Latched %8h (Renable mask: %b)", dp.BusMuxOut, dp.Renable);
+                $display("REG WRITE: Latched %8h (Renable mask: %b)", dp.BusMuxOut, dp.Renable);
+                $fdisplay(log_fd, "REG WRITE: Latched %8h (Renable mask: %b)", dp.BusMuxOut, dp.Renable);
             end
             
             // 4. Log Memory Writes
             if (dp.RAMwrite) begin
-                $display("          -> MEM WRITE: Addr [%h] <= %h", dp.MAROut, dp.BusMuxOut);
-                $fdisplay(log_fd, "          -> MEM WRITE: Addr [%h] <= %h", dp.MAROut, dp.BusMuxOut);
+                $display("MEM WRITE: Addr [%h] <= %h", dp.MAROut, dp.BusMuxOut);
+                $fdisplay(log_fd, "MEM WRITE: Addr [%h] <= %h", dp.MAROut, dp.BusMuxOut);
             end
 
             // 5. Log Branching
             if (dp.PCjump) begin
-                $display("          -> BRANCH TAKEN! Next PC = %h", dp.BusMuxOut);
-                $fdisplay(log_fd, "          -> BRANCH TAKEN! Next PC = %h", dp.BusMuxOut);
+                $display("BRANCH TAKEN: Next PC = %h", dp.BusMuxOut);
+                $fdisplay(log_fd, "BRANCH TAKEN: Next PC = %h", dp.BusMuxOut);
             end
 
             // 6. Catch the Halt Instruction
             if (dp.CU.op_halt && dp.CU.state == 3'd1) begin
-                $display("\n========================================================");
-                $display("   *** HALT INSTRUCTION REACHED ***");
-                $display("   Final R14 = %h", dp.BusMuxInR14);
-                $display("========================================================\n");
+                $display("\nHALT INSTRUCTION");
+                $display("Final R14 = %h\n", dp.BusMuxInR14);
                 $fdisplay(log_fd, "\n========================================================");
-                $fdisplay(log_fd, "   *** HALT INSTRUCTION REACHED ***");
-                $fdisplay(log_fd, "   Final R14 = %h", dp.BusMuxInR14);
-                $fdisplay(log_fd, "========================================================\n");
+                $fdisplay(log_fd, "\nHALT INSTRUCTION");
+                $fdisplay(log_fd, "Final R14 = %h\n", dp.BusMuxInR14);
                 $fclose(log_fd);
                 $finish;
             end

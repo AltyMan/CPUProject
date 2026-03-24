@@ -66,26 +66,26 @@ module tb();
     always @(negedge clock) begin
         case (Present_state)
             Default: if (!clear) begin 
-                Present_state <= C1_T0; dp.PC.pc_q <= 32'd0; dp.R3.q <= 32'd0; 
+                Present_state <= C1_T0; dp.PC.pc_q <= 32'd0; dp.R3.q <= 32'hFFFF_FFFF;
             end
             C1_T0: Present_state <= C1_T1; C1_T1: Present_state <= C1_T2; C1_T2: Present_state <= C1_T3;
             C1_T3: Present_state <= C1_T4; C1_T4: Present_state <= C1_T5; C1_T5: Present_state <= C1_T6;
             
             // Must reset PC back after each branch instruction
             C1_T6: begin 
-                Present_state <= C2_T0; dp.PC.pc_q <= 32'd4; dp.R3.q <= 32'd0;
+                Present_state <= C2_T0; dp.PC.pc_q <= 32'd4; dp.R3.q <= 32'hFFFF_FFFF;
             end
             C2_T0: Present_state <= C2_T1; C2_T1: Present_state <= C2_T2; C2_T2: Present_state <= C2_T3;
             C2_T3: Present_state <= C2_T4; C2_T4: Present_state <= C2_T5; C2_T5: Present_state <= C2_T6;
             
             C2_T6: begin 
-                Present_state <= C3_T0; dp.PC.pc_q <= 32'd8; dp.R3.q <= 32'd5; // R3=5 (Taken)
+                Present_state <= C3_T0; dp.PC.pc_q <= 32'd8; dp.R3.q <= 32'hFFFF_FFFF;
             end
             C3_T0: Present_state <= C3_T1; C3_T1: Present_state <= C3_T2; C3_T2: Present_state <= C3_T3;
             C3_T3: Present_state <= C3_T4; C3_T4: Present_state <= C3_T5; C3_T5: Present_state <= C3_T6;
             
             C3_T6: begin 
-                Present_state <= C4_T0; dp.PC.pc_q <= 32'd12; dp.R3.q <= 32'd5; // R3=5 (Not Taken)
+                Present_state <= C4_T0; dp.PC.pc_q <= 32'd12; dp.R3.q <= 32'hFFFF_FFFF;
             end
             C4_T0: Present_state <= C4_T1; C4_T1: Present_state <= C4_T2; C4_T2: Present_state <= C4_T3;
             C4_T3: Present_state <= C4_T4; C4_T4: Present_state <= C4_T5; C4_T5: Present_state <= C4_T6;
