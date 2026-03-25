@@ -47,12 +47,12 @@ module tb();
         Gra = 0; Grb = 0; Grc = 0; BAout = 0; Cout = 0;
         RAMread = 0; RAMwrite = 0; InPortStrobe = 0; OutPortEnable = 0;
 
-        // Load instructions into RAM 
-        // Case 1: jr R12 -> Ra=R12(1100). Hex: 06000000
-        dp.ram.memory[16] = 32'h06000000; 
+        // Load REAL Phase 3 Opcodes into RAM 
+        // Case 1: jr R12 -> Opcode=10100, Ra=1100. Hex: A6000000
+        dp.ram.memory[16] = 32'hA6000000; 
         
-        // Case 2: jal R4 -> Ra=R12(1100), Rb=R4(0100). Hex: 06200000
-        dp.ram.memory[32] = 32'h06200000;
+        // Case 2: jal R4 -> Opcode=10011, Ra=0100. Hex: 9A000000
+        dp.ram.memory[32] = 32'h9A000000;
 
         #20 clear = 0;
         
@@ -90,7 +90,7 @@ module tb();
         case (Present_state)
             Default, C1_Hold, C2_Hold: begin
                 RinHI <= 16'h0; RoutHI <= 16'h0; MARin <= 0; IRin <= 0;
-                RYin <= 0; RAMread <= 0; MDRread <= 0; Gra <= 0; Grb <= 0;
+                RYin <= 0; RAMread <= 0; MDRread <= 0; Gra <= 0; Grb <= 0; Grc <= 0;
                 BAout <= 0; Cout <= 0; GPR_Rin <= 0; GPR_Rout <= 0; 
                 CONin <= 0; PCjump <= 0; ALUControl <= 16'd0;
             end
@@ -116,11 +116,11 @@ module tb();
             end
 
             // JAL EXECUTION
-            C2_T3: begin // PCout, Rin
+            C2_T3: begin // PCout, Rin (SelectEncode internally overrides to R12)
                 RoutHI[4] <= 1; GPR_Rin <= 1; 
                 #20 RoutHI[4] <= 0; GPR_Rin <= 0;
             end
-            C2_T4: begin // Gra, Rout, PCin
+            C2_T4: begin // Gra, Rout, PCin (Pulls jump target from Ra)
                 Gra <= 1; GPR_Rout <= 1; RinHI[4] <= 1; 
                 #20 Gra <= 0; GPR_Rout <= 0; RinHI[4] <= 0;
             end

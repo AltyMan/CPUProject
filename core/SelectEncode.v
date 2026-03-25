@@ -12,7 +12,7 @@ module SelectEncode(
     output wire [31:0] CSignExtended
 );
 
-wire [3:0] opcode;
+wire [4:0] opcode;
 assign opcode = IROut[31:27];
 wire [3:0] ra;
 assign ra = IROut[26:23];
