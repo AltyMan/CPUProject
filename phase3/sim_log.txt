@@ -1,2747 +1,337 @@
+Initial States:
+R0:  00000000 | R1:  00000000
+R2:  00000000 | R3:  00000000
+R4:  00000000 | R5:  00000000
+R6:  00000000 | R7:  00000000
+R8:  00000000 | R9:  00000000
+R10: 00000000 | R11: 00000000
+R12: 00000000 | R13: 00000000
+R14: 00000000 | R15: 00000000
+HI:  00000000 | LO:  00000000
+MAR: 00000000 | MDR: 00000000
+MEM[0x89]: 000000a7 | MEM[0xA3]: 00000068
+
+
 [4000 ns] State T0 | Bus = 00000000 | ALU_Sel = 12
 
---------------------------------------------------------
 [6000 ns] FETCH: PC = 00000001 | IR = 8a800043
---------------------------------------------------------
 [6000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
 [8000 ns] State T2 | Bus = 00000043 | ALU_Sel = 12
 [10000 ns] State T3 | Bus = 00000043 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000043 (Renable mask: 0000000000100000)
+REG WRITE: Latched 00000043 (Renable mask: 0000000000100000)
 [12000 ns] State T0 | Bus = 00000001 | ALU_Sel = 12
 
---------------------------------------------------------
 [14000 ns] FETCH: PC = 00000002 | IR = 8aa80006
---------------------------------------------------------
 [14000 ns] State T1 | Bus = 00000043 | ALU_Sel = 12
 [16000 ns] State T2 | Bus = 00000006 | ALU_Sel = 12
 [18000 ns] State T3 | Bus = 00000049 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000049 (Renable mask: 0000000000100000)
+REG WRITE: Latched 00000049 (Renable mask: 0000000000100000)
 [20000 ns] State T0 | Bus = 00000002 | ALU_Sel = 12
 
---------------------------------------------------------
 [22000 ns] FETCH: PC = 00000003 | IR = 82000089
---------------------------------------------------------
 [22000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
 [24000 ns] State T2 | Bus = 00000089 | ALU_Sel = 12
 [26000 ns] State T3 | Bus = 00000089 | ALU_Sel = 12
 [28000 ns] State T4 | Bus = 00000000 | ALU_Sel = 12
 [30000 ns] State T5 | Bus = 000000a7 | ALU_Sel = 12
-          -> REG WRITE: Latched 000000a7 (Renable mask: 0000000000010000)
+REG WRITE: Latched 000000a7 (Renable mask: 0000000000010000)
 [32000 ns] State T0 | Bus = 00000003 | ALU_Sel = 12
 
---------------------------------------------------------
 [34000 ns] FETCH: PC = 00000004 | IR = 8a200004
---------------------------------------------------------
 [34000 ns] State T1 | Bus = 000000a7 | ALU_Sel = 12
 [36000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
 [38000 ns] State T3 | Bus = 000000ab | ALU_Sel = 12
-          -> REG WRITE: Latched 000000ab (Renable mask: 0000000000010000)
+REG WRITE: Latched 000000ab (Renable mask: 0000000000010000)
 [40000 ns] State T0 | Bus = 00000004 | ALU_Sel = 12
 
---------------------------------------------------------
 [42000 ns] FETCH: PC = 00000005 | IR = 8027fff8
---------------------------------------------------------
 [42000 ns] State T1 | Bus = 000000ab | ALU_Sel = 12
 [44000 ns] State T2 | Bus = fffffff8 | ALU_Sel = 12
 [46000 ns] State T3 | Bus = 000000a3 | ALU_Sel = 12
 [48000 ns] State T4 | Bus = 00000000 | ALU_Sel = 12
 [50000 ns] State T5 | Bus = 00000068 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000068 (Renable mask: 0000000000000001)
+REG WRITE: Latched 00000068 (Renable mask: 0000000000000001)
 [52000 ns] State T0 | Bus = 00000005 | ALU_Sel = 12
 
---------------------------------------------------------
 [54000 ns] FETCH: PC = 00000006 | IR = 89000004
---------------------------------------------------------
 [54000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
 [56000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
 [58000 ns] State T3 | Bus = 00000004 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000004 (Renable mask: 0000000000000100)
+REG WRITE: Latched 00000004 (Renable mask: 0000000000000100)
 [60000 ns] State T0 | Bus = 00000006 | ALU_Sel = 12
 
---------------------------------------------------------
 [62000 ns] FETCH: PC = 00000007 | IR = 8a800087
---------------------------------------------------------
 [62000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
 [64000 ns] State T2 | Bus = 00000087 | ALU_Sel = 12
 [66000 ns] State T3 | Bus = 00000087 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000087 (Renable mask: 0000000000100000)
+REG WRITE: Latched 00000087 (Renable mask: 0000000000100000)
 [68000 ns] State T0 | Bus = 00000007 | ALU_Sel = 12
 
---------------------------------------------------------
 [70000 ns] FETCH: PC = 00000008 | IR = aa980003
---------------------------------------------------------
 [70000 ns] State T1 | Bus = 00000087 | ALU_Sel = 12
 [72000 ns] State T2 | Bus = 00000008 | ALU_Sel = 12
 [74000 ns] State T3 | Bus = 00000003 | ALU_Sel = 12
 [76000 ns] State T4 | Bus = 0000000b | ALU_Sel = 12
-          -> BRANCH TAKEN! Next PC = 0000000b
+BRANCH TAKEN: Next PC = 0000000b
 [78000 ns] State T0 | Bus = 00000008 | ALU_Sel = 12
 
---------------------------------------------------------
 [80000 ns] FETCH: PC = 00000009 | IR = 8aa80005
---------------------------------------------------------
 [80000 ns] State T1 | Bus = 00000087 | ALU_Sel = 12
 [82000 ns] State T2 | Bus = 00000005 | ALU_Sel = 12
 [84000 ns] State T3 | Bus = 0000008c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000008c (Renable mask: 0000000000100000)
+REG WRITE: Latched 0000008c (Renable mask: 0000000000100000)
 [86000 ns] State T0 | Bus = 00000009 | ALU_Sel = 12
 
---------------------------------------------------------
 [88000 ns] FETCH: PC = 0000000a | IR = 80affffd
---------------------------------------------------------
 [88000 ns] State T1 | Bus = 0000008c | ALU_Sel = 12
 [90000 ns] State T2 | Bus = fffffffd | ALU_Sel = 12
 [92000 ns] State T3 | Bus = 00000089 | ALU_Sel = 12
 [94000 ns] State T4 | Bus = 00000068 | ALU_Sel = 12
 [96000 ns] State T5 | Bus = 000000a7 | ALU_Sel = 12
-          -> REG WRITE: Latched 000000a7 (Renable mask: 0000000000000010)
+REG WRITE: Latched 000000a7 (Renable mask: 0000000000000010)
 [98000 ns] State T0 | Bus = 0000000a | ALU_Sel = 12
 
---------------------------------------------------------
 [100000 ns] FETCH: PC = 0000000b | IR = d0000000
---------------------------------------------------------
 [100000 ns] State T1 | Bus = 00000068 | ALU_Sel = 0
 [102000 ns] State T0 | Bus = 0000000b | ALU_Sel = 0
 
---------------------------------------------------------
 [104000 ns] FETCH: PC = 0000000c | IR = a8900002
---------------------------------------------------------
 [104000 ns] State T1 | Bus = 000000a7 | ALU_Sel = 12
 [106000 ns] State T2 | Bus = 0000000c | ALU_Sel = 12
 [108000 ns] State T3 | Bus = 00000002 | ALU_Sel = 12
 [110000 ns] State T4 | Bus = 0000000e | ALU_Sel = 12
-          -> BRANCH TAKEN! Next PC = 0000000e
+BRANCH TAKEN: Next PC = 0000000e
 [112000 ns] State T0 | Bus = 0000000e | ALU_Sel = 12
 
---------------------------------------------------------
 [114000 ns] FETCH: PC = 0000000f | IR = 03a90000
---------------------------------------------------------
 [114000 ns] State T1 | Bus = 0000008c | ALU_Sel = 12
 [116000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
 [118000 ns] State T3 | Bus = 00000090 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000090 (Renable mask: 0000000010000000)
+REG WRITE: Latched 00000090 (Renable mask: 0000000010000000)
 [120000 ns] State T0 | Bus = 0000000f | ALU_Sel = 12
 
---------------------------------------------------------
 [122000 ns] FETCH: PC = 00000010 | IR = 48880003
---------------------------------------------------------
 [122000 ns] State T1 | Bus = 000000a7 | ALU_Sel = 12
 [124000 ns] State T2 | Bus = 00000003 | ALU_Sel = 12
 [126000 ns] State T3 | Bus = 000000aa | ALU_Sel = 12
-          -> REG WRITE: Latched 000000aa (Renable mask: 0000000000000010)
+REG WRITE: Latched 000000aa (Renable mask: 0000000000000010)
 [128000 ns] State T0 | Bus = 00000010 | ALU_Sel = 12
 
---------------------------------------------------------
 [130000 ns] FETCH: PC = 00000011 | IR = 70880000
---------------------------------------------------------
 [130000 ns] State T1 | Bus = 000000aa | ALU_Sel = 6
 [132000 ns] State T2 | Bus = 000000aa | ALU_Sel = 6
 [134000 ns] State T3 | Bus = ffffff56 | ALU_Sel = 6
-          -> REG WRITE: Latched ffffff56 (Renable mask: 0000000000000010)
+REG WRITE: Latched ffffff56 (Renable mask: 0000000000000010)
 [136000 ns] State T0 | Bus = 00000011 | ALU_Sel = 6
 
---------------------------------------------------------
 [138000 ns] FETCH: PC = 00000012 | IR = 78880000
---------------------------------------------------------
 [138000 ns] State T1 | Bus = ffffff56 | ALU_Sel = 3
 [140000 ns] State T2 | Bus = ffffff56 | ALU_Sel = 3
 [142000 ns] State T3 | Bus = 000000a9 | ALU_Sel = 3
-          -> REG WRITE: Latched 000000a9 (Renable mask: 0000000000000010)
+REG WRITE: Latched 000000a9 (Renable mask: 0000000000000010)
 [144000 ns] State T0 | Bus = 00000012 | ALU_Sel = 3
 
---------------------------------------------------------
 [146000 ns] FETCH: PC = 00000013 | IR = 5088000f
---------------------------------------------------------
 [146000 ns] State T1 | Bus = 000000a9 | ALU_Sel = 1
 [148000 ns] State T2 | Bus = 0000000f | ALU_Sel = 1
 [150000 ns] State T3 | Bus = 00000009 | ALU_Sel = 1
-          -> REG WRITE: Latched 00000009 (Renable mask: 0000000000000010)
+REG WRITE: Latched 00000009 (Renable mask: 0000000000000010)
 [152000 ns] State T0 | Bus = 00000013 | ALU_Sel = 1
 
---------------------------------------------------------
 [154000 ns] FETCH: PC = 00000014 | IR = 3a010000
---------------------------------------------------------
 [154000 ns] State T1 | Bus = 00000068 | ALU_Sel = 8
 [156000 ns] State T2 | Bus = 00000004 | ALU_Sel = 8
 [158000 ns] State T3 | Bus = 80000006 | ALU_Sel = 8
-          -> REG WRITE: Latched 80000006 (Renable mask: 0000000000010000)
+REG WRITE: Latched 80000006 (Renable mask: 0000000000010000)
 [160000 ns] State T0 | Bus = 00000014 | ALU_Sel = 8
 
---------------------------------------------------------
 [162000 ns] FETCH: PC = 00000015 | IR = 58a00005
---------------------------------------------------------
 [162000 ns] State T1 | Bus = 80000006 | ALU_Sel = 2
 [164000 ns] State T2 | Bus = 00000005 | ALU_Sel = 2
 [166000 ns] State T3 | Bus = 80000007 | ALU_Sel = 2
-          -> REG WRITE: Latched 80000007 (Renable mask: 0000000000000010)
+REG WRITE: Latched 80000007 (Renable mask: 0000000000000010)
 [168000 ns] State T0 | Bus = 00000015 | ALU_Sel = 2
 
---------------------------------------------------------
 [170000 ns] FETCH: PC = 00000016 | IR = 2a090000
---------------------------------------------------------
 [170000 ns] State T1 | Bus = 80000007 | ALU_Sel = 11
 [172000 ns] State T2 | Bus = 00000004 | ALU_Sel = 11
 [174000 ns] State T3 | Bus = f8000000 | ALU_Sel = 11
-          -> REG WRITE: Latched f8000000 (Renable mask: 0000000000010000)
+REG WRITE: Latched f8000000 (Renable mask: 0000000000010000)
 [176000 ns] State T0 | Bus = 00000016 | ALU_Sel = 11
 
---------------------------------------------------------
 [178000 ns] FETCH: PC = 00000017 | IR = 22a90000
---------------------------------------------------------
 [178000 ns] State T1 | Bus = 0000008c | ALU_Sel = 10
 [180000 ns] State T2 | Bus = 00000004 | ALU_Sel = 10
 [182000 ns] State T3 | Bus = 00000008 | ALU_Sel = 10
-          -> REG WRITE: Latched 00000008 (Renable mask: 0000000000100000)
+REG WRITE: Latched 00000008 (Renable mask: 0000000000100000)
 [184000 ns] State T0 | Bus = 00000017 | ALU_Sel = 10
 
---------------------------------------------------------
 [186000 ns] FETCH: PC = 00000018 | IR = 928000a3
---------------------------------------------------------
 [186000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
 [188000 ns] State T2 | Bus = 000000a3 | ALU_Sel = 12
 [190000 ns] State T3 | Bus = 000000a3 | ALU_Sel = 12
 [192000 ns] State T4 | Bus = 00000008 | ALU_Sel = 12
 [194000 ns] State T5 | Bus = 00000068 | ALU_Sel = 12
-          -> MEM WRITE: Addr [0a3] <= 00000068
+MEM WRITE: Addr [0a3] <= 00000008
 [196000 ns] State T0 | Bus = 00000018 | ALU_Sel = 12
 
---------------------------------------------------------
 [198000 ns] FETCH: PC = 00000019 | IR = 42810000
---------------------------------------------------------
 [198000 ns] State T1 | Bus = 00000068 | ALU_Sel = 7
 [200000 ns] State T2 | Bus = 00000004 | ALU_Sel = 7
 [202000 ns] State T3 | Bus = 00000680 | ALU_Sel = 7
-          -> REG WRITE: Latched 00000680 (Renable mask: 0000000000100000)
+REG WRITE: Latched 00000680 (Renable mask: 0000000000100000)
 [204000 ns] State T0 | Bus = 00000019 | ALU_Sel = 7
 
---------------------------------------------------------
 [206000 ns] FETCH: PC = 0000001a | IR = 1b900000
---------------------------------------------------------
 [206000 ns] State T1 | Bus = 00000004 | ALU_Sel = 2
 [208000 ns] State T2 | Bus = 00000068 | ALU_Sel = 2
 [210000 ns] State T3 | Bus = 0000006c | ALU_Sel = 2
-          -> REG WRITE: Latched 0000006c (Renable mask: 0000000010000000)
+REG WRITE: Latched 0000006c (Renable mask: 0000000010000000)
 [212000 ns] State T0 | Bus = 0000001a | ALU_Sel = 2
 
---------------------------------------------------------
 [214000 ns] FETCH: PC = 0000001b | IR = 12280000
---------------------------------------------------------
 [214000 ns] State T1 | Bus = 00000680 | ALU_Sel = 1
 [216000 ns] State T2 | Bus = 00000068 | ALU_Sel = 1
 [218000 ns] State T3 | Bus = 00000000 | ALU_Sel = 1
-          -> REG WRITE: Latched 00000000 (Renable mask: 0000000000010000)
+REG WRITE: Latched 00000000 (Renable mask: 0000000000010000)
 [220000 ns] State T0 | Bus = 0000001b | ALU_Sel = 1
 
---------------------------------------------------------
 [222000 ns] FETCH: PC = 0000001c | IR = 93a00089
---------------------------------------------------------
 [222000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
 [224000 ns] State T2 | Bus = 00000089 | ALU_Sel = 12
 [226000 ns] State T3 | Bus = 00000089 | ALU_Sel = 12
 [228000 ns] State T4 | Bus = 0000006c | ALU_Sel = 12
 [230000 ns] State T5 | Bus = 00000068 | ALU_Sel = 12
-          -> MEM WRITE: Addr [089] <= 00000068
+MEM WRITE: Addr [089] <= 0000006c
 [232000 ns] State T0 | Bus = 0000001c | ALU_Sel = 12
 
---------------------------------------------------------
 [234000 ns] FETCH: PC = 0000001d | IR = 082b8000
---------------------------------------------------------
 [234000 ns] State T1 | Bus = 00000680 | ALU_Sel = 13
 [236000 ns] State T2 | Bus = 0000006c | ALU_Sel = 13
 [238000 ns] State T3 | Bus = 00000614 | ALU_Sel = 13
-          -> REG WRITE: Latched 00000614 (Renable mask: 0000000000000001)
+REG WRITE: Latched 00000614 (Renable mask: 0000000000000001)
 [240000 ns] State T0 | Bus = 0000001d | ALU_Sel = 13
 
---------------------------------------------------------
 [242000 ns] FETCH: PC = 0000001e | IR = 32290000
---------------------------------------------------------
 [242000 ns] State T1 | Bus = 00000680 | ALU_Sel = 9
 [244000 ns] State T2 | Bus = 00000004 | ALU_Sel = 9
 [246000 ns] State T3 | Bus = 00006800 | ALU_Sel = 9
-          -> REG WRITE: Latched 00006800 (Renable mask: 0000000000010000)
+REG WRITE: Latched 00006800 (Renable mask: 0000000000010000)
 [248000 ns] State T0 | Bus = 0000001e | ALU_Sel = 9
 
---------------------------------------------------------
 [250000 ns] FETCH: PC = 0000001f | IR = 8b800007
---------------------------------------------------------
 [250000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
 [252000 ns] State T2 | Bus = 00000007 | ALU_Sel = 12
 [254000 ns] State T3 | Bus = 00000007 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000007 (Renable mask: 0000000010000000)
+REG WRITE: Latched 00000007 (Renable mask: 0000000010000000)
 [256000 ns] State T0 | Bus = 0000001f | ALU_Sel = 12
 
---------------------------------------------------------
 [258000 ns] FETCH: PC = 00000020 | IR = 89800019
---------------------------------------------------------
 [258000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
 [260000 ns] State T2 | Bus = 00000019 | ALU_Sel = 12
 [262000 ns] State T3 | Bus = 00000019 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000019 (Renable mask: 0000000000001000)
+REG WRITE: Latched 00000019 (Renable mask: 0000000000001000)
 [264000 ns] State T0 | Bus = 00000020 | ALU_Sel = 12
 
---------------------------------------------------------
 [266000 ns] FETCH: PC = 00000021 | IR = 69b80000
---------------------------------------------------------
 [266000 ns] State T1 | Bus = 00000019 | ALU_Sel = 14
 [268000 ns] State T2 | Bus = 00000007 | ALU_Sel = 14
 [270000 ns] State T3 | Bus = 000000af | ALU_Sel = 14
 [272000 ns] State T4 | Bus = 00000000 | ALU_Sel = 14
 [274000 ns] State T0 | Bus = 00000021 | ALU_Sel = 14
 
---------------------------------------------------------
 [276000 ns] FETCH: PC = 00000022 | IR = c0800000
---------------------------------------------------------
 [276000 ns] State T1 | Bus = 00000000 | ALU_Sel = 0
-          -> REG WRITE: Latched 00000000 (Renable mask: 0000000000000010)
+REG WRITE: Latched 00000000 (Renable mask: 0000000000000010)
 [278000 ns] State T0 | Bus = 00000022 | ALU_Sel = 0
 
---------------------------------------------------------
 [280000 ns] FETCH: PC = 00000023 | IR = cb000000
---------------------------------------------------------
 [280000 ns] State T1 | Bus = 000000af | ALU_Sel = 0
-          -> REG WRITE: Latched 000000af (Renable mask: 0000000001000000)
+REG WRITE: Latched 000000af (Renable mask: 0000000001000000)
 [282000 ns] State T0 | Bus = 00000023 | ALU_Sel = 0
 
---------------------------------------------------------
 [284000 ns] FETCH: PC = 00000024 | IR = 61b80000
---------------------------------------------------------
 [284000 ns] State T1 | Bus = 00000019 | ALU_Sel = 15
 [286000 ns] State T2 | Bus = 00000007 | ALU_Sel = 15
 [288000 ns] State T3 | Bus = 00000003 | ALU_Sel = 15
 [290000 ns] State T4 | Bus = 00000004 | ALU_Sel = 15
 [292000 ns] State T0 | Bus = 00000024 | ALU_Sel = 15
 
---------------------------------------------------------
 [294000 ns] FETCH: PC = 00000025 | IR = 8c380002
---------------------------------------------------------
 [294000 ns] State T1 | Bus = 00000007 | ALU_Sel = 12
 [296000 ns] State T2 | Bus = 00000002 | ALU_Sel = 12
 [298000 ns] State T3 | Bus = 00000009 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000009 (Renable mask: 0000000100000000)
+REG WRITE: Latched 00000009 (Renable mask: 0000000100000000)
 [300000 ns] State T0 | Bus = 00000025 | ALU_Sel = 12
 
---------------------------------------------------------
 [302000 ns] FETCH: PC = 00000026 | IR = 8c9ffffc
---------------------------------------------------------
 [302000 ns] State T1 | Bus = 00000019 | ALU_Sel = 12
 [304000 ns] State T2 | Bus = fffffffc | ALU_Sel = 12
 [306000 ns] State T3 | Bus = 00000015 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000015 (Renable mask: 0000001000000000)
+REG WRITE: Latched 00000015 (Renable mask: 0000001000000000)
 [308000 ns] State T0 | Bus = 00000026 | ALU_Sel = 12
 
---------------------------------------------------------
 [310000 ns] FETCH: PC = 00000027 | IR = 8d300003
---------------------------------------------------------
 [310000 ns] State T1 | Bus = 000000af | ALU_Sel = 12
 [312000 ns] State T2 | Bus = 00000003 | ALU_Sel = 12
 [314000 ns] State T3 | Bus = 000000b2 | ALU_Sel = 12
-          -> REG WRITE: Latched 000000b2 (Renable mask: 0000010000000000)
+REG WRITE: Latched 000000b2 (Renable mask: 0000010000000000)
 [316000 ns] State T0 | Bus = 00000027 | ALU_Sel = 12
 
---------------------------------------------------------
 [318000 ns] FETCH: PC = 00000028 | IR = 8d880005
---------------------------------------------------------
 [318000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
 [320000 ns] State T2 | Bus = 00000005 | ALU_Sel = 12
 [322000 ns] State T3 | Bus = 00000005 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000005 (Renable mask: 0000100000000000)
+REG WRITE: Latched 00000005 (Renable mask: 0000100000000000)
 [324000 ns] State T0 | Bus = 00000028 | ALU_Sel = 12
 
---------------------------------------------------------
 [326000 ns] FETCH: PC = 00000029 | IR = 9d000000
---------------------------------------------------------
 [326000 ns] State T1 | Bus = 00000029 | ALU_Sel = 0
-          -> REG WRITE: Latched 00000029 (Renable mask: 0000000000000001)
+REG WRITE: Latched 00000029 (Renable mask: 0001000000000000)
 [328000 ns] State T2 | Bus = 000000b2 | ALU_Sel = 0
 [330000 ns] State T0 | Bus = 000000b2 | ALU_Sel = 0
 
---------------------------------------------------------
 [332000 ns] FETCH: PC = 000000b3 | IR = 07450000
---------------------------------------------------------
 [332000 ns] State T1 | Bus = 00000009 | ALU_Sel = 12
 [334000 ns] State T2 | Bus = 000000b2 | ALU_Sel = 12
 [336000 ns] State T3 | Bus = 000000bb | ALU_Sel = 12
-          -> REG WRITE: Latched 000000bb (Renable mask: 0100000000000000)
+REG WRITE: Latched 000000bb (Renable mask: 0100000000000000)
 [338000 ns] State T0 | Bus = 000000b3 | ALU_Sel = 12
 
---------------------------------------------------------
 [340000 ns] FETCH: PC = 000000b4 | IR = 0ecd8000
---------------------------------------------------------
 [340000 ns] State T1 | Bus = 00000015 | ALU_Sel = 13
 [342000 ns] State T2 | Bus = 00000005 | ALU_Sel = 13
 [344000 ns] State T3 | Bus = 00000010 | ALU_Sel = 13
-          -> REG WRITE: Latched 00000010 (Renable mask: 0010000000000000)
+REG WRITE: Latched 00000010 (Renable mask: 0010000000000000)
 [346000 ns] State T0 | Bus = 000000b4 | ALU_Sel = 13
 
---------------------------------------------------------
 [348000 ns] FETCH: PC = 000000b5 | IR = 0f768000
---------------------------------------------------------
 [348000 ns] State T1 | Bus = 000000bb | ALU_Sel = 13
 [350000 ns] State T2 | Bus = 00000010 | ALU_Sel = 13
 [352000 ns] State T3 | Bus = 000000ab | ALU_Sel = 13
-          -> REG WRITE: Latched 000000ab (Renable mask: 0100000000000000)
+REG WRITE: Latched 000000ab (Renable mask: 0100000000000000)
 [354000 ns] State T0 | Bus = 000000b5 | ALU_Sel = 13
 
---------------------------------------------------------
 [356000 ns] FETCH: PC = 000000b6 | IR = a6000000
---------------------------------------------------------
-[356000 ns] State T1 | Bus = 00000000 | ALU_Sel = 0
-[358000 ns] State T0 | Bus = 00000000 | ALU_Sel = 0
+[356000 ns] State T1 | Bus = 00000029 | ALU_Sel = 0
+[358000 ns] State T0 | Bus = 00000029 | ALU_Sel = 0
+
+[360000 ns] FETCH: PC = 0000002a | IR = d8000000
+[360000 ns] State T1 | Bus = 00000614 | ALU_Sel = 0
+
+HALT INSTRUCTION REACHED
+
+Final States:
+R0:  00000614 | R1:  00000000
+R2:  00000004 | R3:  00000019
+R4:  00006800 | R5:  00000680
+R6:  000000af | R7:  00000007
+R8:  00000009 | R9:  00000015
+R10: 000000b2 | R11: 00000005
+R12: 00000029 | R13: 00000010
+R14: 000000ab | R15: 00000000
+HI:  00000004 | LO:  00000003
+MAR: 00000089 | MDR: 0000006c
+MEM[0x89]: 0000006c | MEM[0xA3]: 00000008
 
---------------------------------------------------------
-[360000 ns] FETCH: PC = 00000001 | IR = 8a800043
---------------------------------------------------------
-[360000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[362000 ns] State T2 | Bus = 00000043 | ALU_Sel = 12
-[364000 ns] State T3 | Bus = 00000043 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000043 (Renable mask: 0000000000100000)
-[366000 ns] State T0 | Bus = 00000001 | ALU_Sel = 12
-
---------------------------------------------------------
-[368000 ns] FETCH: PC = 00000002 | IR = 8aa80006
---------------------------------------------------------
-[368000 ns] State T1 | Bus = 00000043 | ALU_Sel = 12
-[370000 ns] State T2 | Bus = 00000006 | ALU_Sel = 12
-[372000 ns] State T3 | Bus = 00000049 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000049 (Renable mask: 0000000000100000)
-[374000 ns] State T0 | Bus = 00000002 | ALU_Sel = 12
-
---------------------------------------------------------
-[376000 ns] FETCH: PC = 00000003 | IR = 82000089
---------------------------------------------------------
-[376000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[378000 ns] State T2 | Bus = 00000089 | ALU_Sel = 12
-[380000 ns] State T3 | Bus = 00000089 | ALU_Sel = 12
-[382000 ns] State T4 | Bus = 00000029 | ALU_Sel = 12
-[384000 ns] State T5 | Bus = 0000006c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006c (Renable mask: 0000000000010000)
-[386000 ns] State T0 | Bus = 00000003 | ALU_Sel = 12
-
---------------------------------------------------------
-[388000 ns] FETCH: PC = 00000004 | IR = 8a200004
---------------------------------------------------------
-[388000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[390000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[392000 ns] State T3 | Bus = 00000070 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000070 (Renable mask: 0000000000010000)
-[394000 ns] State T0 | Bus = 00000004 | ALU_Sel = 12
-
---------------------------------------------------------
-[396000 ns] FETCH: PC = 00000005 | IR = 8027fff8
---------------------------------------------------------
-[396000 ns] State T1 | Bus = 00000070 | ALU_Sel = 12
-[398000 ns] State T2 | Bus = fffffff8 | ALU_Sel = 12
-[400000 ns] State T3 | Bus = 00000068 | ALU_Sel = 12
-[402000 ns] State T4 | Bus = 00000029 | ALU_Sel = 12
-[404000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000000001)
-[406000 ns] State T0 | Bus = 00000005 | ALU_Sel = 12
-
---------------------------------------------------------
-[408000 ns] FETCH: PC = 00000006 | IR = 89000004
---------------------------------------------------------
-[408000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[410000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[412000 ns] State T3 | Bus = 00000004 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000004 (Renable mask: 0000000000000100)
-[414000 ns] State T0 | Bus = 00000006 | ALU_Sel = 12
-
---------------------------------------------------------
-[416000 ns] FETCH: PC = 00000007 | IR = 8a800087
---------------------------------------------------------
-[416000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[418000 ns] State T2 | Bus = 00000087 | ALU_Sel = 12
-[420000 ns] State T3 | Bus = 00000087 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000087 (Renable mask: 0000000000100000)
-[422000 ns] State T0 | Bus = 00000007 | ALU_Sel = 12
-
---------------------------------------------------------
-[424000 ns] FETCH: PC = 00000008 | IR = aa980003
---------------------------------------------------------
-[424000 ns] State T1 | Bus = 00000087 | ALU_Sel = 12
-[426000 ns] State T2 | Bus = 00000008 | ALU_Sel = 12
-[428000 ns] State T3 | Bus = 00000003 | ALU_Sel = 12
-[430000 ns] State T4 | Bus = 0000000b | ALU_Sel = 12
-          -> BRANCH TAKEN! Next PC = 0000000b
-[432000 ns] State T0 | Bus = 00000008 | ALU_Sel = 12
-
---------------------------------------------------------
-[434000 ns] FETCH: PC = 00000009 | IR = 8aa80005
---------------------------------------------------------
-[434000 ns] State T1 | Bus = 00000087 | ALU_Sel = 12
-[436000 ns] State T2 | Bus = 00000005 | ALU_Sel = 12
-[438000 ns] State T3 | Bus = 0000008c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000008c (Renable mask: 0000000000100000)
-[440000 ns] State T0 | Bus = 00000009 | ALU_Sel = 12
-
---------------------------------------------------------
-[442000 ns] FETCH: PC = 0000000a | IR = 80affffd
---------------------------------------------------------
-[442000 ns] State T1 | Bus = 0000008c | ALU_Sel = 12
-[444000 ns] State T2 | Bus = fffffffd | ALU_Sel = 12
-[446000 ns] State T3 | Bus = 00000089 | ALU_Sel = 12
-[448000 ns] State T4 | Bus = xxxxxxxx | ALU_Sel = 12
-[450000 ns] State T5 | Bus = 0000006c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006c (Renable mask: 0000000000000010)
-[452000 ns] State T0 | Bus = 0000000a | ALU_Sel = 12
-
---------------------------------------------------------
-[454000 ns] FETCH: PC = 0000000b | IR = d0000000
---------------------------------------------------------
-[454000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 0
-[456000 ns] State T0 | Bus = 0000000b | ALU_Sel = 0
-
---------------------------------------------------------
-[458000 ns] FETCH: PC = 0000000c | IR = a8900002
---------------------------------------------------------
-[458000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[460000 ns] State T2 | Bus = 0000000c | ALU_Sel = 12
-[462000 ns] State T3 | Bus = 00000002 | ALU_Sel = 12
-[464000 ns] State T4 | Bus = 0000000e | ALU_Sel = 12
-          -> BRANCH TAKEN! Next PC = 0000000e
-[466000 ns] State T0 | Bus = 0000000e | ALU_Sel = 12
-
---------------------------------------------------------
-[468000 ns] FETCH: PC = 0000000f | IR = 03a90000
---------------------------------------------------------
-[468000 ns] State T1 | Bus = 0000008c | ALU_Sel = 12
-[470000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[472000 ns] State T3 | Bus = 00000090 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000090 (Renable mask: 0000000010000000)
-[474000 ns] State T0 | Bus = 0000000f | ALU_Sel = 12
-
---------------------------------------------------------
-[476000 ns] FETCH: PC = 00000010 | IR = 48880003
---------------------------------------------------------
-[476000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[478000 ns] State T2 | Bus = 00000003 | ALU_Sel = 12
-[480000 ns] State T3 | Bus = 0000006f | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006f (Renable mask: 0000000000000010)
-[482000 ns] State T0 | Bus = 00000010 | ALU_Sel = 12
-
---------------------------------------------------------
-[484000 ns] FETCH: PC = 00000011 | IR = 70880000
---------------------------------------------------------
-[484000 ns] State T1 | Bus = 0000006f | ALU_Sel = 6
-[486000 ns] State T2 | Bus = 0000006f | ALU_Sel = 6
-[488000 ns] State T3 | Bus = ffffff91 | ALU_Sel = 6
-          -> REG WRITE: Latched ffffff91 (Renable mask: 0000000000000010)
-[490000 ns] State T0 | Bus = 00000011 | ALU_Sel = 6
-
---------------------------------------------------------
-[492000 ns] FETCH: PC = 00000012 | IR = 78880000
---------------------------------------------------------
-[492000 ns] State T1 | Bus = ffffff91 | ALU_Sel = 3
-[494000 ns] State T2 | Bus = ffffff91 | ALU_Sel = 3
-[496000 ns] State T3 | Bus = 0000006e | ALU_Sel = 3
-          -> REG WRITE: Latched 0000006e (Renable mask: 0000000000000010)
-[498000 ns] State T0 | Bus = 00000012 | ALU_Sel = 3
-
---------------------------------------------------------
-[500000 ns] FETCH: PC = 00000013 | IR = 5088000f
---------------------------------------------------------
-[500000 ns] State T1 | Bus = 0000006e | ALU_Sel = 1
-[502000 ns] State T2 | Bus = 0000000f | ALU_Sel = 1
-[504000 ns] State T3 | Bus = 0000000e | ALU_Sel = 1
-          -> REG WRITE: Latched 0000000e (Renable mask: 0000000000000010)
-[506000 ns] State T0 | Bus = 00000013 | ALU_Sel = 1
-
---------------------------------------------------------
-[508000 ns] FETCH: PC = 00000014 | IR = 3a010000
---------------------------------------------------------
-[508000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 8
-[510000 ns] State T2 | Bus = 00000004 | ALU_Sel = 8
-[512000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 8
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[514000 ns] State T0 | Bus = 00000014 | ALU_Sel = 8
-
---------------------------------------------------------
-[516000 ns] FETCH: PC = 00000015 | IR = 58a00005
---------------------------------------------------------
-[516000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 2
-[518000 ns] State T2 | Bus = 00000005 | ALU_Sel = 2
-[520000 ns] State T3 | Bus = xxxxxxxX | ALU_Sel = 2
-          -> REG WRITE: Latched xxxxxxxX (Renable mask: 0000000000000010)
-[522000 ns] State T0 | Bus = 00000015 | ALU_Sel = 2
-
---------------------------------------------------------
-[524000 ns] FETCH: PC = 00000016 | IR = 2a090000
---------------------------------------------------------
-[524000 ns] State T1 | Bus = xxxxxxxX | ALU_Sel = 11
-[526000 ns] State T2 | Bus = 00000004 | ALU_Sel = 11
-[528000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 11
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[530000 ns] State T0 | Bus = 00000016 | ALU_Sel = 11
-
---------------------------------------------------------
-[532000 ns] FETCH: PC = 00000017 | IR = 22a90000
---------------------------------------------------------
-[532000 ns] State T1 | Bus = 0000008c | ALU_Sel = 10
-[534000 ns] State T2 | Bus = 00000004 | ALU_Sel = 10
-[536000 ns] State T3 | Bus = 00000008 | ALU_Sel = 10
-          -> REG WRITE: Latched 00000008 (Renable mask: 0000000000100000)
-[538000 ns] State T0 | Bus = 00000017 | ALU_Sel = 10
-
---------------------------------------------------------
-[540000 ns] FETCH: PC = 00000018 | IR = 928000a3
---------------------------------------------------------
-[540000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[542000 ns] State T2 | Bus = 000000a3 | ALU_Sel = 12
-[544000 ns] State T3 | Bus = 000000a3 | ALU_Sel = 12
-[546000 ns] State T4 | Bus = 00000008 | ALU_Sel = 12
-[548000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> MEM WRITE: Addr [0a3] <= xxxxxxxx
-[550000 ns] State T0 | Bus = 00000018 | ALU_Sel = 12
-
---------------------------------------------------------
-[552000 ns] FETCH: PC = 00000019 | IR = 42810000
---------------------------------------------------------
-[552000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 7
-[554000 ns] State T2 | Bus = 00000004 | ALU_Sel = 7
-[556000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 7
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000100000)
-[558000 ns] State T0 | Bus = 00000019 | ALU_Sel = 7
-
---------------------------------------------------------
-[560000 ns] FETCH: PC = 0000001a | IR = 1b900000
---------------------------------------------------------
-[560000 ns] State T1 | Bus = 00000004 | ALU_Sel = 2
-[562000 ns] State T2 | Bus = xxxxxxxx | ALU_Sel = 2
-[564000 ns] State T3 | Bus = xxxxxxxX | ALU_Sel = 2
-          -> REG WRITE: Latched xxxxxxxX (Renable mask: 0000000010000000)
-[566000 ns] State T0 | Bus = 0000001a | ALU_Sel = 2
-
---------------------------------------------------------
-[568000 ns] FETCH: PC = 0000001b | IR = 12280000
---------------------------------------------------------
-[568000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 1
-[570000 ns] State T2 | Bus = xxxxxxxx | ALU_Sel = 1
-[572000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 1
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[574000 ns] State T0 | Bus = 0000001b | ALU_Sel = 1
-
---------------------------------------------------------
-[576000 ns] FETCH: PC = 0000001c | IR = 93a00089
---------------------------------------------------------
-[576000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 12
-[578000 ns] State T2 | Bus = 00000089 | ALU_Sel = 12
-[580000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 12
-[582000 ns] State T4 | Bus = xxxxxxxX | ALU_Sel = 12
-[584000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> MEM WRITE: Addr [xxx] <= xxxxxxxx
-[586000 ns] State T0 | Bus = 0000001c | ALU_Sel = 12
-
---------------------------------------------------------
-[588000 ns] FETCH: PC = 0000001d | IR = 082b8000
---------------------------------------------------------
-[588000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 13
-[590000 ns] State T2 | Bus = xxxxxxxX | ALU_Sel = 13
-[592000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 13
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000000001)
-[594000 ns] State T0 | Bus = 0000001d | ALU_Sel = 13
-
---------------------------------------------------------
-[596000 ns] FETCH: PC = 0000001e | IR = 32290000
---------------------------------------------------------
-[596000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 9
-[598000 ns] State T2 | Bus = 00000004 | ALU_Sel = 9
-[600000 ns] State T3 | Bus = xxxxxxx0 | ALU_Sel = 9
-          -> REG WRITE: Latched xxxxxxx0 (Renable mask: 0000000000010000)
-[602000 ns] State T0 | Bus = 0000001e | ALU_Sel = 9
-
---------------------------------------------------------
-[604000 ns] FETCH: PC = 0000001f | IR = 8b800007
---------------------------------------------------------
-[604000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[606000 ns] State T2 | Bus = 00000007 | ALU_Sel = 12
-[608000 ns] State T3 | Bus = 00000007 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000007 (Renable mask: 0000000010000000)
-[610000 ns] State T0 | Bus = 0000001f | ALU_Sel = 12
-
---------------------------------------------------------
-[612000 ns] FETCH: PC = 00000020 | IR = 89800019
---------------------------------------------------------
-[612000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[614000 ns] State T2 | Bus = 00000019 | ALU_Sel = 12
-[616000 ns] State T3 | Bus = 00000019 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000019 (Renable mask: 0000000000001000)
-[618000 ns] State T0 | Bus = 00000020 | ALU_Sel = 12
-
---------------------------------------------------------
-[620000 ns] FETCH: PC = 00000021 | IR = 69b80000
---------------------------------------------------------
-[620000 ns] State T1 | Bus = 00000019 | ALU_Sel = 14
-[622000 ns] State T2 | Bus = 00000007 | ALU_Sel = 14
-[624000 ns] State T3 | Bus = 000000af | ALU_Sel = 14
-[626000 ns] State T4 | Bus = 00000000 | ALU_Sel = 14
-[628000 ns] State T0 | Bus = 00000021 | ALU_Sel = 14
-
---------------------------------------------------------
-[630000 ns] FETCH: PC = 00000022 | IR = c0800000
---------------------------------------------------------
-[630000 ns] State T1 | Bus = 00000000 | ALU_Sel = 0
-          -> REG WRITE: Latched 00000000 (Renable mask: 0000000000000010)
-[632000 ns] State T0 | Bus = 00000022 | ALU_Sel = 0
-
---------------------------------------------------------
-[634000 ns] FETCH: PC = 00000023 | IR = cb000000
---------------------------------------------------------
-[634000 ns] State T1 | Bus = 000000af | ALU_Sel = 0
-          -> REG WRITE: Latched 000000af (Renable mask: 0000000001000000)
-[636000 ns] State T0 | Bus = 00000023 | ALU_Sel = 0
-
---------------------------------------------------------
-[638000 ns] FETCH: PC = 00000024 | IR = 61b80000
---------------------------------------------------------
-[638000 ns] State T1 | Bus = 00000019 | ALU_Sel = 15
-[640000 ns] State T2 | Bus = 00000007 | ALU_Sel = 15
-[642000 ns] State T3 | Bus = 00000003 | ALU_Sel = 15
-[644000 ns] State T4 | Bus = 00000004 | ALU_Sel = 15
-[646000 ns] State T0 | Bus = 00000024 | ALU_Sel = 15
-
---------------------------------------------------------
-[648000 ns] FETCH: PC = 00000025 | IR = 8c380002
---------------------------------------------------------
-[648000 ns] State T1 | Bus = 00000007 | ALU_Sel = 12
-[650000 ns] State T2 | Bus = 00000002 | ALU_Sel = 12
-[652000 ns] State T3 | Bus = 00000009 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000009 (Renable mask: 0000000100000000)
-[654000 ns] State T0 | Bus = 00000025 | ALU_Sel = 12
-
---------------------------------------------------------
-[656000 ns] FETCH: PC = 00000026 | IR = 8c9ffffc
---------------------------------------------------------
-[656000 ns] State T1 | Bus = 00000019 | ALU_Sel = 12
-[658000 ns] State T2 | Bus = fffffffc | ALU_Sel = 12
-[660000 ns] State T3 | Bus = 00000015 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000015 (Renable mask: 0000001000000000)
-[662000 ns] State T0 | Bus = 00000026 | ALU_Sel = 12
-
---------------------------------------------------------
-[664000 ns] FETCH: PC = 00000027 | IR = 8d300003
---------------------------------------------------------
-[664000 ns] State T1 | Bus = 000000af | ALU_Sel = 12
-[666000 ns] State T2 | Bus = 00000003 | ALU_Sel = 12
-[668000 ns] State T3 | Bus = 000000b2 | ALU_Sel = 12
-          -> REG WRITE: Latched 000000b2 (Renable mask: 0000010000000000)
-[670000 ns] State T0 | Bus = 00000027 | ALU_Sel = 12
-
---------------------------------------------------------
-[672000 ns] FETCH: PC = 00000028 | IR = 8d880005
---------------------------------------------------------
-[672000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[674000 ns] State T2 | Bus = 00000005 | ALU_Sel = 12
-[676000 ns] State T3 | Bus = 00000005 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000005 (Renable mask: 0000100000000000)
-[678000 ns] State T0 | Bus = 00000028 | ALU_Sel = 12
-
---------------------------------------------------------
-[680000 ns] FETCH: PC = 00000029 | IR = 9d000000
---------------------------------------------------------
-[680000 ns] State T1 | Bus = 00000029 | ALU_Sel = 0
-          -> REG WRITE: Latched 00000029 (Renable mask: 0000000000000001)
-[682000 ns] State T2 | Bus = 000000b2 | ALU_Sel = 0
-[684000 ns] State T0 | Bus = 000000b2 | ALU_Sel = 0
-
---------------------------------------------------------
-[686000 ns] FETCH: PC = 000000b3 | IR = 07450000
---------------------------------------------------------
-[686000 ns] State T1 | Bus = 00000009 | ALU_Sel = 12
-[688000 ns] State T2 | Bus = 000000b2 | ALU_Sel = 12
-[690000 ns] State T3 | Bus = 000000bb | ALU_Sel = 12
-          -> REG WRITE: Latched 000000bb (Renable mask: 0100000000000000)
-[692000 ns] State T0 | Bus = 000000b3 | ALU_Sel = 12
-
---------------------------------------------------------
-[694000 ns] FETCH: PC = 000000b4 | IR = 0ecd8000
---------------------------------------------------------
-[694000 ns] State T1 | Bus = 00000015 | ALU_Sel = 13
-[696000 ns] State T2 | Bus = 00000005 | ALU_Sel = 13
-[698000 ns] State T3 | Bus = 00000010 | ALU_Sel = 13
-          -> REG WRITE: Latched 00000010 (Renable mask: 0010000000000000)
-[700000 ns] State T0 | Bus = 000000b4 | ALU_Sel = 13
-
---------------------------------------------------------
-[702000 ns] FETCH: PC = 000000b5 | IR = 0f768000
---------------------------------------------------------
-[702000 ns] State T1 | Bus = 000000bb | ALU_Sel = 13
-[704000 ns] State T2 | Bus = 00000010 | ALU_Sel = 13
-[706000 ns] State T3 | Bus = 000000ab | ALU_Sel = 13
-          -> REG WRITE: Latched 000000ab (Renable mask: 0100000000000000)
-[708000 ns] State T0 | Bus = 000000b5 | ALU_Sel = 13
-
---------------------------------------------------------
-[710000 ns] FETCH: PC = 000000b6 | IR = a6000000
---------------------------------------------------------
-[710000 ns] State T1 | Bus = 00000000 | ALU_Sel = 0
-[712000 ns] State T0 | Bus = 00000000 | ALU_Sel = 0
-
---------------------------------------------------------
-[714000 ns] FETCH: PC = 00000001 | IR = 8a800043
---------------------------------------------------------
-[714000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[716000 ns] State T2 | Bus = 00000043 | ALU_Sel = 12
-[718000 ns] State T3 | Bus = 00000043 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000043 (Renable mask: 0000000000100000)
-[720000 ns] State T0 | Bus = 00000001 | ALU_Sel = 12
-
---------------------------------------------------------
-[722000 ns] FETCH: PC = 00000002 | IR = 8aa80006
---------------------------------------------------------
-[722000 ns] State T1 | Bus = 00000043 | ALU_Sel = 12
-[724000 ns] State T2 | Bus = 00000006 | ALU_Sel = 12
-[726000 ns] State T3 | Bus = 00000049 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000049 (Renable mask: 0000000000100000)
-[728000 ns] State T0 | Bus = 00000002 | ALU_Sel = 12
-
---------------------------------------------------------
-[730000 ns] FETCH: PC = 00000003 | IR = 82000089
---------------------------------------------------------
-[730000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[732000 ns] State T2 | Bus = 00000089 | ALU_Sel = 12
-[734000 ns] State T3 | Bus = 00000089 | ALU_Sel = 12
-[736000 ns] State T4 | Bus = 00000029 | ALU_Sel = 12
-[738000 ns] State T5 | Bus = 0000006c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006c (Renable mask: 0000000000010000)
-[740000 ns] State T0 | Bus = 00000003 | ALU_Sel = 12
-
---------------------------------------------------------
-[742000 ns] FETCH: PC = 00000004 | IR = 8a200004
---------------------------------------------------------
-[742000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[744000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[746000 ns] State T3 | Bus = 00000070 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000070 (Renable mask: 0000000000010000)
-[748000 ns] State T0 | Bus = 00000004 | ALU_Sel = 12
-
---------------------------------------------------------
-[750000 ns] FETCH: PC = 00000005 | IR = 8027fff8
---------------------------------------------------------
-[750000 ns] State T1 | Bus = 00000070 | ALU_Sel = 12
-[752000 ns] State T2 | Bus = fffffff8 | ALU_Sel = 12
-[754000 ns] State T3 | Bus = 00000068 | ALU_Sel = 12
-[756000 ns] State T4 | Bus = 00000029 | ALU_Sel = 12
-[758000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000000001)
-[760000 ns] State T0 | Bus = 00000005 | ALU_Sel = 12
-
---------------------------------------------------------
-[762000 ns] FETCH: PC = 00000006 | IR = 89000004
---------------------------------------------------------
-[762000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[764000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[766000 ns] State T3 | Bus = 00000004 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000004 (Renable mask: 0000000000000100)
-[768000 ns] State T0 | Bus = 00000006 | ALU_Sel = 12
-
---------------------------------------------------------
-[770000 ns] FETCH: PC = 00000007 | IR = 8a800087
---------------------------------------------------------
-[770000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[772000 ns] State T2 | Bus = 00000087 | ALU_Sel = 12
-[774000 ns] State T3 | Bus = 00000087 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000087 (Renable mask: 0000000000100000)
-[776000 ns] State T0 | Bus = 00000007 | ALU_Sel = 12
-
---------------------------------------------------------
-[778000 ns] FETCH: PC = 00000008 | IR = aa980003
---------------------------------------------------------
-[778000 ns] State T1 | Bus = 00000087 | ALU_Sel = 12
-[780000 ns] State T2 | Bus = 00000008 | ALU_Sel = 12
-[782000 ns] State T3 | Bus = 00000003 | ALU_Sel = 12
-[784000 ns] State T4 | Bus = 0000000b | ALU_Sel = 12
-          -> BRANCH TAKEN! Next PC = 0000000b
-[786000 ns] State T0 | Bus = 00000008 | ALU_Sel = 12
-
---------------------------------------------------------
-[788000 ns] FETCH: PC = 00000009 | IR = 8aa80005
---------------------------------------------------------
-[788000 ns] State T1 | Bus = 00000087 | ALU_Sel = 12
-[790000 ns] State T2 | Bus = 00000005 | ALU_Sel = 12
-[792000 ns] State T3 | Bus = 0000008c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000008c (Renable mask: 0000000000100000)
-[794000 ns] State T0 | Bus = 00000009 | ALU_Sel = 12
-
---------------------------------------------------------
-[796000 ns] FETCH: PC = 0000000a | IR = 80affffd
---------------------------------------------------------
-[796000 ns] State T1 | Bus = 0000008c | ALU_Sel = 12
-[798000 ns] State T2 | Bus = fffffffd | ALU_Sel = 12
-[800000 ns] State T3 | Bus = 00000089 | ALU_Sel = 12
-[802000 ns] State T4 | Bus = xxxxxxxx | ALU_Sel = 12
-[804000 ns] State T5 | Bus = 0000006c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006c (Renable mask: 0000000000000010)
-[806000 ns] State T0 | Bus = 0000000a | ALU_Sel = 12
-
---------------------------------------------------------
-[808000 ns] FETCH: PC = 0000000b | IR = d0000000
---------------------------------------------------------
-[808000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 0
-[810000 ns] State T0 | Bus = 0000000b | ALU_Sel = 0
-
---------------------------------------------------------
-[812000 ns] FETCH: PC = 0000000c | IR = a8900002
---------------------------------------------------------
-[812000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[814000 ns] State T2 | Bus = 0000000c | ALU_Sel = 12
-[816000 ns] State T3 | Bus = 00000002 | ALU_Sel = 12
-[818000 ns] State T4 | Bus = 0000000e | ALU_Sel = 12
-          -> BRANCH TAKEN! Next PC = 0000000e
-[820000 ns] State T0 | Bus = 0000000e | ALU_Sel = 12
-
---------------------------------------------------------
-[822000 ns] FETCH: PC = 0000000f | IR = 03a90000
---------------------------------------------------------
-[822000 ns] State T1 | Bus = 0000008c | ALU_Sel = 12
-[824000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[826000 ns] State T3 | Bus = 00000090 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000090 (Renable mask: 0000000010000000)
-[828000 ns] State T0 | Bus = 0000000f | ALU_Sel = 12
-
---------------------------------------------------------
-[830000 ns] FETCH: PC = 00000010 | IR = 48880003
---------------------------------------------------------
-[830000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[832000 ns] State T2 | Bus = 00000003 | ALU_Sel = 12
-[834000 ns] State T3 | Bus = 0000006f | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006f (Renable mask: 0000000000000010)
-[836000 ns] State T0 | Bus = 00000010 | ALU_Sel = 12
-
---------------------------------------------------------
-[838000 ns] FETCH: PC = 00000011 | IR = 70880000
---------------------------------------------------------
-[838000 ns] State T1 | Bus = 0000006f | ALU_Sel = 6
-[840000 ns] State T2 | Bus = 0000006f | ALU_Sel = 6
-[842000 ns] State T3 | Bus = ffffff91 | ALU_Sel = 6
-          -> REG WRITE: Latched ffffff91 (Renable mask: 0000000000000010)
-[844000 ns] State T0 | Bus = 00000011 | ALU_Sel = 6
-
---------------------------------------------------------
-[846000 ns] FETCH: PC = 00000012 | IR = 78880000
---------------------------------------------------------
-[846000 ns] State T1 | Bus = ffffff91 | ALU_Sel = 3
-[848000 ns] State T2 | Bus = ffffff91 | ALU_Sel = 3
-[850000 ns] State T3 | Bus = 0000006e | ALU_Sel = 3
-          -> REG WRITE: Latched 0000006e (Renable mask: 0000000000000010)
-[852000 ns] State T0 | Bus = 00000012 | ALU_Sel = 3
-
---------------------------------------------------------
-[854000 ns] FETCH: PC = 00000013 | IR = 5088000f
---------------------------------------------------------
-[854000 ns] State T1 | Bus = 0000006e | ALU_Sel = 1
-[856000 ns] State T2 | Bus = 0000000f | ALU_Sel = 1
-[858000 ns] State T3 | Bus = 0000000e | ALU_Sel = 1
-          -> REG WRITE: Latched 0000000e (Renable mask: 0000000000000010)
-[860000 ns] State T0 | Bus = 00000013 | ALU_Sel = 1
-
---------------------------------------------------------
-[862000 ns] FETCH: PC = 00000014 | IR = 3a010000
---------------------------------------------------------
-[862000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 8
-[864000 ns] State T2 | Bus = 00000004 | ALU_Sel = 8
-[866000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 8
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[868000 ns] State T0 | Bus = 00000014 | ALU_Sel = 8
-
---------------------------------------------------------
-[870000 ns] FETCH: PC = 00000015 | IR = 58a00005
---------------------------------------------------------
-[870000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 2
-[872000 ns] State T2 | Bus = 00000005 | ALU_Sel = 2
-[874000 ns] State T3 | Bus = xxxxxxxX | ALU_Sel = 2
-          -> REG WRITE: Latched xxxxxxxX (Renable mask: 0000000000000010)
-[876000 ns] State T0 | Bus = 00000015 | ALU_Sel = 2
-
---------------------------------------------------------
-[878000 ns] FETCH: PC = 00000016 | IR = 2a090000
---------------------------------------------------------
-[878000 ns] State T1 | Bus = xxxxxxxX | ALU_Sel = 11
-[880000 ns] State T2 | Bus = 00000004 | ALU_Sel = 11
-[882000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 11
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[884000 ns] State T0 | Bus = 00000016 | ALU_Sel = 11
-
---------------------------------------------------------
-[886000 ns] FETCH: PC = 00000017 | IR = 22a90000
---------------------------------------------------------
-[886000 ns] State T1 | Bus = 0000008c | ALU_Sel = 10
-[888000 ns] State T2 | Bus = 00000004 | ALU_Sel = 10
-[890000 ns] State T3 | Bus = 00000008 | ALU_Sel = 10
-          -> REG WRITE: Latched 00000008 (Renable mask: 0000000000100000)
-[892000 ns] State T0 | Bus = 00000017 | ALU_Sel = 10
-
---------------------------------------------------------
-[894000 ns] FETCH: PC = 00000018 | IR = 928000a3
---------------------------------------------------------
-[894000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[896000 ns] State T2 | Bus = 000000a3 | ALU_Sel = 12
-[898000 ns] State T3 | Bus = 000000a3 | ALU_Sel = 12
-[900000 ns] State T4 | Bus = 00000008 | ALU_Sel = 12
-[902000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> MEM WRITE: Addr [0a3] <= xxxxxxxx
-[904000 ns] State T0 | Bus = 00000018 | ALU_Sel = 12
-
---------------------------------------------------------
-[906000 ns] FETCH: PC = 00000019 | IR = 42810000
---------------------------------------------------------
-[906000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 7
-[908000 ns] State T2 | Bus = 00000004 | ALU_Sel = 7
-[910000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 7
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000100000)
-[912000 ns] State T0 | Bus = 00000019 | ALU_Sel = 7
-
---------------------------------------------------------
-[914000 ns] FETCH: PC = 0000001a | IR = 1b900000
---------------------------------------------------------
-[914000 ns] State T1 | Bus = 00000004 | ALU_Sel = 2
-[916000 ns] State T2 | Bus = xxxxxxxx | ALU_Sel = 2
-[918000 ns] State T3 | Bus = xxxxxxxX | ALU_Sel = 2
-          -> REG WRITE: Latched xxxxxxxX (Renable mask: 0000000010000000)
-[920000 ns] State T0 | Bus = 0000001a | ALU_Sel = 2
-
---------------------------------------------------------
-[922000 ns] FETCH: PC = 0000001b | IR = 12280000
---------------------------------------------------------
-[922000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 1
-[924000 ns] State T2 | Bus = xxxxxxxx | ALU_Sel = 1
-[926000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 1
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[928000 ns] State T0 | Bus = 0000001b | ALU_Sel = 1
-
---------------------------------------------------------
-[930000 ns] FETCH: PC = 0000001c | IR = 93a00089
---------------------------------------------------------
-[930000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 12
-[932000 ns] State T2 | Bus = 00000089 | ALU_Sel = 12
-[934000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 12
-[936000 ns] State T4 | Bus = xxxxxxxX | ALU_Sel = 12
-[938000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> MEM WRITE: Addr [xxx] <= xxxxxxxx
-[940000 ns] State T0 | Bus = 0000001c | ALU_Sel = 12
-
---------------------------------------------------------
-[942000 ns] FETCH: PC = 0000001d | IR = 082b8000
---------------------------------------------------------
-[942000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 13
-[944000 ns] State T2 | Bus = xxxxxxxX | ALU_Sel = 13
-[946000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 13
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000000001)
-[948000 ns] State T0 | Bus = 0000001d | ALU_Sel = 13
-
---------------------------------------------------------
-[950000 ns] FETCH: PC = 0000001e | IR = 32290000
---------------------------------------------------------
-[950000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 9
-[952000 ns] State T2 | Bus = 00000004 | ALU_Sel = 9
-[954000 ns] State T3 | Bus = xxxxxxx0 | ALU_Sel = 9
-          -> REG WRITE: Latched xxxxxxx0 (Renable mask: 0000000000010000)
-[956000 ns] State T0 | Bus = 0000001e | ALU_Sel = 9
-
---------------------------------------------------------
-[958000 ns] FETCH: PC = 0000001f | IR = 8b800007
---------------------------------------------------------
-[958000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[960000 ns] State T2 | Bus = 00000007 | ALU_Sel = 12
-[962000 ns] State T3 | Bus = 00000007 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000007 (Renable mask: 0000000010000000)
-[964000 ns] State T0 | Bus = 0000001f | ALU_Sel = 12
-
---------------------------------------------------------
-[966000 ns] FETCH: PC = 00000020 | IR = 89800019
---------------------------------------------------------
-[966000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[968000 ns] State T2 | Bus = 00000019 | ALU_Sel = 12
-[970000 ns] State T3 | Bus = 00000019 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000019 (Renable mask: 0000000000001000)
-[972000 ns] State T0 | Bus = 00000020 | ALU_Sel = 12
-
---------------------------------------------------------
-[974000 ns] FETCH: PC = 00000021 | IR = 69b80000
---------------------------------------------------------
-[974000 ns] State T1 | Bus = 00000019 | ALU_Sel = 14
-[976000 ns] State T2 | Bus = 00000007 | ALU_Sel = 14
-[978000 ns] State T3 | Bus = 000000af | ALU_Sel = 14
-[980000 ns] State T4 | Bus = 00000000 | ALU_Sel = 14
-[982000 ns] State T0 | Bus = 00000021 | ALU_Sel = 14
-
---------------------------------------------------------
-[984000 ns] FETCH: PC = 00000022 | IR = c0800000
---------------------------------------------------------
-[984000 ns] State T1 | Bus = 00000000 | ALU_Sel = 0
-          -> REG WRITE: Latched 00000000 (Renable mask: 0000000000000010)
-[986000 ns] State T0 | Bus = 00000022 | ALU_Sel = 0
-
---------------------------------------------------------
-[988000 ns] FETCH: PC = 00000023 | IR = cb000000
---------------------------------------------------------
-[988000 ns] State T1 | Bus = 000000af | ALU_Sel = 0
-          -> REG WRITE: Latched 000000af (Renable mask: 0000000001000000)
-[990000 ns] State T0 | Bus = 00000023 | ALU_Sel = 0
-
---------------------------------------------------------
-[992000 ns] FETCH: PC = 00000024 | IR = 61b80000
---------------------------------------------------------
-[992000 ns] State T1 | Bus = 00000019 | ALU_Sel = 15
-[994000 ns] State T2 | Bus = 00000007 | ALU_Sel = 15
-[996000 ns] State T3 | Bus = 00000003 | ALU_Sel = 15
-[998000 ns] State T4 | Bus = 00000004 | ALU_Sel = 15
-[1000000 ns] State T0 | Bus = 00000024 | ALU_Sel = 15
-
---------------------------------------------------------
-[1002000 ns] FETCH: PC = 00000025 | IR = 8c380002
---------------------------------------------------------
-[1002000 ns] State T1 | Bus = 00000007 | ALU_Sel = 12
-[1004000 ns] State T2 | Bus = 00000002 | ALU_Sel = 12
-[1006000 ns] State T3 | Bus = 00000009 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000009 (Renable mask: 0000000100000000)
-[1008000 ns] State T0 | Bus = 00000025 | ALU_Sel = 12
-
---------------------------------------------------------
-[1010000 ns] FETCH: PC = 00000026 | IR = 8c9ffffc
---------------------------------------------------------
-[1010000 ns] State T1 | Bus = 00000019 | ALU_Sel = 12
-[1012000 ns] State T2 | Bus = fffffffc | ALU_Sel = 12
-[1014000 ns] State T3 | Bus = 00000015 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000015 (Renable mask: 0000001000000000)
-[1016000 ns] State T0 | Bus = 00000026 | ALU_Sel = 12
-
---------------------------------------------------------
-[1018000 ns] FETCH: PC = 00000027 | IR = 8d300003
---------------------------------------------------------
-[1018000 ns] State T1 | Bus = 000000af | ALU_Sel = 12
-[1020000 ns] State T2 | Bus = 00000003 | ALU_Sel = 12
-[1022000 ns] State T3 | Bus = 000000b2 | ALU_Sel = 12
-          -> REG WRITE: Latched 000000b2 (Renable mask: 0000010000000000)
-[1024000 ns] State T0 | Bus = 00000027 | ALU_Sel = 12
-
---------------------------------------------------------
-[1026000 ns] FETCH: PC = 00000028 | IR = 8d880005
---------------------------------------------------------
-[1026000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1028000 ns] State T2 | Bus = 00000005 | ALU_Sel = 12
-[1030000 ns] State T3 | Bus = 00000005 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000005 (Renable mask: 0000100000000000)
-[1032000 ns] State T0 | Bus = 00000028 | ALU_Sel = 12
-
---------------------------------------------------------
-[1034000 ns] FETCH: PC = 00000029 | IR = 9d000000
---------------------------------------------------------
-[1034000 ns] State T1 | Bus = 00000029 | ALU_Sel = 0
-          -> REG WRITE: Latched 00000029 (Renable mask: 0000000000000001)
-[1036000 ns] State T2 | Bus = 000000b2 | ALU_Sel = 0
-[1038000 ns] State T0 | Bus = 000000b2 | ALU_Sel = 0
-
---------------------------------------------------------
-[1040000 ns] FETCH: PC = 000000b3 | IR = 07450000
---------------------------------------------------------
-[1040000 ns] State T1 | Bus = 00000009 | ALU_Sel = 12
-[1042000 ns] State T2 | Bus = 000000b2 | ALU_Sel = 12
-[1044000 ns] State T3 | Bus = 000000bb | ALU_Sel = 12
-          -> REG WRITE: Latched 000000bb (Renable mask: 0100000000000000)
-[1046000 ns] State T0 | Bus = 000000b3 | ALU_Sel = 12
-
---------------------------------------------------------
-[1048000 ns] FETCH: PC = 000000b4 | IR = 0ecd8000
---------------------------------------------------------
-[1048000 ns] State T1 | Bus = 00000015 | ALU_Sel = 13
-[1050000 ns] State T2 | Bus = 00000005 | ALU_Sel = 13
-[1052000 ns] State T3 | Bus = 00000010 | ALU_Sel = 13
-          -> REG WRITE: Latched 00000010 (Renable mask: 0010000000000000)
-[1054000 ns] State T0 | Bus = 000000b4 | ALU_Sel = 13
-
---------------------------------------------------------
-[1056000 ns] FETCH: PC = 000000b5 | IR = 0f768000
---------------------------------------------------------
-[1056000 ns] State T1 | Bus = 000000bb | ALU_Sel = 13
-[1058000 ns] State T2 | Bus = 00000010 | ALU_Sel = 13
-[1060000 ns] State T3 | Bus = 000000ab | ALU_Sel = 13
-          -> REG WRITE: Latched 000000ab (Renable mask: 0100000000000000)
-[1062000 ns] State T0 | Bus = 000000b5 | ALU_Sel = 13
-
---------------------------------------------------------
-[1064000 ns] FETCH: PC = 000000b6 | IR = a6000000
---------------------------------------------------------
-[1064000 ns] State T1 | Bus = 00000000 | ALU_Sel = 0
-[1066000 ns] State T0 | Bus = 00000000 | ALU_Sel = 0
-
---------------------------------------------------------
-[1068000 ns] FETCH: PC = 00000001 | IR = 8a800043
---------------------------------------------------------
-[1068000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1070000 ns] State T2 | Bus = 00000043 | ALU_Sel = 12
-[1072000 ns] State T3 | Bus = 00000043 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000043 (Renable mask: 0000000000100000)
-[1074000 ns] State T0 | Bus = 00000001 | ALU_Sel = 12
-
---------------------------------------------------------
-[1076000 ns] FETCH: PC = 00000002 | IR = 8aa80006
---------------------------------------------------------
-[1076000 ns] State T1 | Bus = 00000043 | ALU_Sel = 12
-[1078000 ns] State T2 | Bus = 00000006 | ALU_Sel = 12
-[1080000 ns] State T3 | Bus = 00000049 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000049 (Renable mask: 0000000000100000)
-[1082000 ns] State T0 | Bus = 00000002 | ALU_Sel = 12
-
---------------------------------------------------------
-[1084000 ns] FETCH: PC = 00000003 | IR = 82000089
---------------------------------------------------------
-[1084000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1086000 ns] State T2 | Bus = 00000089 | ALU_Sel = 12
-[1088000 ns] State T3 | Bus = 00000089 | ALU_Sel = 12
-[1090000 ns] State T4 | Bus = 00000029 | ALU_Sel = 12
-[1092000 ns] State T5 | Bus = 0000006c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006c (Renable mask: 0000000000010000)
-[1094000 ns] State T0 | Bus = 00000003 | ALU_Sel = 12
-
---------------------------------------------------------
-[1096000 ns] FETCH: PC = 00000004 | IR = 8a200004
---------------------------------------------------------
-[1096000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[1098000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[1100000 ns] State T3 | Bus = 00000070 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000070 (Renable mask: 0000000000010000)
-[1102000 ns] State T0 | Bus = 00000004 | ALU_Sel = 12
-
---------------------------------------------------------
-[1104000 ns] FETCH: PC = 00000005 | IR = 8027fff8
---------------------------------------------------------
-[1104000 ns] State T1 | Bus = 00000070 | ALU_Sel = 12
-[1106000 ns] State T2 | Bus = fffffff8 | ALU_Sel = 12
-[1108000 ns] State T3 | Bus = 00000068 | ALU_Sel = 12
-[1110000 ns] State T4 | Bus = 00000029 | ALU_Sel = 12
-[1112000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000000001)
-[1114000 ns] State T0 | Bus = 00000005 | ALU_Sel = 12
-
---------------------------------------------------------
-[1116000 ns] FETCH: PC = 00000006 | IR = 89000004
---------------------------------------------------------
-[1116000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1118000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[1120000 ns] State T3 | Bus = 00000004 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000004 (Renable mask: 0000000000000100)
-[1122000 ns] State T0 | Bus = 00000006 | ALU_Sel = 12
-
---------------------------------------------------------
-[1124000 ns] FETCH: PC = 00000007 | IR = 8a800087
---------------------------------------------------------
-[1124000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1126000 ns] State T2 | Bus = 00000087 | ALU_Sel = 12
-[1128000 ns] State T3 | Bus = 00000087 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000087 (Renable mask: 0000000000100000)
-[1130000 ns] State T0 | Bus = 00000007 | ALU_Sel = 12
-
---------------------------------------------------------
-[1132000 ns] FETCH: PC = 00000008 | IR = aa980003
---------------------------------------------------------
-[1132000 ns] State T1 | Bus = 00000087 | ALU_Sel = 12
-[1134000 ns] State T2 | Bus = 00000008 | ALU_Sel = 12
-[1136000 ns] State T3 | Bus = 00000003 | ALU_Sel = 12
-[1138000 ns] State T4 | Bus = 0000000b | ALU_Sel = 12
-          -> BRANCH TAKEN! Next PC = 0000000b
-[1140000 ns] State T0 | Bus = 00000008 | ALU_Sel = 12
-
---------------------------------------------------------
-[1142000 ns] FETCH: PC = 00000009 | IR = 8aa80005
---------------------------------------------------------
-[1142000 ns] State T1 | Bus = 00000087 | ALU_Sel = 12
-[1144000 ns] State T2 | Bus = 00000005 | ALU_Sel = 12
-[1146000 ns] State T3 | Bus = 0000008c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000008c (Renable mask: 0000000000100000)
-[1148000 ns] State T0 | Bus = 00000009 | ALU_Sel = 12
-
---------------------------------------------------------
-[1150000 ns] FETCH: PC = 0000000a | IR = 80affffd
---------------------------------------------------------
-[1150000 ns] State T1 | Bus = 0000008c | ALU_Sel = 12
-[1152000 ns] State T2 | Bus = fffffffd | ALU_Sel = 12
-[1154000 ns] State T3 | Bus = 00000089 | ALU_Sel = 12
-[1156000 ns] State T4 | Bus = xxxxxxxx | ALU_Sel = 12
-[1158000 ns] State T5 | Bus = 0000006c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006c (Renable mask: 0000000000000010)
-[1160000 ns] State T0 | Bus = 0000000a | ALU_Sel = 12
-
---------------------------------------------------------
-[1162000 ns] FETCH: PC = 0000000b | IR = d0000000
---------------------------------------------------------
-[1162000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 0
-[1164000 ns] State T0 | Bus = 0000000b | ALU_Sel = 0
-
---------------------------------------------------------
-[1166000 ns] FETCH: PC = 0000000c | IR = a8900002
---------------------------------------------------------
-[1166000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[1168000 ns] State T2 | Bus = 0000000c | ALU_Sel = 12
-[1170000 ns] State T3 | Bus = 00000002 | ALU_Sel = 12
-[1172000 ns] State T4 | Bus = 0000000e | ALU_Sel = 12
-          -> BRANCH TAKEN! Next PC = 0000000e
-[1174000 ns] State T0 | Bus = 0000000e | ALU_Sel = 12
-
---------------------------------------------------------
-[1176000 ns] FETCH: PC = 0000000f | IR = 03a90000
---------------------------------------------------------
-[1176000 ns] State T1 | Bus = 0000008c | ALU_Sel = 12
-[1178000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[1180000 ns] State T3 | Bus = 00000090 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000090 (Renable mask: 0000000010000000)
-[1182000 ns] State T0 | Bus = 0000000f | ALU_Sel = 12
-
---------------------------------------------------------
-[1184000 ns] FETCH: PC = 00000010 | IR = 48880003
---------------------------------------------------------
-[1184000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[1186000 ns] State T2 | Bus = 00000003 | ALU_Sel = 12
-[1188000 ns] State T3 | Bus = 0000006f | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006f (Renable mask: 0000000000000010)
-[1190000 ns] State T0 | Bus = 00000010 | ALU_Sel = 12
-
---------------------------------------------------------
-[1192000 ns] FETCH: PC = 00000011 | IR = 70880000
---------------------------------------------------------
-[1192000 ns] State T1 | Bus = 0000006f | ALU_Sel = 6
-[1194000 ns] State T2 | Bus = 0000006f | ALU_Sel = 6
-[1196000 ns] State T3 | Bus = ffffff91 | ALU_Sel = 6
-          -> REG WRITE: Latched ffffff91 (Renable mask: 0000000000000010)
-[1198000 ns] State T0 | Bus = 00000011 | ALU_Sel = 6
-
---------------------------------------------------------
-[1200000 ns] FETCH: PC = 00000012 | IR = 78880000
---------------------------------------------------------
-[1200000 ns] State T1 | Bus = ffffff91 | ALU_Sel = 3
-[1202000 ns] State T2 | Bus = ffffff91 | ALU_Sel = 3
-[1204000 ns] State T3 | Bus = 0000006e | ALU_Sel = 3
-          -> REG WRITE: Latched 0000006e (Renable mask: 0000000000000010)
-[1206000 ns] State T0 | Bus = 00000012 | ALU_Sel = 3
-
---------------------------------------------------------
-[1208000 ns] FETCH: PC = 00000013 | IR = 5088000f
---------------------------------------------------------
-[1208000 ns] State T1 | Bus = 0000006e | ALU_Sel = 1
-[1210000 ns] State T2 | Bus = 0000000f | ALU_Sel = 1
-[1212000 ns] State T3 | Bus = 0000000e | ALU_Sel = 1
-          -> REG WRITE: Latched 0000000e (Renable mask: 0000000000000010)
-[1214000 ns] State T0 | Bus = 00000013 | ALU_Sel = 1
-
---------------------------------------------------------
-[1216000 ns] FETCH: PC = 00000014 | IR = 3a010000
---------------------------------------------------------
-[1216000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 8
-[1218000 ns] State T2 | Bus = 00000004 | ALU_Sel = 8
-[1220000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 8
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[1222000 ns] State T0 | Bus = 00000014 | ALU_Sel = 8
-
---------------------------------------------------------
-[1224000 ns] FETCH: PC = 00000015 | IR = 58a00005
---------------------------------------------------------
-[1224000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 2
-[1226000 ns] State T2 | Bus = 00000005 | ALU_Sel = 2
-[1228000 ns] State T3 | Bus = xxxxxxxX | ALU_Sel = 2
-          -> REG WRITE: Latched xxxxxxxX (Renable mask: 0000000000000010)
-[1230000 ns] State T0 | Bus = 00000015 | ALU_Sel = 2
-
---------------------------------------------------------
-[1232000 ns] FETCH: PC = 00000016 | IR = 2a090000
---------------------------------------------------------
-[1232000 ns] State T1 | Bus = xxxxxxxX | ALU_Sel = 11
-[1234000 ns] State T2 | Bus = 00000004 | ALU_Sel = 11
-[1236000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 11
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[1238000 ns] State T0 | Bus = 00000016 | ALU_Sel = 11
-
---------------------------------------------------------
-[1240000 ns] FETCH: PC = 00000017 | IR = 22a90000
---------------------------------------------------------
-[1240000 ns] State T1 | Bus = 0000008c | ALU_Sel = 10
-[1242000 ns] State T2 | Bus = 00000004 | ALU_Sel = 10
-[1244000 ns] State T3 | Bus = 00000008 | ALU_Sel = 10
-          -> REG WRITE: Latched 00000008 (Renable mask: 0000000000100000)
-[1246000 ns] State T0 | Bus = 00000017 | ALU_Sel = 10
-
---------------------------------------------------------
-[1248000 ns] FETCH: PC = 00000018 | IR = 928000a3
---------------------------------------------------------
-[1248000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1250000 ns] State T2 | Bus = 000000a3 | ALU_Sel = 12
-[1252000 ns] State T3 | Bus = 000000a3 | ALU_Sel = 12
-[1254000 ns] State T4 | Bus = 00000008 | ALU_Sel = 12
-[1256000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> MEM WRITE: Addr [0a3] <= xxxxxxxx
-[1258000 ns] State T0 | Bus = 00000018 | ALU_Sel = 12
-
---------------------------------------------------------
-[1260000 ns] FETCH: PC = 00000019 | IR = 42810000
---------------------------------------------------------
-[1260000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 7
-[1262000 ns] State T2 | Bus = 00000004 | ALU_Sel = 7
-[1264000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 7
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000100000)
-[1266000 ns] State T0 | Bus = 00000019 | ALU_Sel = 7
-
---------------------------------------------------------
-[1268000 ns] FETCH: PC = 0000001a | IR = 1b900000
---------------------------------------------------------
-[1268000 ns] State T1 | Bus = 00000004 | ALU_Sel = 2
-[1270000 ns] State T2 | Bus = xxxxxxxx | ALU_Sel = 2
-[1272000 ns] State T3 | Bus = xxxxxxxX | ALU_Sel = 2
-          -> REG WRITE: Latched xxxxxxxX (Renable mask: 0000000010000000)
-[1274000 ns] State T0 | Bus = 0000001a | ALU_Sel = 2
-
---------------------------------------------------------
-[1276000 ns] FETCH: PC = 0000001b | IR = 12280000
---------------------------------------------------------
-[1276000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 1
-[1278000 ns] State T2 | Bus = xxxxxxxx | ALU_Sel = 1
-[1280000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 1
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[1282000 ns] State T0 | Bus = 0000001b | ALU_Sel = 1
-
---------------------------------------------------------
-[1284000 ns] FETCH: PC = 0000001c | IR = 93a00089
---------------------------------------------------------
-[1284000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 12
-[1286000 ns] State T2 | Bus = 00000089 | ALU_Sel = 12
-[1288000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 12
-[1290000 ns] State T4 | Bus = xxxxxxxX | ALU_Sel = 12
-[1292000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> MEM WRITE: Addr [xxx] <= xxxxxxxx
-[1294000 ns] State T0 | Bus = 0000001c | ALU_Sel = 12
-
---------------------------------------------------------
-[1296000 ns] FETCH: PC = 0000001d | IR = 082b8000
---------------------------------------------------------
-[1296000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 13
-[1298000 ns] State T2 | Bus = xxxxxxxX | ALU_Sel = 13
-[1300000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 13
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000000001)
-[1302000 ns] State T0 | Bus = 0000001d | ALU_Sel = 13
-
---------------------------------------------------------
-[1304000 ns] FETCH: PC = 0000001e | IR = 32290000
---------------------------------------------------------
-[1304000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 9
-[1306000 ns] State T2 | Bus = 00000004 | ALU_Sel = 9
-[1308000 ns] State T3 | Bus = xxxxxxx0 | ALU_Sel = 9
-          -> REG WRITE: Latched xxxxxxx0 (Renable mask: 0000000000010000)
-[1310000 ns] State T0 | Bus = 0000001e | ALU_Sel = 9
-
---------------------------------------------------------
-[1312000 ns] FETCH: PC = 0000001f | IR = 8b800007
---------------------------------------------------------
-[1312000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1314000 ns] State T2 | Bus = 00000007 | ALU_Sel = 12
-[1316000 ns] State T3 | Bus = 00000007 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000007 (Renable mask: 0000000010000000)
-[1318000 ns] State T0 | Bus = 0000001f | ALU_Sel = 12
-
---------------------------------------------------------
-[1320000 ns] FETCH: PC = 00000020 | IR = 89800019
---------------------------------------------------------
-[1320000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1322000 ns] State T2 | Bus = 00000019 | ALU_Sel = 12
-[1324000 ns] State T3 | Bus = 00000019 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000019 (Renable mask: 0000000000001000)
-[1326000 ns] State T0 | Bus = 00000020 | ALU_Sel = 12
-
---------------------------------------------------------
-[1328000 ns] FETCH: PC = 00000021 | IR = 69b80000
---------------------------------------------------------
-[1328000 ns] State T1 | Bus = 00000019 | ALU_Sel = 14
-[1330000 ns] State T2 | Bus = 00000007 | ALU_Sel = 14
-[1332000 ns] State T3 | Bus = 000000af | ALU_Sel = 14
-[1334000 ns] State T4 | Bus = 00000000 | ALU_Sel = 14
-[1336000 ns] State T0 | Bus = 00000021 | ALU_Sel = 14
-
---------------------------------------------------------
-[1338000 ns] FETCH: PC = 00000022 | IR = c0800000
---------------------------------------------------------
-[1338000 ns] State T1 | Bus = 00000000 | ALU_Sel = 0
-          -> REG WRITE: Latched 00000000 (Renable mask: 0000000000000010)
-[1340000 ns] State T0 | Bus = 00000022 | ALU_Sel = 0
-
---------------------------------------------------------
-[1342000 ns] FETCH: PC = 00000023 | IR = cb000000
---------------------------------------------------------
-[1342000 ns] State T1 | Bus = 000000af | ALU_Sel = 0
-          -> REG WRITE: Latched 000000af (Renable mask: 0000000001000000)
-[1344000 ns] State T0 | Bus = 00000023 | ALU_Sel = 0
-
---------------------------------------------------------
-[1346000 ns] FETCH: PC = 00000024 | IR = 61b80000
---------------------------------------------------------
-[1346000 ns] State T1 | Bus = 00000019 | ALU_Sel = 15
-[1348000 ns] State T2 | Bus = 00000007 | ALU_Sel = 15
-[1350000 ns] State T3 | Bus = 00000003 | ALU_Sel = 15
-[1352000 ns] State T4 | Bus = 00000004 | ALU_Sel = 15
-[1354000 ns] State T0 | Bus = 00000024 | ALU_Sel = 15
-
---------------------------------------------------------
-[1356000 ns] FETCH: PC = 00000025 | IR = 8c380002
---------------------------------------------------------
-[1356000 ns] State T1 | Bus = 00000007 | ALU_Sel = 12
-[1358000 ns] State T2 | Bus = 00000002 | ALU_Sel = 12
-[1360000 ns] State T3 | Bus = 00000009 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000009 (Renable mask: 0000000100000000)
-[1362000 ns] State T0 | Bus = 00000025 | ALU_Sel = 12
-
---------------------------------------------------------
-[1364000 ns] FETCH: PC = 00000026 | IR = 8c9ffffc
---------------------------------------------------------
-[1364000 ns] State T1 | Bus = 00000019 | ALU_Sel = 12
-[1366000 ns] State T2 | Bus = fffffffc | ALU_Sel = 12
-[1368000 ns] State T3 | Bus = 00000015 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000015 (Renable mask: 0000001000000000)
-[1370000 ns] State T0 | Bus = 00000026 | ALU_Sel = 12
-
---------------------------------------------------------
-[1372000 ns] FETCH: PC = 00000027 | IR = 8d300003
---------------------------------------------------------
-[1372000 ns] State T1 | Bus = 000000af | ALU_Sel = 12
-[1374000 ns] State T2 | Bus = 00000003 | ALU_Sel = 12
-[1376000 ns] State T3 | Bus = 000000b2 | ALU_Sel = 12
-          -> REG WRITE: Latched 000000b2 (Renable mask: 0000010000000000)
-[1378000 ns] State T0 | Bus = 00000027 | ALU_Sel = 12
-
---------------------------------------------------------
-[1380000 ns] FETCH: PC = 00000028 | IR = 8d880005
---------------------------------------------------------
-[1380000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1382000 ns] State T2 | Bus = 00000005 | ALU_Sel = 12
-[1384000 ns] State T3 | Bus = 00000005 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000005 (Renable mask: 0000100000000000)
-[1386000 ns] State T0 | Bus = 00000028 | ALU_Sel = 12
-
---------------------------------------------------------
-[1388000 ns] FETCH: PC = 00000029 | IR = 9d000000
---------------------------------------------------------
-[1388000 ns] State T1 | Bus = 00000029 | ALU_Sel = 0
-          -> REG WRITE: Latched 00000029 (Renable mask: 0000000000000001)
-[1390000 ns] State T2 | Bus = 000000b2 | ALU_Sel = 0
-[1392000 ns] State T0 | Bus = 000000b2 | ALU_Sel = 0
-
---------------------------------------------------------
-[1394000 ns] FETCH: PC = 000000b3 | IR = 07450000
---------------------------------------------------------
-[1394000 ns] State T1 | Bus = 00000009 | ALU_Sel = 12
-[1396000 ns] State T2 | Bus = 000000b2 | ALU_Sel = 12
-[1398000 ns] State T3 | Bus = 000000bb | ALU_Sel = 12
-          -> REG WRITE: Latched 000000bb (Renable mask: 0100000000000000)
-[1400000 ns] State T0 | Bus = 000000b3 | ALU_Sel = 12
-
---------------------------------------------------------
-[1402000 ns] FETCH: PC = 000000b4 | IR = 0ecd8000
---------------------------------------------------------
-[1402000 ns] State T1 | Bus = 00000015 | ALU_Sel = 13
-[1404000 ns] State T2 | Bus = 00000005 | ALU_Sel = 13
-[1406000 ns] State T3 | Bus = 00000010 | ALU_Sel = 13
-          -> REG WRITE: Latched 00000010 (Renable mask: 0010000000000000)
-[1408000 ns] State T0 | Bus = 000000b4 | ALU_Sel = 13
-
---------------------------------------------------------
-[1410000 ns] FETCH: PC = 000000b5 | IR = 0f768000
---------------------------------------------------------
-[1410000 ns] State T1 | Bus = 000000bb | ALU_Sel = 13
-[1412000 ns] State T2 | Bus = 00000010 | ALU_Sel = 13
-[1414000 ns] State T3 | Bus = 000000ab | ALU_Sel = 13
-          -> REG WRITE: Latched 000000ab (Renable mask: 0100000000000000)
-[1416000 ns] State T0 | Bus = 000000b5 | ALU_Sel = 13
-
---------------------------------------------------------
-[1418000 ns] FETCH: PC = 000000b6 | IR = a6000000
---------------------------------------------------------
-[1418000 ns] State T1 | Bus = 00000000 | ALU_Sel = 0
-[1420000 ns] State T0 | Bus = 00000000 | ALU_Sel = 0
-
---------------------------------------------------------
-[1422000 ns] FETCH: PC = 00000001 | IR = 8a800043
---------------------------------------------------------
-[1422000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1424000 ns] State T2 | Bus = 00000043 | ALU_Sel = 12
-[1426000 ns] State T3 | Bus = 00000043 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000043 (Renable mask: 0000000000100000)
-[1428000 ns] State T0 | Bus = 00000001 | ALU_Sel = 12
-
---------------------------------------------------------
-[1430000 ns] FETCH: PC = 00000002 | IR = 8aa80006
---------------------------------------------------------
-[1430000 ns] State T1 | Bus = 00000043 | ALU_Sel = 12
-[1432000 ns] State T2 | Bus = 00000006 | ALU_Sel = 12
-[1434000 ns] State T3 | Bus = 00000049 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000049 (Renable mask: 0000000000100000)
-[1436000 ns] State T0 | Bus = 00000002 | ALU_Sel = 12
-
---------------------------------------------------------
-[1438000 ns] FETCH: PC = 00000003 | IR = 82000089
---------------------------------------------------------
-[1438000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1440000 ns] State T2 | Bus = 00000089 | ALU_Sel = 12
-[1442000 ns] State T3 | Bus = 00000089 | ALU_Sel = 12
-[1444000 ns] State T4 | Bus = 00000029 | ALU_Sel = 12
-[1446000 ns] State T5 | Bus = 0000006c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006c (Renable mask: 0000000000010000)
-[1448000 ns] State T0 | Bus = 00000003 | ALU_Sel = 12
-
---------------------------------------------------------
-[1450000 ns] FETCH: PC = 00000004 | IR = 8a200004
---------------------------------------------------------
-[1450000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[1452000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[1454000 ns] State T3 | Bus = 00000070 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000070 (Renable mask: 0000000000010000)
-[1456000 ns] State T0 | Bus = 00000004 | ALU_Sel = 12
-
---------------------------------------------------------
-[1458000 ns] FETCH: PC = 00000005 | IR = 8027fff8
---------------------------------------------------------
-[1458000 ns] State T1 | Bus = 00000070 | ALU_Sel = 12
-[1460000 ns] State T2 | Bus = fffffff8 | ALU_Sel = 12
-[1462000 ns] State T3 | Bus = 00000068 | ALU_Sel = 12
-[1464000 ns] State T4 | Bus = 00000029 | ALU_Sel = 12
-[1466000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000000001)
-[1468000 ns] State T0 | Bus = 00000005 | ALU_Sel = 12
-
---------------------------------------------------------
-[1470000 ns] FETCH: PC = 00000006 | IR = 89000004
---------------------------------------------------------
-[1470000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1472000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[1474000 ns] State T3 | Bus = 00000004 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000004 (Renable mask: 0000000000000100)
-[1476000 ns] State T0 | Bus = 00000006 | ALU_Sel = 12
-
---------------------------------------------------------
-[1478000 ns] FETCH: PC = 00000007 | IR = 8a800087
---------------------------------------------------------
-[1478000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1480000 ns] State T2 | Bus = 00000087 | ALU_Sel = 12
-[1482000 ns] State T3 | Bus = 00000087 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000087 (Renable mask: 0000000000100000)
-[1484000 ns] State T0 | Bus = 00000007 | ALU_Sel = 12
-
---------------------------------------------------------
-[1486000 ns] FETCH: PC = 00000008 | IR = aa980003
---------------------------------------------------------
-[1486000 ns] State T1 | Bus = 00000087 | ALU_Sel = 12
-[1488000 ns] State T2 | Bus = 00000008 | ALU_Sel = 12
-[1490000 ns] State T3 | Bus = 00000003 | ALU_Sel = 12
-[1492000 ns] State T4 | Bus = 0000000b | ALU_Sel = 12
-          -> BRANCH TAKEN! Next PC = 0000000b
-[1494000 ns] State T0 | Bus = 00000008 | ALU_Sel = 12
-
---------------------------------------------------------
-[1496000 ns] FETCH: PC = 00000009 | IR = 8aa80005
---------------------------------------------------------
-[1496000 ns] State T1 | Bus = 00000087 | ALU_Sel = 12
-[1498000 ns] State T2 | Bus = 00000005 | ALU_Sel = 12
-[1500000 ns] State T3 | Bus = 0000008c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000008c (Renable mask: 0000000000100000)
-[1502000 ns] State T0 | Bus = 00000009 | ALU_Sel = 12
-
---------------------------------------------------------
-[1504000 ns] FETCH: PC = 0000000a | IR = 80affffd
---------------------------------------------------------
-[1504000 ns] State T1 | Bus = 0000008c | ALU_Sel = 12
-[1506000 ns] State T2 | Bus = fffffffd | ALU_Sel = 12
-[1508000 ns] State T3 | Bus = 00000089 | ALU_Sel = 12
-[1510000 ns] State T4 | Bus = xxxxxxxx | ALU_Sel = 12
-[1512000 ns] State T5 | Bus = 0000006c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006c (Renable mask: 0000000000000010)
-[1514000 ns] State T0 | Bus = 0000000a | ALU_Sel = 12
-
---------------------------------------------------------
-[1516000 ns] FETCH: PC = 0000000b | IR = d0000000
---------------------------------------------------------
-[1516000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 0
-[1518000 ns] State T0 | Bus = 0000000b | ALU_Sel = 0
-
---------------------------------------------------------
-[1520000 ns] FETCH: PC = 0000000c | IR = a8900002
---------------------------------------------------------
-[1520000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[1522000 ns] State T2 | Bus = 0000000c | ALU_Sel = 12
-[1524000 ns] State T3 | Bus = 00000002 | ALU_Sel = 12
-[1526000 ns] State T4 | Bus = 0000000e | ALU_Sel = 12
-          -> BRANCH TAKEN! Next PC = 0000000e
-[1528000 ns] State T0 | Bus = 0000000e | ALU_Sel = 12
-
---------------------------------------------------------
-[1530000 ns] FETCH: PC = 0000000f | IR = 03a90000
---------------------------------------------------------
-[1530000 ns] State T1 | Bus = 0000008c | ALU_Sel = 12
-[1532000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[1534000 ns] State T3 | Bus = 00000090 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000090 (Renable mask: 0000000010000000)
-[1536000 ns] State T0 | Bus = 0000000f | ALU_Sel = 12
-
---------------------------------------------------------
-[1538000 ns] FETCH: PC = 00000010 | IR = 48880003
---------------------------------------------------------
-[1538000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[1540000 ns] State T2 | Bus = 00000003 | ALU_Sel = 12
-[1542000 ns] State T3 | Bus = 0000006f | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006f (Renable mask: 0000000000000010)
-[1544000 ns] State T0 | Bus = 00000010 | ALU_Sel = 12
-
---------------------------------------------------------
-[1546000 ns] FETCH: PC = 00000011 | IR = 70880000
---------------------------------------------------------
-[1546000 ns] State T1 | Bus = 0000006f | ALU_Sel = 6
-[1548000 ns] State T2 | Bus = 0000006f | ALU_Sel = 6
-[1550000 ns] State T3 | Bus = ffffff91 | ALU_Sel = 6
-          -> REG WRITE: Latched ffffff91 (Renable mask: 0000000000000010)
-[1552000 ns] State T0 | Bus = 00000011 | ALU_Sel = 6
-
---------------------------------------------------------
-[1554000 ns] FETCH: PC = 00000012 | IR = 78880000
---------------------------------------------------------
-[1554000 ns] State T1 | Bus = ffffff91 | ALU_Sel = 3
-[1556000 ns] State T2 | Bus = ffffff91 | ALU_Sel = 3
-[1558000 ns] State T3 | Bus = 0000006e | ALU_Sel = 3
-          -> REG WRITE: Latched 0000006e (Renable mask: 0000000000000010)
-[1560000 ns] State T0 | Bus = 00000012 | ALU_Sel = 3
-
---------------------------------------------------------
-[1562000 ns] FETCH: PC = 00000013 | IR = 5088000f
---------------------------------------------------------
-[1562000 ns] State T1 | Bus = 0000006e | ALU_Sel = 1
-[1564000 ns] State T2 | Bus = 0000000f | ALU_Sel = 1
-[1566000 ns] State T3 | Bus = 0000000e | ALU_Sel = 1
-          -> REG WRITE: Latched 0000000e (Renable mask: 0000000000000010)
-[1568000 ns] State T0 | Bus = 00000013 | ALU_Sel = 1
-
---------------------------------------------------------
-[1570000 ns] FETCH: PC = 00000014 | IR = 3a010000
---------------------------------------------------------
-[1570000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 8
-[1572000 ns] State T2 | Bus = 00000004 | ALU_Sel = 8
-[1574000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 8
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[1576000 ns] State T0 | Bus = 00000014 | ALU_Sel = 8
-
---------------------------------------------------------
-[1578000 ns] FETCH: PC = 00000015 | IR = 58a00005
---------------------------------------------------------
-[1578000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 2
-[1580000 ns] State T2 | Bus = 00000005 | ALU_Sel = 2
-[1582000 ns] State T3 | Bus = xxxxxxxX | ALU_Sel = 2
-          -> REG WRITE: Latched xxxxxxxX (Renable mask: 0000000000000010)
-[1584000 ns] State T0 | Bus = 00000015 | ALU_Sel = 2
-
---------------------------------------------------------
-[1586000 ns] FETCH: PC = 00000016 | IR = 2a090000
---------------------------------------------------------
-[1586000 ns] State T1 | Bus = xxxxxxxX | ALU_Sel = 11
-[1588000 ns] State T2 | Bus = 00000004 | ALU_Sel = 11
-[1590000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 11
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[1592000 ns] State T0 | Bus = 00000016 | ALU_Sel = 11
-
---------------------------------------------------------
-[1594000 ns] FETCH: PC = 00000017 | IR = 22a90000
---------------------------------------------------------
-[1594000 ns] State T1 | Bus = 0000008c | ALU_Sel = 10
-[1596000 ns] State T2 | Bus = 00000004 | ALU_Sel = 10
-[1598000 ns] State T3 | Bus = 00000008 | ALU_Sel = 10
-          -> REG WRITE: Latched 00000008 (Renable mask: 0000000000100000)
-[1600000 ns] State T0 | Bus = 00000017 | ALU_Sel = 10
-
---------------------------------------------------------
-[1602000 ns] FETCH: PC = 00000018 | IR = 928000a3
---------------------------------------------------------
-[1602000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1604000 ns] State T2 | Bus = 000000a3 | ALU_Sel = 12
-[1606000 ns] State T3 | Bus = 000000a3 | ALU_Sel = 12
-[1608000 ns] State T4 | Bus = 00000008 | ALU_Sel = 12
-[1610000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> MEM WRITE: Addr [0a3] <= xxxxxxxx
-[1612000 ns] State T0 | Bus = 00000018 | ALU_Sel = 12
-
---------------------------------------------------------
-[1614000 ns] FETCH: PC = 00000019 | IR = 42810000
---------------------------------------------------------
-[1614000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 7
-[1616000 ns] State T2 | Bus = 00000004 | ALU_Sel = 7
-[1618000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 7
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000100000)
-[1620000 ns] State T0 | Bus = 00000019 | ALU_Sel = 7
-
---------------------------------------------------------
-[1622000 ns] FETCH: PC = 0000001a | IR = 1b900000
---------------------------------------------------------
-[1622000 ns] State T1 | Bus = 00000004 | ALU_Sel = 2
-[1624000 ns] State T2 | Bus = xxxxxxxx | ALU_Sel = 2
-[1626000 ns] State T3 | Bus = xxxxxxxX | ALU_Sel = 2
-          -> REG WRITE: Latched xxxxxxxX (Renable mask: 0000000010000000)
-[1628000 ns] State T0 | Bus = 0000001a | ALU_Sel = 2
-
---------------------------------------------------------
-[1630000 ns] FETCH: PC = 0000001b | IR = 12280000
---------------------------------------------------------
-[1630000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 1
-[1632000 ns] State T2 | Bus = xxxxxxxx | ALU_Sel = 1
-[1634000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 1
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[1636000 ns] State T0 | Bus = 0000001b | ALU_Sel = 1
-
---------------------------------------------------------
-[1638000 ns] FETCH: PC = 0000001c | IR = 93a00089
---------------------------------------------------------
-[1638000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 12
-[1640000 ns] State T2 | Bus = 00000089 | ALU_Sel = 12
-[1642000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 12
-[1644000 ns] State T4 | Bus = xxxxxxxX | ALU_Sel = 12
-[1646000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> MEM WRITE: Addr [xxx] <= xxxxxxxx
-[1648000 ns] State T0 | Bus = 0000001c | ALU_Sel = 12
-
---------------------------------------------------------
-[1650000 ns] FETCH: PC = 0000001d | IR = 082b8000
---------------------------------------------------------
-[1650000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 13
-[1652000 ns] State T2 | Bus = xxxxxxxX | ALU_Sel = 13
-[1654000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 13
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000000001)
-[1656000 ns] State T0 | Bus = 0000001d | ALU_Sel = 13
-
---------------------------------------------------------
-[1658000 ns] FETCH: PC = 0000001e | IR = 32290000
---------------------------------------------------------
-[1658000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 9
-[1660000 ns] State T2 | Bus = 00000004 | ALU_Sel = 9
-[1662000 ns] State T3 | Bus = xxxxxxx0 | ALU_Sel = 9
-          -> REG WRITE: Latched xxxxxxx0 (Renable mask: 0000000000010000)
-[1664000 ns] State T0 | Bus = 0000001e | ALU_Sel = 9
-
---------------------------------------------------------
-[1666000 ns] FETCH: PC = 0000001f | IR = 8b800007
---------------------------------------------------------
-[1666000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1668000 ns] State T2 | Bus = 00000007 | ALU_Sel = 12
-[1670000 ns] State T3 | Bus = 00000007 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000007 (Renable mask: 0000000010000000)
-[1672000 ns] State T0 | Bus = 0000001f | ALU_Sel = 12
-
---------------------------------------------------------
-[1674000 ns] FETCH: PC = 00000020 | IR = 89800019
---------------------------------------------------------
-[1674000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1676000 ns] State T2 | Bus = 00000019 | ALU_Sel = 12
-[1678000 ns] State T3 | Bus = 00000019 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000019 (Renable mask: 0000000000001000)
-[1680000 ns] State T0 | Bus = 00000020 | ALU_Sel = 12
-
---------------------------------------------------------
-[1682000 ns] FETCH: PC = 00000021 | IR = 69b80000
---------------------------------------------------------
-[1682000 ns] State T1 | Bus = 00000019 | ALU_Sel = 14
-[1684000 ns] State T2 | Bus = 00000007 | ALU_Sel = 14
-[1686000 ns] State T3 | Bus = 000000af | ALU_Sel = 14
-[1688000 ns] State T4 | Bus = 00000000 | ALU_Sel = 14
-[1690000 ns] State T0 | Bus = 00000021 | ALU_Sel = 14
-
---------------------------------------------------------
-[1692000 ns] FETCH: PC = 00000022 | IR = c0800000
---------------------------------------------------------
-[1692000 ns] State T1 | Bus = 00000000 | ALU_Sel = 0
-          -> REG WRITE: Latched 00000000 (Renable mask: 0000000000000010)
-[1694000 ns] State T0 | Bus = 00000022 | ALU_Sel = 0
-
---------------------------------------------------------
-[1696000 ns] FETCH: PC = 00000023 | IR = cb000000
---------------------------------------------------------
-[1696000 ns] State T1 | Bus = 000000af | ALU_Sel = 0
-          -> REG WRITE: Latched 000000af (Renable mask: 0000000001000000)
-[1698000 ns] State T0 | Bus = 00000023 | ALU_Sel = 0
-
---------------------------------------------------------
-[1700000 ns] FETCH: PC = 00000024 | IR = 61b80000
---------------------------------------------------------
-[1700000 ns] State T1 | Bus = 00000019 | ALU_Sel = 15
-[1702000 ns] State T2 | Bus = 00000007 | ALU_Sel = 15
-[1704000 ns] State T3 | Bus = 00000003 | ALU_Sel = 15
-[1706000 ns] State T4 | Bus = 00000004 | ALU_Sel = 15
-[1708000 ns] State T0 | Bus = 00000024 | ALU_Sel = 15
-
---------------------------------------------------------
-[1710000 ns] FETCH: PC = 00000025 | IR = 8c380002
---------------------------------------------------------
-[1710000 ns] State T1 | Bus = 00000007 | ALU_Sel = 12
-[1712000 ns] State T2 | Bus = 00000002 | ALU_Sel = 12
-[1714000 ns] State T3 | Bus = 00000009 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000009 (Renable mask: 0000000100000000)
-[1716000 ns] State T0 | Bus = 00000025 | ALU_Sel = 12
-
---------------------------------------------------------
-[1718000 ns] FETCH: PC = 00000026 | IR = 8c9ffffc
---------------------------------------------------------
-[1718000 ns] State T1 | Bus = 00000019 | ALU_Sel = 12
-[1720000 ns] State T2 | Bus = fffffffc | ALU_Sel = 12
-[1722000 ns] State T3 | Bus = 00000015 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000015 (Renable mask: 0000001000000000)
-[1724000 ns] State T0 | Bus = 00000026 | ALU_Sel = 12
-
---------------------------------------------------------
-[1726000 ns] FETCH: PC = 00000027 | IR = 8d300003
---------------------------------------------------------
-[1726000 ns] State T1 | Bus = 000000af | ALU_Sel = 12
-[1728000 ns] State T2 | Bus = 00000003 | ALU_Sel = 12
-[1730000 ns] State T3 | Bus = 000000b2 | ALU_Sel = 12
-          -> REG WRITE: Latched 000000b2 (Renable mask: 0000010000000000)
-[1732000 ns] State T0 | Bus = 00000027 | ALU_Sel = 12
-
---------------------------------------------------------
-[1734000 ns] FETCH: PC = 00000028 | IR = 8d880005
---------------------------------------------------------
-[1734000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1736000 ns] State T2 | Bus = 00000005 | ALU_Sel = 12
-[1738000 ns] State T3 | Bus = 00000005 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000005 (Renable mask: 0000100000000000)
-[1740000 ns] State T0 | Bus = 00000028 | ALU_Sel = 12
-
---------------------------------------------------------
-[1742000 ns] FETCH: PC = 00000029 | IR = 9d000000
---------------------------------------------------------
-[1742000 ns] State T1 | Bus = 00000029 | ALU_Sel = 0
-          -> REG WRITE: Latched 00000029 (Renable mask: 0000000000000001)
-[1744000 ns] State T2 | Bus = 000000b2 | ALU_Sel = 0
-[1746000 ns] State T0 | Bus = 000000b2 | ALU_Sel = 0
-
---------------------------------------------------------
-[1748000 ns] FETCH: PC = 000000b3 | IR = 07450000
---------------------------------------------------------
-[1748000 ns] State T1 | Bus = 00000009 | ALU_Sel = 12
-[1750000 ns] State T2 | Bus = 000000b2 | ALU_Sel = 12
-[1752000 ns] State T3 | Bus = 000000bb | ALU_Sel = 12
-          -> REG WRITE: Latched 000000bb (Renable mask: 0100000000000000)
-[1754000 ns] State T0 | Bus = 000000b3 | ALU_Sel = 12
-
---------------------------------------------------------
-[1756000 ns] FETCH: PC = 000000b4 | IR = 0ecd8000
---------------------------------------------------------
-[1756000 ns] State T1 | Bus = 00000015 | ALU_Sel = 13
-[1758000 ns] State T2 | Bus = 00000005 | ALU_Sel = 13
-[1760000 ns] State T3 | Bus = 00000010 | ALU_Sel = 13
-          -> REG WRITE: Latched 00000010 (Renable mask: 0010000000000000)
-[1762000 ns] State T0 | Bus = 000000b4 | ALU_Sel = 13
-
---------------------------------------------------------
-[1764000 ns] FETCH: PC = 000000b5 | IR = 0f768000
---------------------------------------------------------
-[1764000 ns] State T1 | Bus = 000000bb | ALU_Sel = 13
-[1766000 ns] State T2 | Bus = 00000010 | ALU_Sel = 13
-[1768000 ns] State T3 | Bus = 000000ab | ALU_Sel = 13
-          -> REG WRITE: Latched 000000ab (Renable mask: 0100000000000000)
-[1770000 ns] State T0 | Bus = 000000b5 | ALU_Sel = 13
-
---------------------------------------------------------
-[1772000 ns] FETCH: PC = 000000b6 | IR = a6000000
---------------------------------------------------------
-[1772000 ns] State T1 | Bus = 00000000 | ALU_Sel = 0
-[1774000 ns] State T0 | Bus = 00000000 | ALU_Sel = 0
-
---------------------------------------------------------
-[1776000 ns] FETCH: PC = 00000001 | IR = 8a800043
---------------------------------------------------------
-[1776000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1778000 ns] State T2 | Bus = 00000043 | ALU_Sel = 12
-[1780000 ns] State T3 | Bus = 00000043 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000043 (Renable mask: 0000000000100000)
-[1782000 ns] State T0 | Bus = 00000001 | ALU_Sel = 12
-
---------------------------------------------------------
-[1784000 ns] FETCH: PC = 00000002 | IR = 8aa80006
---------------------------------------------------------
-[1784000 ns] State T1 | Bus = 00000043 | ALU_Sel = 12
-[1786000 ns] State T2 | Bus = 00000006 | ALU_Sel = 12
-[1788000 ns] State T3 | Bus = 00000049 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000049 (Renable mask: 0000000000100000)
-[1790000 ns] State T0 | Bus = 00000002 | ALU_Sel = 12
-
---------------------------------------------------------
-[1792000 ns] FETCH: PC = 00000003 | IR = 82000089
---------------------------------------------------------
-[1792000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1794000 ns] State T2 | Bus = 00000089 | ALU_Sel = 12
-[1796000 ns] State T3 | Bus = 00000089 | ALU_Sel = 12
-[1798000 ns] State T4 | Bus = 00000029 | ALU_Sel = 12
-[1800000 ns] State T5 | Bus = 0000006c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006c (Renable mask: 0000000000010000)
-[1802000 ns] State T0 | Bus = 00000003 | ALU_Sel = 12
-
---------------------------------------------------------
-[1804000 ns] FETCH: PC = 00000004 | IR = 8a200004
---------------------------------------------------------
-[1804000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[1806000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[1808000 ns] State T3 | Bus = 00000070 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000070 (Renable mask: 0000000000010000)
-[1810000 ns] State T0 | Bus = 00000004 | ALU_Sel = 12
-
---------------------------------------------------------
-[1812000 ns] FETCH: PC = 00000005 | IR = 8027fff8
---------------------------------------------------------
-[1812000 ns] State T1 | Bus = 00000070 | ALU_Sel = 12
-[1814000 ns] State T2 | Bus = fffffff8 | ALU_Sel = 12
-[1816000 ns] State T3 | Bus = 00000068 | ALU_Sel = 12
-[1818000 ns] State T4 | Bus = 00000029 | ALU_Sel = 12
-[1820000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000000001)
-[1822000 ns] State T0 | Bus = 00000005 | ALU_Sel = 12
-
---------------------------------------------------------
-[1824000 ns] FETCH: PC = 00000006 | IR = 89000004
---------------------------------------------------------
-[1824000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1826000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[1828000 ns] State T3 | Bus = 00000004 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000004 (Renable mask: 0000000000000100)
-[1830000 ns] State T0 | Bus = 00000006 | ALU_Sel = 12
-
---------------------------------------------------------
-[1832000 ns] FETCH: PC = 00000007 | IR = 8a800087
---------------------------------------------------------
-[1832000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1834000 ns] State T2 | Bus = 00000087 | ALU_Sel = 12
-[1836000 ns] State T3 | Bus = 00000087 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000087 (Renable mask: 0000000000100000)
-[1838000 ns] State T0 | Bus = 00000007 | ALU_Sel = 12
-
---------------------------------------------------------
-[1840000 ns] FETCH: PC = 00000008 | IR = aa980003
---------------------------------------------------------
-[1840000 ns] State T1 | Bus = 00000087 | ALU_Sel = 12
-[1842000 ns] State T2 | Bus = 00000008 | ALU_Sel = 12
-[1844000 ns] State T3 | Bus = 00000003 | ALU_Sel = 12
-[1846000 ns] State T4 | Bus = 0000000b | ALU_Sel = 12
-          -> BRANCH TAKEN! Next PC = 0000000b
-[1848000 ns] State T0 | Bus = 00000008 | ALU_Sel = 12
-
---------------------------------------------------------
-[1850000 ns] FETCH: PC = 00000009 | IR = 8aa80005
---------------------------------------------------------
-[1850000 ns] State T1 | Bus = 00000087 | ALU_Sel = 12
-[1852000 ns] State T2 | Bus = 00000005 | ALU_Sel = 12
-[1854000 ns] State T3 | Bus = 0000008c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000008c (Renable mask: 0000000000100000)
-[1856000 ns] State T0 | Bus = 00000009 | ALU_Sel = 12
-
---------------------------------------------------------
-[1858000 ns] FETCH: PC = 0000000a | IR = 80affffd
---------------------------------------------------------
-[1858000 ns] State T1 | Bus = 0000008c | ALU_Sel = 12
-[1860000 ns] State T2 | Bus = fffffffd | ALU_Sel = 12
-[1862000 ns] State T3 | Bus = 00000089 | ALU_Sel = 12
-[1864000 ns] State T4 | Bus = xxxxxxxx | ALU_Sel = 12
-[1866000 ns] State T5 | Bus = 0000006c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006c (Renable mask: 0000000000000010)
-[1868000 ns] State T0 | Bus = 0000000a | ALU_Sel = 12
-
---------------------------------------------------------
-[1870000 ns] FETCH: PC = 0000000b | IR = d0000000
---------------------------------------------------------
-[1870000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 0
-[1872000 ns] State T0 | Bus = 0000000b | ALU_Sel = 0
-
---------------------------------------------------------
-[1874000 ns] FETCH: PC = 0000000c | IR = a8900002
---------------------------------------------------------
-[1874000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[1876000 ns] State T2 | Bus = 0000000c | ALU_Sel = 12
-[1878000 ns] State T3 | Bus = 00000002 | ALU_Sel = 12
-[1880000 ns] State T4 | Bus = 0000000e | ALU_Sel = 12
-          -> BRANCH TAKEN! Next PC = 0000000e
-[1882000 ns] State T0 | Bus = 0000000e | ALU_Sel = 12
-
---------------------------------------------------------
-[1884000 ns] FETCH: PC = 0000000f | IR = 03a90000
---------------------------------------------------------
-[1884000 ns] State T1 | Bus = 0000008c | ALU_Sel = 12
-[1886000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[1888000 ns] State T3 | Bus = 00000090 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000090 (Renable mask: 0000000010000000)
-[1890000 ns] State T0 | Bus = 0000000f | ALU_Sel = 12
-
---------------------------------------------------------
-[1892000 ns] FETCH: PC = 00000010 | IR = 48880003
---------------------------------------------------------
-[1892000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[1894000 ns] State T2 | Bus = 00000003 | ALU_Sel = 12
-[1896000 ns] State T3 | Bus = 0000006f | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006f (Renable mask: 0000000000000010)
-[1898000 ns] State T0 | Bus = 00000010 | ALU_Sel = 12
-
---------------------------------------------------------
-[1900000 ns] FETCH: PC = 00000011 | IR = 70880000
---------------------------------------------------------
-[1900000 ns] State T1 | Bus = 0000006f | ALU_Sel = 6
-[1902000 ns] State T2 | Bus = 0000006f | ALU_Sel = 6
-[1904000 ns] State T3 | Bus = ffffff91 | ALU_Sel = 6
-          -> REG WRITE: Latched ffffff91 (Renable mask: 0000000000000010)
-[1906000 ns] State T0 | Bus = 00000011 | ALU_Sel = 6
-
---------------------------------------------------------
-[1908000 ns] FETCH: PC = 00000012 | IR = 78880000
---------------------------------------------------------
-[1908000 ns] State T1 | Bus = ffffff91 | ALU_Sel = 3
-[1910000 ns] State T2 | Bus = ffffff91 | ALU_Sel = 3
-[1912000 ns] State T3 | Bus = 0000006e | ALU_Sel = 3
-          -> REG WRITE: Latched 0000006e (Renable mask: 0000000000000010)
-[1914000 ns] State T0 | Bus = 00000012 | ALU_Sel = 3
-
---------------------------------------------------------
-[1916000 ns] FETCH: PC = 00000013 | IR = 5088000f
---------------------------------------------------------
-[1916000 ns] State T1 | Bus = 0000006e | ALU_Sel = 1
-[1918000 ns] State T2 | Bus = 0000000f | ALU_Sel = 1
-[1920000 ns] State T3 | Bus = 0000000e | ALU_Sel = 1
-          -> REG WRITE: Latched 0000000e (Renable mask: 0000000000000010)
-[1922000 ns] State T0 | Bus = 00000013 | ALU_Sel = 1
-
---------------------------------------------------------
-[1924000 ns] FETCH: PC = 00000014 | IR = 3a010000
---------------------------------------------------------
-[1924000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 8
-[1926000 ns] State T2 | Bus = 00000004 | ALU_Sel = 8
-[1928000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 8
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[1930000 ns] State T0 | Bus = 00000014 | ALU_Sel = 8
-
---------------------------------------------------------
-[1932000 ns] FETCH: PC = 00000015 | IR = 58a00005
---------------------------------------------------------
-[1932000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 2
-[1934000 ns] State T2 | Bus = 00000005 | ALU_Sel = 2
-[1936000 ns] State T3 | Bus = xxxxxxxX | ALU_Sel = 2
-          -> REG WRITE: Latched xxxxxxxX (Renable mask: 0000000000000010)
-[1938000 ns] State T0 | Bus = 00000015 | ALU_Sel = 2
-
---------------------------------------------------------
-[1940000 ns] FETCH: PC = 00000016 | IR = 2a090000
---------------------------------------------------------
-[1940000 ns] State T1 | Bus = xxxxxxxX | ALU_Sel = 11
-[1942000 ns] State T2 | Bus = 00000004 | ALU_Sel = 11
-[1944000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 11
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[1946000 ns] State T0 | Bus = 00000016 | ALU_Sel = 11
-
---------------------------------------------------------
-[1948000 ns] FETCH: PC = 00000017 | IR = 22a90000
---------------------------------------------------------
-[1948000 ns] State T1 | Bus = 0000008c | ALU_Sel = 10
-[1950000 ns] State T2 | Bus = 00000004 | ALU_Sel = 10
-[1952000 ns] State T3 | Bus = 00000008 | ALU_Sel = 10
-          -> REG WRITE: Latched 00000008 (Renable mask: 0000000000100000)
-[1954000 ns] State T0 | Bus = 00000017 | ALU_Sel = 10
-
---------------------------------------------------------
-[1956000 ns] FETCH: PC = 00000018 | IR = 928000a3
---------------------------------------------------------
-[1956000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[1958000 ns] State T2 | Bus = 000000a3 | ALU_Sel = 12
-[1960000 ns] State T3 | Bus = 000000a3 | ALU_Sel = 12
-[1962000 ns] State T4 | Bus = 00000008 | ALU_Sel = 12
-[1964000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> MEM WRITE: Addr [0a3] <= xxxxxxxx
-[1966000 ns] State T0 | Bus = 00000018 | ALU_Sel = 12
-
---------------------------------------------------------
-[1968000 ns] FETCH: PC = 00000019 | IR = 42810000
---------------------------------------------------------
-[1968000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 7
-[1970000 ns] State T2 | Bus = 00000004 | ALU_Sel = 7
-[1972000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 7
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000100000)
-[1974000 ns] State T0 | Bus = 00000019 | ALU_Sel = 7
-
---------------------------------------------------------
-[1976000 ns] FETCH: PC = 0000001a | IR = 1b900000
---------------------------------------------------------
-[1976000 ns] State T1 | Bus = 00000004 | ALU_Sel = 2
-[1978000 ns] State T2 | Bus = xxxxxxxx | ALU_Sel = 2
-[1980000 ns] State T3 | Bus = xxxxxxxX | ALU_Sel = 2
-          -> REG WRITE: Latched xxxxxxxX (Renable mask: 0000000010000000)
-[1982000 ns] State T0 | Bus = 0000001a | ALU_Sel = 2
-
---------------------------------------------------------
-[1984000 ns] FETCH: PC = 0000001b | IR = 12280000
---------------------------------------------------------
-[1984000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 1
-[1986000 ns] State T2 | Bus = xxxxxxxx | ALU_Sel = 1
-[1988000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 1
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[1990000 ns] State T0 | Bus = 0000001b | ALU_Sel = 1
-
---------------------------------------------------------
-[1992000 ns] FETCH: PC = 0000001c | IR = 93a00089
---------------------------------------------------------
-[1992000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 12
-[1994000 ns] State T2 | Bus = 00000089 | ALU_Sel = 12
-[1996000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 12
-[1998000 ns] State T4 | Bus = xxxxxxxX | ALU_Sel = 12
-[2000000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> MEM WRITE: Addr [xxx] <= xxxxxxxx
-[2002000 ns] State T0 | Bus = 0000001c | ALU_Sel = 12
-
---------------------------------------------------------
-[2004000 ns] FETCH: PC = 0000001d | IR = 082b8000
---------------------------------------------------------
-[2004000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 13
-[2006000 ns] State T2 | Bus = xxxxxxxX | ALU_Sel = 13
-[2008000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 13
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000000001)
-[2010000 ns] State T0 | Bus = 0000001d | ALU_Sel = 13
-
---------------------------------------------------------
-[2012000 ns] FETCH: PC = 0000001e | IR = 32290000
---------------------------------------------------------
-[2012000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 9
-[2014000 ns] State T2 | Bus = 00000004 | ALU_Sel = 9
-[2016000 ns] State T3 | Bus = xxxxxxx0 | ALU_Sel = 9
-          -> REG WRITE: Latched xxxxxxx0 (Renable mask: 0000000000010000)
-[2018000 ns] State T0 | Bus = 0000001e | ALU_Sel = 9
-
---------------------------------------------------------
-[2020000 ns] FETCH: PC = 0000001f | IR = 8b800007
---------------------------------------------------------
-[2020000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[2022000 ns] State T2 | Bus = 00000007 | ALU_Sel = 12
-[2024000 ns] State T3 | Bus = 00000007 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000007 (Renable mask: 0000000010000000)
-[2026000 ns] State T0 | Bus = 0000001f | ALU_Sel = 12
-
---------------------------------------------------------
-[2028000 ns] FETCH: PC = 00000020 | IR = 89800019
---------------------------------------------------------
-[2028000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[2030000 ns] State T2 | Bus = 00000019 | ALU_Sel = 12
-[2032000 ns] State T3 | Bus = 00000019 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000019 (Renable mask: 0000000000001000)
-[2034000 ns] State T0 | Bus = 00000020 | ALU_Sel = 12
-
---------------------------------------------------------
-[2036000 ns] FETCH: PC = 00000021 | IR = 69b80000
---------------------------------------------------------
-[2036000 ns] State T1 | Bus = 00000019 | ALU_Sel = 14
-[2038000 ns] State T2 | Bus = 00000007 | ALU_Sel = 14
-[2040000 ns] State T3 | Bus = 000000af | ALU_Sel = 14
-[2042000 ns] State T4 | Bus = 00000000 | ALU_Sel = 14
-[2044000 ns] State T0 | Bus = 00000021 | ALU_Sel = 14
-
---------------------------------------------------------
-[2046000 ns] FETCH: PC = 00000022 | IR = c0800000
---------------------------------------------------------
-[2046000 ns] State T1 | Bus = 00000000 | ALU_Sel = 0
-          -> REG WRITE: Latched 00000000 (Renable mask: 0000000000000010)
-[2048000 ns] State T0 | Bus = 00000022 | ALU_Sel = 0
-
---------------------------------------------------------
-[2050000 ns] FETCH: PC = 00000023 | IR = cb000000
---------------------------------------------------------
-[2050000 ns] State T1 | Bus = 000000af | ALU_Sel = 0
-          -> REG WRITE: Latched 000000af (Renable mask: 0000000001000000)
-[2052000 ns] State T0 | Bus = 00000023 | ALU_Sel = 0
-
---------------------------------------------------------
-[2054000 ns] FETCH: PC = 00000024 | IR = 61b80000
---------------------------------------------------------
-[2054000 ns] State T1 | Bus = 00000019 | ALU_Sel = 15
-[2056000 ns] State T2 | Bus = 00000007 | ALU_Sel = 15
-[2058000 ns] State T3 | Bus = 00000003 | ALU_Sel = 15
-[2060000 ns] State T4 | Bus = 00000004 | ALU_Sel = 15
-[2062000 ns] State T0 | Bus = 00000024 | ALU_Sel = 15
-
---------------------------------------------------------
-[2064000 ns] FETCH: PC = 00000025 | IR = 8c380002
---------------------------------------------------------
-[2064000 ns] State T1 | Bus = 00000007 | ALU_Sel = 12
-[2066000 ns] State T2 | Bus = 00000002 | ALU_Sel = 12
-[2068000 ns] State T3 | Bus = 00000009 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000009 (Renable mask: 0000000100000000)
-[2070000 ns] State T0 | Bus = 00000025 | ALU_Sel = 12
-
---------------------------------------------------------
-[2072000 ns] FETCH: PC = 00000026 | IR = 8c9ffffc
---------------------------------------------------------
-[2072000 ns] State T1 | Bus = 00000019 | ALU_Sel = 12
-[2074000 ns] State T2 | Bus = fffffffc | ALU_Sel = 12
-[2076000 ns] State T3 | Bus = 00000015 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000015 (Renable mask: 0000001000000000)
-[2078000 ns] State T0 | Bus = 00000026 | ALU_Sel = 12
-
---------------------------------------------------------
-[2080000 ns] FETCH: PC = 00000027 | IR = 8d300003
---------------------------------------------------------
-[2080000 ns] State T1 | Bus = 000000af | ALU_Sel = 12
-[2082000 ns] State T2 | Bus = 00000003 | ALU_Sel = 12
-[2084000 ns] State T3 | Bus = 000000b2 | ALU_Sel = 12
-          -> REG WRITE: Latched 000000b2 (Renable mask: 0000010000000000)
-[2086000 ns] State T0 | Bus = 00000027 | ALU_Sel = 12
-
---------------------------------------------------------
-[2088000 ns] FETCH: PC = 00000028 | IR = 8d880005
---------------------------------------------------------
-[2088000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[2090000 ns] State T2 | Bus = 00000005 | ALU_Sel = 12
-[2092000 ns] State T3 | Bus = 00000005 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000005 (Renable mask: 0000100000000000)
-[2094000 ns] State T0 | Bus = 00000028 | ALU_Sel = 12
-
---------------------------------------------------------
-[2096000 ns] FETCH: PC = 00000029 | IR = 9d000000
---------------------------------------------------------
-[2096000 ns] State T1 | Bus = 00000029 | ALU_Sel = 0
-          -> REG WRITE: Latched 00000029 (Renable mask: 0000000000000001)
-[2098000 ns] State T2 | Bus = 000000b2 | ALU_Sel = 0
-[2100000 ns] State T0 | Bus = 000000b2 | ALU_Sel = 0
-
---------------------------------------------------------
-[2102000 ns] FETCH: PC = 000000b3 | IR = 07450000
---------------------------------------------------------
-[2102000 ns] State T1 | Bus = 00000009 | ALU_Sel = 12
-[2104000 ns] State T2 | Bus = 000000b2 | ALU_Sel = 12
-[2106000 ns] State T3 | Bus = 000000bb | ALU_Sel = 12
-          -> REG WRITE: Latched 000000bb (Renable mask: 0100000000000000)
-[2108000 ns] State T0 | Bus = 000000b3 | ALU_Sel = 12
-
---------------------------------------------------------
-[2110000 ns] FETCH: PC = 000000b4 | IR = 0ecd8000
---------------------------------------------------------
-[2110000 ns] State T1 | Bus = 00000015 | ALU_Sel = 13
-[2112000 ns] State T2 | Bus = 00000005 | ALU_Sel = 13
-[2114000 ns] State T3 | Bus = 00000010 | ALU_Sel = 13
-          -> REG WRITE: Latched 00000010 (Renable mask: 0010000000000000)
-[2116000 ns] State T0 | Bus = 000000b4 | ALU_Sel = 13
-
---------------------------------------------------------
-[2118000 ns] FETCH: PC = 000000b5 | IR = 0f768000
---------------------------------------------------------
-[2118000 ns] State T1 | Bus = 000000bb | ALU_Sel = 13
-[2120000 ns] State T2 | Bus = 00000010 | ALU_Sel = 13
-[2122000 ns] State T3 | Bus = 000000ab | ALU_Sel = 13
-          -> REG WRITE: Latched 000000ab (Renable mask: 0100000000000000)
-[2124000 ns] State T0 | Bus = 000000b5 | ALU_Sel = 13
-
---------------------------------------------------------
-[2126000 ns] FETCH: PC = 000000b6 | IR = a6000000
---------------------------------------------------------
-[2126000 ns] State T1 | Bus = 00000000 | ALU_Sel = 0
-[2128000 ns] State T0 | Bus = 00000000 | ALU_Sel = 0
-
---------------------------------------------------------
-[2130000 ns] FETCH: PC = 00000001 | IR = 8a800043
---------------------------------------------------------
-[2130000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[2132000 ns] State T2 | Bus = 00000043 | ALU_Sel = 12
-[2134000 ns] State T3 | Bus = 00000043 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000043 (Renable mask: 0000000000100000)
-[2136000 ns] State T0 | Bus = 00000001 | ALU_Sel = 12
-
---------------------------------------------------------
-[2138000 ns] FETCH: PC = 00000002 | IR = 8aa80006
---------------------------------------------------------
-[2138000 ns] State T1 | Bus = 00000043 | ALU_Sel = 12
-[2140000 ns] State T2 | Bus = 00000006 | ALU_Sel = 12
-[2142000 ns] State T3 | Bus = 00000049 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000049 (Renable mask: 0000000000100000)
-[2144000 ns] State T0 | Bus = 00000002 | ALU_Sel = 12
-
---------------------------------------------------------
-[2146000 ns] FETCH: PC = 00000003 | IR = 82000089
---------------------------------------------------------
-[2146000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[2148000 ns] State T2 | Bus = 00000089 | ALU_Sel = 12
-[2150000 ns] State T3 | Bus = 00000089 | ALU_Sel = 12
-[2152000 ns] State T4 | Bus = 00000029 | ALU_Sel = 12
-[2154000 ns] State T5 | Bus = 0000006c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006c (Renable mask: 0000000000010000)
-[2156000 ns] State T0 | Bus = 00000003 | ALU_Sel = 12
-
---------------------------------------------------------
-[2158000 ns] FETCH: PC = 00000004 | IR = 8a200004
---------------------------------------------------------
-[2158000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[2160000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[2162000 ns] State T3 | Bus = 00000070 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000070 (Renable mask: 0000000000010000)
-[2164000 ns] State T0 | Bus = 00000004 | ALU_Sel = 12
-
---------------------------------------------------------
-[2166000 ns] FETCH: PC = 00000005 | IR = 8027fff8
---------------------------------------------------------
-[2166000 ns] State T1 | Bus = 00000070 | ALU_Sel = 12
-[2168000 ns] State T2 | Bus = fffffff8 | ALU_Sel = 12
-[2170000 ns] State T3 | Bus = 00000068 | ALU_Sel = 12
-[2172000 ns] State T4 | Bus = 00000029 | ALU_Sel = 12
-[2174000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000000001)
-[2176000 ns] State T0 | Bus = 00000005 | ALU_Sel = 12
-
---------------------------------------------------------
-[2178000 ns] FETCH: PC = 00000006 | IR = 89000004
---------------------------------------------------------
-[2178000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[2180000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[2182000 ns] State T3 | Bus = 00000004 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000004 (Renable mask: 0000000000000100)
-[2184000 ns] State T0 | Bus = 00000006 | ALU_Sel = 12
-
---------------------------------------------------------
-[2186000 ns] FETCH: PC = 00000007 | IR = 8a800087
---------------------------------------------------------
-[2186000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[2188000 ns] State T2 | Bus = 00000087 | ALU_Sel = 12
-[2190000 ns] State T3 | Bus = 00000087 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000087 (Renable mask: 0000000000100000)
-[2192000 ns] State T0 | Bus = 00000007 | ALU_Sel = 12
-
---------------------------------------------------------
-[2194000 ns] FETCH: PC = 00000008 | IR = aa980003
---------------------------------------------------------
-[2194000 ns] State T1 | Bus = 00000087 | ALU_Sel = 12
-[2196000 ns] State T2 | Bus = 00000008 | ALU_Sel = 12
-[2198000 ns] State T3 | Bus = 00000003 | ALU_Sel = 12
-[2200000 ns] State T4 | Bus = 0000000b | ALU_Sel = 12
-          -> BRANCH TAKEN! Next PC = 0000000b
-[2202000 ns] State T0 | Bus = 00000008 | ALU_Sel = 12
-
---------------------------------------------------------
-[2204000 ns] FETCH: PC = 00000009 | IR = 8aa80005
---------------------------------------------------------
-[2204000 ns] State T1 | Bus = 00000087 | ALU_Sel = 12
-[2206000 ns] State T2 | Bus = 00000005 | ALU_Sel = 12
-[2208000 ns] State T3 | Bus = 0000008c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000008c (Renable mask: 0000000000100000)
-[2210000 ns] State T0 | Bus = 00000009 | ALU_Sel = 12
-
---------------------------------------------------------
-[2212000 ns] FETCH: PC = 0000000a | IR = 80affffd
---------------------------------------------------------
-[2212000 ns] State T1 | Bus = 0000008c | ALU_Sel = 12
-[2214000 ns] State T2 | Bus = fffffffd | ALU_Sel = 12
-[2216000 ns] State T3 | Bus = 00000089 | ALU_Sel = 12
-[2218000 ns] State T4 | Bus = xxxxxxxx | ALU_Sel = 12
-[2220000 ns] State T5 | Bus = 0000006c | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006c (Renable mask: 0000000000000010)
-[2222000 ns] State T0 | Bus = 0000000a | ALU_Sel = 12
-
---------------------------------------------------------
-[2224000 ns] FETCH: PC = 0000000b | IR = d0000000
---------------------------------------------------------
-[2224000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 0
-[2226000 ns] State T0 | Bus = 0000000b | ALU_Sel = 0
-
---------------------------------------------------------
-[2228000 ns] FETCH: PC = 0000000c | IR = a8900002
---------------------------------------------------------
-[2228000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[2230000 ns] State T2 | Bus = 0000000c | ALU_Sel = 12
-[2232000 ns] State T3 | Bus = 00000002 | ALU_Sel = 12
-[2234000 ns] State T4 | Bus = 0000000e | ALU_Sel = 12
-          -> BRANCH TAKEN! Next PC = 0000000e
-[2236000 ns] State T0 | Bus = 0000000e | ALU_Sel = 12
-
---------------------------------------------------------
-[2238000 ns] FETCH: PC = 0000000f | IR = 03a90000
---------------------------------------------------------
-[2238000 ns] State T1 | Bus = 0000008c | ALU_Sel = 12
-[2240000 ns] State T2 | Bus = 00000004 | ALU_Sel = 12
-[2242000 ns] State T3 | Bus = 00000090 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000090 (Renable mask: 0000000010000000)
-[2244000 ns] State T0 | Bus = 0000000f | ALU_Sel = 12
-
---------------------------------------------------------
-[2246000 ns] FETCH: PC = 00000010 | IR = 48880003
---------------------------------------------------------
-[2246000 ns] State T1 | Bus = 0000006c | ALU_Sel = 12
-[2248000 ns] State T2 | Bus = 00000003 | ALU_Sel = 12
-[2250000 ns] State T3 | Bus = 0000006f | ALU_Sel = 12
-          -> REG WRITE: Latched 0000006f (Renable mask: 0000000000000010)
-[2252000 ns] State T0 | Bus = 00000010 | ALU_Sel = 12
-
---------------------------------------------------------
-[2254000 ns] FETCH: PC = 00000011 | IR = 70880000
---------------------------------------------------------
-[2254000 ns] State T1 | Bus = 0000006f | ALU_Sel = 6
-[2256000 ns] State T2 | Bus = 0000006f | ALU_Sel = 6
-[2258000 ns] State T3 | Bus = ffffff91 | ALU_Sel = 6
-          -> REG WRITE: Latched ffffff91 (Renable mask: 0000000000000010)
-[2260000 ns] State T0 | Bus = 00000011 | ALU_Sel = 6
-
---------------------------------------------------------
-[2262000 ns] FETCH: PC = 00000012 | IR = 78880000
---------------------------------------------------------
-[2262000 ns] State T1 | Bus = ffffff91 | ALU_Sel = 3
-[2264000 ns] State T2 | Bus = ffffff91 | ALU_Sel = 3
-[2266000 ns] State T3 | Bus = 0000006e | ALU_Sel = 3
-          -> REG WRITE: Latched 0000006e (Renable mask: 0000000000000010)
-[2268000 ns] State T0 | Bus = 00000012 | ALU_Sel = 3
-
---------------------------------------------------------
-[2270000 ns] FETCH: PC = 00000013 | IR = 5088000f
---------------------------------------------------------
-[2270000 ns] State T1 | Bus = 0000006e | ALU_Sel = 1
-[2272000 ns] State T2 | Bus = 0000000f | ALU_Sel = 1
-[2274000 ns] State T3 | Bus = 0000000e | ALU_Sel = 1
-          -> REG WRITE: Latched 0000000e (Renable mask: 0000000000000010)
-[2276000 ns] State T0 | Bus = 00000013 | ALU_Sel = 1
-
---------------------------------------------------------
-[2278000 ns] FETCH: PC = 00000014 | IR = 3a010000
---------------------------------------------------------
-[2278000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 8
-[2280000 ns] State T2 | Bus = 00000004 | ALU_Sel = 8
-[2282000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 8
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[2284000 ns] State T0 | Bus = 00000014 | ALU_Sel = 8
-
---------------------------------------------------------
-[2286000 ns] FETCH: PC = 00000015 | IR = 58a00005
---------------------------------------------------------
-[2286000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 2
-[2288000 ns] State T2 | Bus = 00000005 | ALU_Sel = 2
-[2290000 ns] State T3 | Bus = xxxxxxxX | ALU_Sel = 2
-          -> REG WRITE: Latched xxxxxxxX (Renable mask: 0000000000000010)
-[2292000 ns] State T0 | Bus = 00000015 | ALU_Sel = 2
-
---------------------------------------------------------
-[2294000 ns] FETCH: PC = 00000016 | IR = 2a090000
---------------------------------------------------------
-[2294000 ns] State T1 | Bus = xxxxxxxX | ALU_Sel = 11
-[2296000 ns] State T2 | Bus = 00000004 | ALU_Sel = 11
-[2298000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 11
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[2300000 ns] State T0 | Bus = 00000016 | ALU_Sel = 11
-
---------------------------------------------------------
-[2302000 ns] FETCH: PC = 00000017 | IR = 22a90000
---------------------------------------------------------
-[2302000 ns] State T1 | Bus = 0000008c | ALU_Sel = 10
-[2304000 ns] State T2 | Bus = 00000004 | ALU_Sel = 10
-[2306000 ns] State T3 | Bus = 00000008 | ALU_Sel = 10
-          -> REG WRITE: Latched 00000008 (Renable mask: 0000000000100000)
-[2308000 ns] State T0 | Bus = 00000017 | ALU_Sel = 10
-
---------------------------------------------------------
-[2310000 ns] FETCH: PC = 00000018 | IR = 928000a3
---------------------------------------------------------
-[2310000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[2312000 ns] State T2 | Bus = 000000a3 | ALU_Sel = 12
-[2314000 ns] State T3 | Bus = 000000a3 | ALU_Sel = 12
-[2316000 ns] State T4 | Bus = 00000008 | ALU_Sel = 12
-[2318000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> MEM WRITE: Addr [0a3] <= xxxxxxxx
-[2320000 ns] State T0 | Bus = 00000018 | ALU_Sel = 12
-
---------------------------------------------------------
-[2322000 ns] FETCH: PC = 00000019 | IR = 42810000
---------------------------------------------------------
-[2322000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 7
-[2324000 ns] State T2 | Bus = 00000004 | ALU_Sel = 7
-[2326000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 7
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000100000)
-[2328000 ns] State T0 | Bus = 00000019 | ALU_Sel = 7
-
---------------------------------------------------------
-[2330000 ns] FETCH: PC = 0000001a | IR = 1b900000
---------------------------------------------------------
-[2330000 ns] State T1 | Bus = 00000004 | ALU_Sel = 2
-[2332000 ns] State T2 | Bus = xxxxxxxx | ALU_Sel = 2
-[2334000 ns] State T3 | Bus = xxxxxxxX | ALU_Sel = 2
-          -> REG WRITE: Latched xxxxxxxX (Renable mask: 0000000010000000)
-[2336000 ns] State T0 | Bus = 0000001a | ALU_Sel = 2
-
---------------------------------------------------------
-[2338000 ns] FETCH: PC = 0000001b | IR = 12280000
---------------------------------------------------------
-[2338000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 1
-[2340000 ns] State T2 | Bus = xxxxxxxx | ALU_Sel = 1
-[2342000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 1
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000010000)
-[2344000 ns] State T0 | Bus = 0000001b | ALU_Sel = 1
-
---------------------------------------------------------
-[2346000 ns] FETCH: PC = 0000001c | IR = 93a00089
---------------------------------------------------------
-[2346000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 12
-[2348000 ns] State T2 | Bus = 00000089 | ALU_Sel = 12
-[2350000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 12
-[2352000 ns] State T4 | Bus = xxxxxxxX | ALU_Sel = 12
-[2354000 ns] State T5 | Bus = xxxxxxxx | ALU_Sel = 12
-          -> MEM WRITE: Addr [xxx] <= xxxxxxxx
-[2356000 ns] State T0 | Bus = 0000001c | ALU_Sel = 12
-
---------------------------------------------------------
-[2358000 ns] FETCH: PC = 0000001d | IR = 082b8000
---------------------------------------------------------
-[2358000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 13
-[2360000 ns] State T2 | Bus = xxxxxxxX | ALU_Sel = 13
-[2362000 ns] State T3 | Bus = xxxxxxxx | ALU_Sel = 13
-          -> REG WRITE: Latched xxxxxxxx (Renable mask: 0000000000000001)
-[2364000 ns] State T0 | Bus = 0000001d | ALU_Sel = 13
-
---------------------------------------------------------
-[2366000 ns] FETCH: PC = 0000001e | IR = 32290000
---------------------------------------------------------
-[2366000 ns] State T1 | Bus = xxxxxxxx | ALU_Sel = 9
-[2368000 ns] State T2 | Bus = 00000004 | ALU_Sel = 9
-[2370000 ns] State T3 | Bus = xxxxxxx0 | ALU_Sel = 9
-          -> REG WRITE: Latched xxxxxxx0 (Renable mask: 0000000000010000)
-[2372000 ns] State T0 | Bus = 0000001e | ALU_Sel = 9
-
---------------------------------------------------------
-[2374000 ns] FETCH: PC = 0000001f | IR = 8b800007
---------------------------------------------------------
-[2374000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[2376000 ns] State T2 | Bus = 00000007 | ALU_Sel = 12
-[2378000 ns] State T3 | Bus = 00000007 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000007 (Renable mask: 0000000010000000)
-[2380000 ns] State T0 | Bus = 0000001f | ALU_Sel = 12
-
---------------------------------------------------------
-[2382000 ns] FETCH: PC = 00000020 | IR = 89800019
---------------------------------------------------------
-[2382000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[2384000 ns] State T2 | Bus = 00000019 | ALU_Sel = 12
-[2386000 ns] State T3 | Bus = 00000019 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000019 (Renable mask: 0000000000001000)
-[2388000 ns] State T0 | Bus = 00000020 | ALU_Sel = 12
-
---------------------------------------------------------
-[2390000 ns] FETCH: PC = 00000021 | IR = 69b80000
---------------------------------------------------------
-[2390000 ns] State T1 | Bus = 00000019 | ALU_Sel = 14
-[2392000 ns] State T2 | Bus = 00000007 | ALU_Sel = 14
-[2394000 ns] State T3 | Bus = 000000af | ALU_Sel = 14
-[2396000 ns] State T4 | Bus = 00000000 | ALU_Sel = 14
-[2398000 ns] State T0 | Bus = 00000021 | ALU_Sel = 14
-
---------------------------------------------------------
-[2400000 ns] FETCH: PC = 00000022 | IR = c0800000
---------------------------------------------------------
-[2400000 ns] State T1 | Bus = 00000000 | ALU_Sel = 0
-          -> REG WRITE: Latched 00000000 (Renable mask: 0000000000000010)
-[2402000 ns] State T0 | Bus = 00000022 | ALU_Sel = 0
-
---------------------------------------------------------
-[2404000 ns] FETCH: PC = 00000023 | IR = cb000000
---------------------------------------------------------
-[2404000 ns] State T1 | Bus = 000000af | ALU_Sel = 0
-          -> REG WRITE: Latched 000000af (Renable mask: 0000000001000000)
-[2406000 ns] State T0 | Bus = 00000023 | ALU_Sel = 0
-
---------------------------------------------------------
-[2408000 ns] FETCH: PC = 00000024 | IR = 61b80000
---------------------------------------------------------
-[2408000 ns] State T1 | Bus = 00000019 | ALU_Sel = 15
-[2410000 ns] State T2 | Bus = 00000007 | ALU_Sel = 15
-[2412000 ns] State T3 | Bus = 00000003 | ALU_Sel = 15
-[2414000 ns] State T4 | Bus = 00000004 | ALU_Sel = 15
-[2416000 ns] State T0 | Bus = 00000024 | ALU_Sel = 15
-
---------------------------------------------------------
-[2418000 ns] FETCH: PC = 00000025 | IR = 8c380002
---------------------------------------------------------
-[2418000 ns] State T1 | Bus = 00000007 | ALU_Sel = 12
-[2420000 ns] State T2 | Bus = 00000002 | ALU_Sel = 12
-[2422000 ns] State T3 | Bus = 00000009 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000009 (Renable mask: 0000000100000000)
-[2424000 ns] State T0 | Bus = 00000025 | ALU_Sel = 12
-
---------------------------------------------------------
-[2426000 ns] FETCH: PC = 00000026 | IR = 8c9ffffc
---------------------------------------------------------
-[2426000 ns] State T1 | Bus = 00000019 | ALU_Sel = 12
-[2428000 ns] State T2 | Bus = fffffffc | ALU_Sel = 12
-[2430000 ns] State T3 | Bus = 00000015 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000015 (Renable mask: 0000001000000000)
-[2432000 ns] State T0 | Bus = 00000026 | ALU_Sel = 12
-
---------------------------------------------------------
-[2434000 ns] FETCH: PC = 00000027 | IR = 8d300003
---------------------------------------------------------
-[2434000 ns] State T1 | Bus = 000000af | ALU_Sel = 12
-[2436000 ns] State T2 | Bus = 00000003 | ALU_Sel = 12
-[2438000 ns] State T3 | Bus = 000000b2 | ALU_Sel = 12
-          -> REG WRITE: Latched 000000b2 (Renable mask: 0000010000000000)
-[2440000 ns] State T0 | Bus = 00000027 | ALU_Sel = 12
-
---------------------------------------------------------
-[2442000 ns] FETCH: PC = 00000028 | IR = 8d880005
---------------------------------------------------------
-[2442000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[2444000 ns] State T2 | Bus = 00000005 | ALU_Sel = 12
-[2446000 ns] State T3 | Bus = 00000005 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000005 (Renable mask: 0000100000000000)
-[2448000 ns] State T0 | Bus = 00000028 | ALU_Sel = 12
-
---------------------------------------------------------
-[2450000 ns] FETCH: PC = 00000029 | IR = 9d000000
---------------------------------------------------------
-[2450000 ns] State T1 | Bus = 00000029 | ALU_Sel = 0
-          -> REG WRITE: Latched 00000029 (Renable mask: 0000000000000001)
-[2452000 ns] State T2 | Bus = 000000b2 | ALU_Sel = 0
-[2454000 ns] State T0 | Bus = 000000b2 | ALU_Sel = 0
-
---------------------------------------------------------
-[2456000 ns] FETCH: PC = 000000b3 | IR = 07450000
---------------------------------------------------------
-[2456000 ns] State T1 | Bus = 00000009 | ALU_Sel = 12
-[2458000 ns] State T2 | Bus = 000000b2 | ALU_Sel = 12
-[2460000 ns] State T3 | Bus = 000000bb | ALU_Sel = 12
-          -> REG WRITE: Latched 000000bb (Renable mask: 0100000000000000)
-[2462000 ns] State T0 | Bus = 000000b3 | ALU_Sel = 12
-
---------------------------------------------------------
-[2464000 ns] FETCH: PC = 000000b4 | IR = 0ecd8000
---------------------------------------------------------
-[2464000 ns] State T1 | Bus = 00000015 | ALU_Sel = 13
-[2466000 ns] State T2 | Bus = 00000005 | ALU_Sel = 13
-[2468000 ns] State T3 | Bus = 00000010 | ALU_Sel = 13
-          -> REG WRITE: Latched 00000010 (Renable mask: 0010000000000000)
-[2470000 ns] State T0 | Bus = 000000b4 | ALU_Sel = 13
-
---------------------------------------------------------
-[2472000 ns] FETCH: PC = 000000b5 | IR = 0f768000
---------------------------------------------------------
-[2472000 ns] State T1 | Bus = 000000bb | ALU_Sel = 13
-[2474000 ns] State T2 | Bus = 00000010 | ALU_Sel = 13
-[2476000 ns] State T3 | Bus = 000000ab | ALU_Sel = 13
-          -> REG WRITE: Latched 000000ab (Renable mask: 0100000000000000)
-[2478000 ns] State T0 | Bus = 000000b5 | ALU_Sel = 13
-
---------------------------------------------------------
-[2480000 ns] FETCH: PC = 000000b6 | IR = a6000000
---------------------------------------------------------
-[2480000 ns] State T1 | Bus = 00000000 | ALU_Sel = 0
-[2482000 ns] State T0 | Bus = 00000000 | ALU_Sel = 0
-
---------------------------------------------------------
-[2484000 ns] FETCH: PC = 00000001 | IR = 8a800043
---------------------------------------------------------
-[2484000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[2486000 ns] State T2 | Bus = 00000043 | ALU_Sel = 12
-[2488000 ns] State T3 | Bus = 00000043 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000043 (Renable mask: 0000000000100000)
-[2490000 ns] State T0 | Bus = 00000001 | ALU_Sel = 12
-
---------------------------------------------------------
-[2492000 ns] FETCH: PC = 00000002 | IR = 8aa80006
---------------------------------------------------------
-[2492000 ns] State T1 | Bus = 00000043 | ALU_Sel = 12
-[2494000 ns] State T2 | Bus = 00000006 | ALU_Sel = 12
-[2496000 ns] State T3 | Bus = 00000049 | ALU_Sel = 12
-          -> REG WRITE: Latched 00000049 (Renable mask: 0000000000100000)
-[2498000 ns] State T0 | Bus = 00000002 | ALU_Sel = 12
-
---------------------------------------------------------
-[2500000 ns] FETCH: PC = 00000003 | IR = 82000089
---------------------------------------------------------
-[2500000 ns] State T1 | Bus = 00000000 | ALU_Sel = 12
-[2502000 ns] State T2 | Bus = 00000089 | ALU_Sel = 12
-
-========================================================
-   SIMULATION TIMEOUT REACHED
-   Final R14 = 000000ab
-========================================================
 
