@@ -7,7 +7,10 @@
 `include "core/alu/alu.v"
 
 module DataPath(
-	input wire clock, clear, stop
+	input wire clock, clear, stop,
+	input wire [31:0] InPortData,
+	output wire [31:0] OutPortData,
+	output wire run
 );
 
 // Control signals: out = select, in = enable
@@ -44,9 +47,6 @@ wire [31:0] ZHighIn, ZLowIn;
 
 wire [31:0] resultR0;
 
-wire [31:0] OutPortData;
-
-
 // CON FF internal signals
 wire [3:0] CON_IR;
 wire CON_out_internal;
@@ -60,8 +60,6 @@ SelectEncode encode_unit(
 	.Grc(Grc),
 	.Rin(GPR_Rin),
 	.Rout(GPR_Rout),
-	.BAout(BAout),
-	.Cout(Cout),
 	.Renable(Renable),
 	.Rselect(Rselect),
 	.CSignExtended(CSignExtended_Val)
@@ -103,7 +101,7 @@ register ZHigh(clear, clock, Rin[18], ZHighIn, BusMuxInZHigh);
 register ZLow(clear, clock, Rin[19], ZLowIn, BusMuxInZLow);
 pc PC(clear, clock, Rin[20], PCjump_eff, BusMuxOut, BusMuxInPC);
 mdr MDR(clear, clock, Rin[21], MDRread, BusMuxOut, Mdatain, BusMuxInMDR, Mdataout);
-inport InPort(clear, InPortStrobe, BusMuxOut, BusMuxInPort);
+inport InPort(clear, InPortStrobe, InPortData, BusMuxInPort);
 outport OutPort(clear, clock, OutPortEnable, BusMuxOut, OutPortData);
 
 ir IR(clear, clock, IRin, icache_data, IROut); // no longer bus, directly from icache
@@ -177,7 +175,9 @@ control CU(
     .Gra(Gra), .Grb(Grb), .Grc(Grc), 
     .BAout(BAout), .Cout(Cout),
     .RAMread(RAMread), .RAMwrite(RAMwrite),
-    .InPortStrobe(InPortStrobe), .OutPortEnable(OutPortEnable)
+    .InPortStrobe(InPortStrobe), .OutPortEnable(OutPortEnable),
+
+	.run(run)
 );
 
 endmodule

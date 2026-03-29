@@ -5,8 +5,6 @@ module SelectEncode(
     input wire Grc,
     input wire Rin,
     input wire Rout,
-    input wire BAout,
-    input wire Cout,
     output wire [15:0] Renable,
     output wire [15:0] Rselect,
     output wire [31:0] CSignExtended

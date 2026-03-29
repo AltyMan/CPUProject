@@ -10,10 +10,10 @@ module control (
     output wire [15:0] ALUControl,
     output wire Gra, Grb, Grc, BAout, Cout,
     output wire RAMread, RAMwrite,
-    output wire InPortStrobe, OutPortEnable
+    output wire InPortStrobe, OutPortEnable,
+    output reg run
 );
 
-    reg run;
     wire op_halt = (IR[31:27] == 5'b11011);
 
     always @(posedge clock or posedge reset) begin
@@ -150,18 +150,18 @@ module control (
     // ALU Control Signals
     assign ALUControl = 
         (op_add | op_addi | op_ld | op_st | op_br | op_ldi) ? 16'd12 :
-        (op_sub)                                            ? 16'd13 :
-        (op_and | op_andi)                                  ? 16'd1  :
-        (op_or | op_ori)                                    ? 16'd2  :
-        (op_not)                                            ? 16'd3  :
-        (op_neg)                                            ? 16'd6  :
-        (op_rol)                                            ? 16'd7  :
-        (op_ror)                                            ? 16'd8  :
-        (op_shl)                                            ? 16'd9  :
-        (op_shr)                                            ? 16'd10 :
-        (op_shra)                                           ? 16'd11 :
-        (op_mul)                                            ? 16'd14 :
-        (op_div)                                            ? 16'd15 :
-                                                              16'd0;
+        (op_sub) ? 16'd13 :
+        (op_and | op_andi) ? 16'd1  :
+        (op_or | op_ori) ? 16'd2  :
+        (op_not) ? 16'd3  :
+        (op_neg) ? 16'd6  :
+        (op_rol) ? 16'd7  :
+        (op_ror) ? 16'd8  :
+        (op_shl) ? 16'd9  :
+        (op_shr) ? 16'd10 :
+        (op_shra) ? 16'd11 :
+        (op_mul) ? 16'd14 :
+        (op_div) ? 16'd15 :
+        16'd0;
 
 endmodule
