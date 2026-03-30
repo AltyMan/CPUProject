@@ -154,7 +154,7 @@ RAM #(.INIT_FILE("data.mem")) l1_dcache(
 control CU(
     .clock(clock),
     .reset(clear),
-    .stop(Stop),
+    .stop(stop),
     .IR(IROut),
     .CON_FF(CON_out_internal),
 
