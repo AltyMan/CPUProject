@@ -30,6 +30,8 @@ nonresdiv div(A, B, Z_div);
 
 reg [2*DATA_WIDTH-1:0] Z;
 
+cin = 1'b0;
+
 initial begin
     Z = {2*DATA_WIDTH{1'b0}};
 end
