@@ -1,0 +1,546 @@
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+	Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+	Info: Processing started: Mon Mar 30 17:19:26 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off elec374 -c elec374
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file mb_tb.v
+	Info (12023): Found entity 1: mb_tb
+Info (12021): Found 1 design units, including 1 entities, in source file shra.v
+	Info (12023): Found entity 1: shra
+Info (12021): Found 1 design units, including 1 entities, in source file shr.v
+	Info (12023): Found entity 1: shr
+Info (12021): Found 1 design units, including 1 entities, in source file shl.v
+	Info (12023): Found entity 1: shl
+Info (12021): Found 1 design units, including 1 entities, in source file sevensegdisplay.v
+	Info (12023): Found entity 1: SevenSegDisplay
+Info (12021): Found 1 design units, including 1 entities, in source file selectencode.v
+	Info (12023): Found entity 1: SelectEncode
+Info (12021): Found 1 design units, including 1 entities, in source file ror.v
+	Info (12023): Found entity 1: ror
+Info (12021): Found 1 design units, including 1 entities, in source file rol.v
+	Info (12023): Found entity 1: rol
+Info (12021): Found 8 design units, including 8 entities, in source file registers.v
+	Info (12023): Found entity 1: register
+	Info (12023): Found entity 2: reg0logic
+	Info (12023): Found entity 3: pc
+	Info (12023): Found entity 4: ir
+	Info (12023): Found entity 5: mar
+	Info (12023): Found entity 6: mdr
+	Info (12023): Found entity 7: inport
+	Info (12023): Found entity 8: outport
+Info (12021): Found 1 design units, including 1 entities, in source file ram.v
+	Info (12023): Found entity 1: RAM
+Info (12021): Found 1 design units, including 1 entities, in source file neg.v
+	Info (12023): Found entity 1: neg
+Info (12021): Found 1 design units, including 1 entities, in source file mul.v
+	Info (12023): Found entity 1: boothmul
+Info (12021): Found 5 design units, including 5 entities, in source file logic.v
+	Info (12023): Found entity 1: f_and
+	Info (12023): Found entity 2: f_or
+	Info (12023): Found entity 3: f_not
+	Info (12023): Found entity 4: f_xor
+	Info (12023): Found entity 5: f_nor
+Info (12021): Found 1 design units, including 1 entities, in source file div.v
+	Info (12023): Found entity 1: nonresdiv
+Info (12021): Found 1 design units, including 1 entities, in source file control.v
+	Info (12023): Found entity 1: control
+Info (12021): Found 1 design units, including 1 entities, in source file conff.v
+	Info (12023): Found entity 1: CON_FF
+Info (12021): Found 1 design units, including 1 entities, in source file clockdivider.v
+	Info (12023): Found entity 1: ClockDivider
+Info (12021): Found 1 design units, including 1 entities, in source file bus.v
+	Info (12023): Found entity 1: Bus
+Info (12021): Found 1 design units, including 1 entities, in source file alu.v
+	Info (12023): Found entity 1: alu
+Info (12021): Found 5 design units, including 5 entities, in source file adder.v
+	Info (12023): Found entity 1: halfadder
+	Info (12023): Found entity 2: fulladder
+	Info (12023): Found entity 3: RCA
+	Info (12023): Found entity 4: cla4
+	Info (12023): Found entity 5: CLA32
+Info (12021): Found 1 design units, including 1 entities, in source file motherboard.v
+	Info (12023): Found entity 1: Motherboard
+Info (12021): Found 1 design units, including 1 entities, in source file datapath.v
+	Info (12023): Found entity 1: DataPath
+Warning (10236): Verilog HDL Implicit Net warning at DataPath.v(157): created implicit net for "Stop"
+Info (12127): Elaborating entity "Motherboard" for the top level hierarchy
+Info (12128): Elaborating entity "ClockDivider" for hierarchy "ClockDivider:clk_div"
+Info (12128): Elaborating entity "DataPath" for hierarchy "DataPath:dp"
+Info (12128): Elaborating entity "SelectEncode" for hierarchy "DataPath:dp|SelectEncode:encode_unit"
+Info (12128): Elaborating entity "register" for hierarchy "DataPath:dp|register:R0"
+Info (12128): Elaborating entity "pc" for hierarchy "DataPath:dp|pc:PC"
+Info (12128): Elaborating entity "mdr" for hierarchy "DataPath:dp|mdr:MDR"
+Info (12128): Elaborating entity "inport" for hierarchy "DataPath:dp|inport:InPort"
+Info (12128): Elaborating entity "outport" for hierarchy "DataPath:dp|outport:OutPort"
+Info (12128): Elaborating entity "ir" for hierarchy "DataPath:dp|ir:IR"
+Info (12128): Elaborating entity "mar" for hierarchy "DataPath:dp|mar:MAR"
+Info (12128): Elaborating entity "CON_FF" for hierarchy "DataPath:dp|CON_FF:con_ff"
+Info (12128): Elaborating entity "reg0logic" for hierarchy "DataPath:dp|reg0logic:R0Logic"
+Info (12128): Elaborating entity "alu" for hierarchy "DataPath:dp|alu:ALU"
+Warning (10240): Verilog HDL Always Construct warning at alu.v(38): inferring latch(es) for variable "cin", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "cin" at alu.v(38)
+Info (12128): Elaborating entity "f_and" for hierarchy "DataPath:dp|alu:ALU|f_and:andf"
+Info (12128): Elaborating entity "f_or" for hierarchy "DataPath:dp|alu:ALU|f_or:orf"
+Info (12128): Elaborating entity "f_not" for hierarchy "DataPath:dp|alu:ALU|f_not:notf"
+Info (12128): Elaborating entity "f_xor" for hierarchy "DataPath:dp|alu:ALU|f_xor:xorf"
+Info (12128): Elaborating entity "f_nor" for hierarchy "DataPath:dp|alu:ALU|f_nor:norf"
+Info (12128): Elaborating entity "neg" for hierarchy "DataPath:dp|alu:ALU|neg:neg"
+Info (12128): Elaborating entity "rol" for hierarchy "DataPath:dp|alu:ALU|rol:rol"
+Info (12128): Elaborating entity "ror" for hierarchy "DataPath:dp|alu:ALU|ror:ror"
+Info (12128): Elaborating entity "shl" for hierarchy "DataPath:dp|alu:ALU|shl:shl"
+Info (12128): Elaborating entity "shr" for hierarchy "DataPath:dp|alu:ALU|shr:shr"
+Info (12128): Elaborating entity "shra" for hierarchy "DataPath:dp|alu:ALU|shra:shra"
+Info (12128): Elaborating entity "CLA32" for hierarchy "DataPath:dp|alu:ALU|CLA32:add"
+Info (12128): Elaborating entity "cla4" for hierarchy "DataPath:dp|alu:ALU|CLA32:add|cla4:gen_cla[0].U"
+Info (12128): Elaborating entity "boothmul" for hierarchy "DataPath:dp|alu:ALU|boothmul:mul"
+Info (12128): Elaborating entity "nonresdiv" for hierarchy "DataPath:dp|alu:ALU|nonresdiv:div"
+Warning (10240): Verilog HDL Always Construct warning at div.v(28): inferring latch(es) for variable "A_reg", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at div.v(28): inferring latch(es) for variable "Q_reg", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at div.v(28): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct
+Info (12128): Elaborating entity "Bus" for hierarchy "DataPath:dp|Bus:bus"
+Info (12128): Elaborating entity "RAM" for hierarchy "DataPath:dp|RAM:l1_icache"
+Info (12128): Elaborating entity "RAM" for hierarchy "DataPath:dp|RAM:l1_dcache"
+Warning (10850): Verilog HDL warning at ram.v(11): number of words (3) in memory file does not match the number of elements in the address range [0:511]
+Info (12128): Elaborating entity "control" for hierarchy "DataPath:dp|control:CU"
+Info (12128): Elaborating entity "SevenSegDisplay" for hierarchy "SevenSegDisplay:hex0"
+Info (276014): Found 2 instances of uninferred RAM logic
+	Info (276007): RAM logic "DataPath:dp|RAM:l1_dcache|memory" is uninferred due to asynchronous read logic
+	Info (276007): RAM logic "DataPath:dp|RAM:l1_icache|memory" is uninferred due to asynchronous read logic
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Yehia/Documents/quartus/db/elec374.ram0_RAM_7515a4d5.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (13012): Latch DataPath:dp|alu:ALU|cin has unsafe behavior
+	Warning (13013): Ports D and ENA on the latch are fed by the same signal DataPath:dp|ir:IR|ir_q[28]
+Warning (13024): Output pins are stuck at VCC or GND
+	Warning (13410): Pin "HEX0[7]" is stuck at VCC
+	Warning (13410): Pin "HEX1[7]" is stuck at VCC
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/Yehia/Documents/quartus/output_files/elec374.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+	Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+	Warning (15610): No output dependent on input pin "KEY[1]"
+Info (21057): Implemented 26700 device resources after synthesis - the final resource count might be different
+	Info (21058): Implemented 11 input pins
+	Info (21059): Implemented 17 output pins
+	Info (21061): Implemented 26672 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
+	Info: Peak virtual memory: 5137 megabytes
+	Info: Processing ended: Mon Mar 30 17:19:57 2026
+	Info: Elapsed time: 00:00:31
+	Info: Total CPU time (on all processors): 00:00:41
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+	Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+	Info: Processing started: Mon Mar 30 17:19:58 2026
+Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off elec374 -c elec374
+Info: qfit2_default_script.tcl version: #1
+Info: Project  = elec374
+Info: Revision = elec374
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (119006): Selected device 5CEBA4F23C7 for design "elec374"
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (171004): Fitter is performing a Standard Fit compilation using maximum Fitter effort to optimize design performance
+Warning (292013): Feature LogicLock is only available with a valid subscription license. You can purchase a software subscription to gain full access to this feature.
+Critical Warning (11114): Active serial configuration mode is selected with the INIT_DONE pin disabled. Depending on the configuration setup and board design, the INIT_DONE pin may need to be enabled in the design. For more information, refer to the Intel FPGA Knowledge Database solution number rd05092012_239
+Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
+Critical Warning (169085): No exact pin location assignment(s) for 2 pins of 28 total pins. For the list of pins please refer to the I/O Assignment Warnings table in the fitter report.
+Info (184020): Starting Fitter periphery placement operations
+Info (11191): Automatically promoted 2 clocks (2 global)
+	Info (11162): ClockDivider:clk_div|clk_out~CLKENA0 with 17182 fanout uses global clock CLKCTRL_G3
+		Info (12525): This signal is driven by core routing -- it may be moved during placement to reduce routing delays
+	Info (11162): CLOCK_50~inputCLKENA0 with 32 fanout uses global clock CLKCTRL_G5
+Info (184021): Fitter periphery placement operations ending: elapsed time is 00:00:00
+Info (176233): Starting register packing
+Warning (335093): The Timing Analyzer is analyzing 1 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'elec374.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332144): No user constrained base clocks found in the design
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+	Info (332098): Cell: dp|ALU|WideOr1  from: datab  to: combout
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info (332128): Timing requirements not specified -- optimizing circuit to achieve the following default global requirements
+	Info (332127): Assuming a default timing requirement
+Info (332111): Found 4 clocks
+	Info (332111):   Period   Clock Name
+	Info (332111): ======== ============
+	Info (332111):    1.000     CLOCK_50
+	Info (332111):    1.000 ClockDivider:clk_div|clk_out
+	Info (332111):    1.000 DataPath:dp|control:CU|state[0]
+	Info (332111):    1.000 DataPath:dp|ir:IR|ir_q[27]
+Info (176235): Finished register packing
+	Extra Info (176219): No registers were packed into other blocks
+Warning (15705): Ignored locations or region assignments to the following nodes
+	Warning (15706): Node "CLOCK2_50" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "CLOCK3_50" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "CLOCK4_50" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_ADDR[0]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_ADDR[10]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_ADDR[11]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_ADDR[12]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_ADDR[1]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_ADDR[2]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_ADDR[3]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_ADDR[4]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_ADDR[5]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_ADDR[6]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_ADDR[7]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_ADDR[8]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_ADDR[9]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_BA[0]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_BA[1]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_CAS_N" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_CKE" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_CLK" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_CS_N" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_DQ[0]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_DQ[10]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_DQ[11]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_DQ[12]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_DQ[13]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_DQ[14]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_DQ[15]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_DQ[1]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_DQ[2]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_DQ[3]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_DQ[4]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_DQ[5]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_DQ[6]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_DQ[7]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_DQ[8]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_DQ[9]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_LDQM" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_RAS_N" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_UDQM" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "DRAM_WE_N" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[0]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[10]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[11]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[12]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[13]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[14]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[15]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[16]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[17]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[18]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[19]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[1]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[20]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[21]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[22]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[23]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[24]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[25]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[26]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[27]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[28]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[29]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[2]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[30]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[31]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[32]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[33]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[34]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[35]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[3]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[4]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[5]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[6]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[7]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[8]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_0[9]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[0]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[10]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[11]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[12]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[13]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[14]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[15]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[16]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[17]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[18]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[19]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[1]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[20]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[21]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[22]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[23]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[24]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[25]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[26]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[27]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[28]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[29]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[2]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[30]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[31]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[32]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[33]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[34]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[35]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[3]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[4]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[5]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[6]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[7]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[8]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "GPIO_1[9]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX2[0]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX2[1]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX2[2]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX2[3]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX2[4]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX2[5]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX2[6]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX3[0]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX3[1]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX3[2]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX3[3]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX3[4]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX3[5]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX3[6]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX4[0]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX4[1]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX4[2]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX4[3]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX4[4]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX4[5]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX4[6]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX5[0]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX5[1]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX5[2]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX5[3]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX5[4]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX5[5]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "HEX5[6]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "KEY[2]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "KEY[3]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "LEDR[0]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "LEDR[1]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "LEDR[2]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "LEDR[3]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "LEDR[4]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "LEDR[6]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "LEDR[7]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "LEDR[8]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "LEDR[9]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "PS2_CLK" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "PS2_CLK2" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "PS2_DAT" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "PS2_DAT2" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "RESET_N" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "SD_CLK" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "SD_CMD" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "SD_DATA[0]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "SD_DATA[1]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "SD_DATA[2]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "SD_DATA[3]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "SW[8]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "SW[9]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "VGA_B[0]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "VGA_B[1]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "VGA_B[2]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "VGA_B[3]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "VGA_G[0]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "VGA_G[1]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "VGA_G[2]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "VGA_G[3]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "VGA_HS" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "VGA_R[0]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "VGA_R[1]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "VGA_R[2]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "VGA_R[3]" is assigned to location or region, but does not exist in design
+	Warning (15706): Node "VGA_VS" is assigned to location or region, but does not exist in design
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:08
+Info (170189): Fitter placement preparation operations beginning
+Info (14951): The Fitter is using Advanced Physical Optimization.
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:05:17
+Info (170191): Fitter placement operations beginning
+Info (170137): Fitter placement was successful
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:35
+Info (170193): Fitter routing operations beginning
+Info (170089): 3e+04 ns of routing delay (approximately 32.1% of available device routing delay) has been added to meet hold timing. For more information, refer to the Estimated Delay Added for Hold Timing section in the Fitter report.
+Info (170195): Router estimated average interconnect usage is 25% of the available device resources
+	Info (170196): Router estimated peak interconnect usage is 39% of the available device resources in the region that extends from location X22_Y34 to location X32_Y45
+Info (170194): Fitter routing operations ending: elapsed time is 00:01:56
+Info (11888): Total time spent on timing analysis during the Fitter is 82.53 seconds.
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:24
+Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
+Info (144001): Generated suppressed messages file C:/Users/Yehia/Documents/quartus/output_files/elec374.fit.smsg
+Info: Quartus Prime Fitter was successful. 0 errors, 189 warnings
+	Info: Peak virtual memory: 7807 megabytes
+	Info: Processing ended: Mon Mar 30 17:34:58 2026
+	Info: Elapsed time: 00:15:00
+	Info: Total CPU time (on all processors): 01:28:40
+Info: *******************************************************************
+Info: Running Quartus Prime Assembler
+	Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+	Info: Processing started: Mon Mar 30 17:34:59 2026
+Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off elec374 -c elec374
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (115030): Assembler is generating device programming files
+Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
+	Info: Peak virtual memory: 5158 megabytes
+	Info: Processing ended: Mon Mar 30 17:35:10 2026
+	Info: Elapsed time: 00:00:11
+	Info: Total CPU time (on all processors): 00:00:09
+Info (293026): Skipped module Power Analyzer due to the assignment FLOW_ENABLE_POWER_ANALYZER
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+	Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+	Info: Processing started: Mon Mar 30 17:35:11 2026
+Info: Command: quartus_sta elec374 -c elec374
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Warning (335093): The Timing Analyzer is analyzing 1 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'elec374.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+	Info (332105): create_clock -period 1.000 -name ClockDivider:clk_div|clk_out ClockDivider:clk_div|clk_out
+	Info (332105): create_clock -period 1.000 -name CLOCK_50 CLOCK_50
+	Info (332105): create_clock -period 1.000 -name DataPath:dp|control:CU|state[0] DataPath:dp|control:CU|state[0]
+	Info (332105): create_clock -period 1.000 -name DataPath:dp|ir:IR|ir_q[27] DataPath:dp|ir:IR|ir_q[27]
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+	Info (332098): Cell: dp|ALU|WideOr1  from: dataa  to: combout
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1100mV 85C Model
+Critical Warning (332148): Timing requirements not met
+	Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -117.093
+	Info (332119):     Slack       End Point TNS Clock 
+	Info (332119): ========= =================== =====================
+	Info (332119):  -117.093         -327615.721 ClockDivider:clk_div|clk_out 
+	Info (332119):    -7.282              -7.282 DataPath:dp|ir:IR|ir_q[27] 
+	Info (332119):    -5.260            -142.298 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.293
+	Info (332119):     Slack       End Point TNS Clock 
+	Info (332119): ========= =================== =====================
+	Info (332119):     0.293               0.000 ClockDivider:clk_div|clk_out 
+	Info (332119):     0.442               0.000 CLOCK_50 
+	Info (332119):     1.150               0.000 DataPath:dp|ir:IR|ir_q[27] 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -0.675
+	Info (332119):     Slack       End Point TNS Clock 
+	Info (332119): ========= =================== =====================
+	Info (332119):    -0.675             -40.787 CLOCK_50 
+	Info (332119):    -0.538          -13833.193 ClockDivider:clk_div|clk_out 
+	Info (332119):    -0.538              -8.107 DataPath:dp|control:CU|state[0] 
+	Info (332119):    -0.538              -6.809 DataPath:dp|ir:IR|ir_q[27] 
+Info: Analyzing Slow 1100mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+	Info (332098): Cell: dp|ALU|WideOr1  from: dataa  to: combout
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+	Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -121.931
+	Info (332119):     Slack       End Point TNS Clock 
+	Info (332119): ========= =================== =====================
+	Info (332119):  -121.931         -313778.858 ClockDivider:clk_div|clk_out 
+	Info (332119):    -7.211              -7.211 DataPath:dp|ir:IR|ir_q[27] 
+	Info (332119):    -5.298            -139.981 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.407
+	Info (332119):     Slack       End Point TNS Clock 
+	Info (332119): ========= =================== =====================
+	Info (332119):     0.407               0.000 ClockDivider:clk_div|clk_out 
+	Info (332119):     0.447               0.000 CLOCK_50 
+	Info (332119):     0.834               0.000 DataPath:dp|ir:IR|ir_q[27] 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -0.706
+	Info (332119):     Slack       End Point TNS Clock 
+	Info (332119): ========= =================== =====================
+	Info (332119):    -0.706             -36.808 CLOCK_50 
+	Info (332119):    -0.547              -8.118 DataPath:dp|control:CU|state[0] 
+	Info (332119):    -0.538          -13601.164 ClockDivider:clk_div|clk_out 
+	Info (332119):    -0.538              -6.817 DataPath:dp|ir:IR|ir_q[27] 
+Info: Analyzing Fast 1100mV 85C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+	Info (332098): Cell: dp|ALU|WideOr1  from: dataa  to: combout
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+	Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -55.956
+	Info (332119):     Slack       End Point TNS Clock 
+	Info (332119): ========= =================== =====================
+	Info (332119):   -55.956         -198718.316 ClockDivider:clk_div|clk_out 
+	Info (332119):    -3.432              -3.432 DataPath:dp|ir:IR|ir_q[27] 
+	Info (332119):    -2.826             -51.414 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.182
+	Info (332119):     Slack       End Point TNS Clock 
+	Info (332119): ========= =================== =====================
+	Info (332119):     0.182               0.000 ClockDivider:clk_div|clk_out 
+	Info (332119):     0.201               0.000 CLOCK_50 
+	Info (332119):     0.822               0.000 DataPath:dp|ir:IR|ir_q[27] 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -0.756
+	Info (332119):     Slack       End Point TNS Clock 
+	Info (332119): ========= =================== =====================
+	Info (332119):    -0.756             -21.905 CLOCK_50 
+	Info (332119):    -0.247              -1.525 DataPath:dp|control:CU|state[0] 
+	Info (332119):    -0.085              -0.475 DataPath:dp|ir:IR|ir_q[27] 
+	Info (332119):     0.063               0.000 ClockDivider:clk_div|clk_out 
+Info: Analyzing Fast 1100mV 0C Model
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+	Info (332098): Cell: dp|ALU|WideOr1  from: dataa  to: combout
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+	Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -53.237
+	Info (332119):     Slack       End Point TNS Clock 
+	Info (332119): ========= =================== =====================
+	Info (332119):   -53.237         -170983.691 ClockDivider:clk_div|clk_out 
+	Info (332119):    -3.191              -3.191 DataPath:dp|ir:IR|ir_q[27] 
+	Info (332119):    -2.524             -43.435 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.173
+	Info (332119):     Slack       End Point TNS Clock 
+	Info (332119): ========= =================== =====================
+	Info (332119):     0.173               0.000 ClockDivider:clk_div|clk_out 
+	Info (332119):     0.188               0.000 CLOCK_50 
+	Info (332119):     0.661               0.000 DataPath:dp|ir:IR|ir_q[27] 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -0.771
+	Info (332119):     Slack       End Point TNS Clock 
+	Info (332119): ========= =================== =====================
+	Info (332119):    -0.771             -26.416 CLOCK_50 
+	Info (332119):    -0.165              -0.963 DataPath:dp|control:CU|state[0] 
+	Info (332119):    -0.034              -0.166 DataPath:dp|ir:IR|ir_q[27] 
+	Info (332119):     0.105               0.000 ClockDivider:clk_div|clk_out 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 7 warnings
+	Info: Peak virtual memory: 5724 megabytes
+	Info: Processing ended: Mon Mar 30 17:35:34 2026
+	Info: Elapsed time: 00:00:23
+	Info: Total CPU time (on all processors): 00:01:28
+Info: *******************************************************************
+Info: Running Quartus Prime EDA Netlist Writer
+	Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+	Info: Processing started: Mon Mar 30 17:35:35 2026
+Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off elec374 -c elec374
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Warning (10905): Generated the EDA functional simulation netlist because it is the only supported netlist type for this device.
+Info (204019): Generated file elec374.vo in folder "C:/Users/Yehia/Documents/quartus/simulation/questa/" for EDA simulation tool
+Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 2 warnings
+	Info: Peak virtual memory: 5126 megabytes
+	Info: Processing ended: Mon Mar 30 17:35:40 2026
+	Info: Elapsed time: 00:00:05
+	Info: Total CPU time (on all processors): 00:00:05
+Info (293000): Quartus Prime Full Compilation was successful. 0 errors, 214 warnings
