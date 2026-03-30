@@ -5,7 +5,7 @@ module alu #(parameter DATA_WIDTH = 32, SEL_WIDTH = 16, INIT = 32'h0)(
     output wire [DATA_WIDTH-1:0] ZHigh, ZLow
 );
 
-wire cout;
+wire cout_add, cout_sub;
 
 wire [DATA_WIDTH-1:0] Z_and, Z_or, Z_not, Z_xor, Z_nor, Z_neg, Z_rol, Z_ror, Z_shl, Z_shr, Z_shra;
 wire [DATA_WIDTH-1:0] Z_add, Z_sub; // Note overflow for add
