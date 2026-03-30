@@ -52,6 +52,8 @@ module phase3_tb();
 
     // Main Simulation Block
     initial begin
+        $dumpfile("phase3/tb.vcd");
+        $dumpvars(0, phase3_tb);
         log_fd = $fopen("phase3/sim_log.txt", "w");
         if (log_fd == 0) begin
             $display("ERROR: Could not open phase3/sim_log.txt for writing.");
