@@ -3,7 +3,7 @@
 module Motherboard#(parameter DIVISOR = 1)(
 	input wire CLOCK_50,
 	input wire [2:0] KEY, // key[0] = reset, key[1] = stop, key[2] = irq
-    input wire [7:0] SW,
+    input wire [8:0] SW,
     output wire [5:5] LEDR,
     output wire [7:0] HEX0,
     output wire [7:0] HEX1
@@ -23,7 +23,7 @@ end
 wire irq_pulse = irq_sync_1 & ~irq_sync_2;
 wire [31:0] InPortData;
 wire [31:0] OutPortData;
-assign InPortData = {24'b0, SW[7:0]};
+assign InPortData = {23'b0, SW[8:0]};
 wire cpu_run;
 DataPath dp(
     .clock(cpu_clock),

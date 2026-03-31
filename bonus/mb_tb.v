@@ -40,7 +40,7 @@ module mb_tb();
         KEY[1] = 1; // Stop button unpressed
         KEY[2] = 1; // IRQ button unpressed
         
-        SW = 8'hE0; 
+        SW = 9'h1E0; 
         
         #100;
         KEY[0] = 1; 
@@ -51,9 +51,9 @@ module mb_tb();
         // 2. Safely wait for the CPU to get deep into the loop (No FSM state dependencies!)
         repeat(50) @(posedge mb.cpu_clock);
         
-        $display("\n[%0t ns] --- USER FLIPS SWITCHES TO 0xAA ---", $time);
-        $fdisplay(log_fd, "\n[%0t ns] --- USER FLIPS SWITCHES TO 0xAA ---", $time);
-        SW = 8'hAA; 
+        $display("\n[%0t ns] --- USER FLIPS SWITCHES TO 0x1AA ---", $time);
+        $fdisplay(log_fd, "\n[%0t ns] --- USER FLIPS SWITCHES TO 0x1AA ---", $time);
+        SW = 9'h1AA; 
         
         $display("[%0t ns] --- USER PRESSES IRQ BUTTON (KEY[2]) ---", $time);
         $fdisplay(log_fd, "[%0t ns] --- USER PRESSES IRQ BUTTON (KEY[2]) ---", $time);

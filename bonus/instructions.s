@@ -55,13 +55,13 @@ ldi r2, -1(r2)
 brzr r2, done
 
 in r12
-ldi r13, 0x80
+ldi r13, 0x0100
 and r12, r12, r13
 brnz r12, skip_delay
 
-ldi r8, 0x20
+ldi r8, 0x20           
 outer_loop: 
-    ld r7, 0x88
+    ld r7, 0x88        
 inner_loop: 
     ldi r7, -1(r7)
     nop
@@ -81,20 +81,19 @@ ldi r6, 0x63
 out r6
 halt
 
-
 org 0x50
 isr_handler:
     ldi r15, 0xEE
     out r15
     
     in r12
-    ldi r13, 0x80
+    ldi r13, 0x0100
     and r12, r12, r13
     brnz r12, isr_skip_delay
 
-    ldi r15, 0x20
+    ldi r15, 0x20          
 isr_outer_delay: 
-    ld r14, 0x88
+    ld r14, 0x88           
 isr_inner_delay:
     ldi r14, -1(r14)
     nop
@@ -105,7 +104,9 @@ isr_inner_delay:
     
 isr_skip_delay:
     in r6
-    st 0x77, r6
+    ldi r12, 0x00FF        
+    and r6, r6, r12
+    st 0x77, r6            
     rfi
 
 
