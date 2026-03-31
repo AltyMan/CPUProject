@@ -154,8 +154,7 @@ module control (
     assign RinHI[1] = (T3 & is_md);
     assign RinHI[2] = (T2 & is_md);
     assign RinHI[3] = (T2 & is_alu_r) | (T2 & is_alu_2op) | (T2 & is_alu_i) | (T2 & op_ld) | (T2 & op_st) | (T3 & op_br) | (T2 & is_md);
-    // UPDATED PCin: Added T_INT2 (load ISR) and op_rfi (restore EPC)
-    assign RinHI[4] = T0 | (T1 & op_jr) | (T2 & op_jal) | T_INT2 | (T1 & op_rfi);
+    assign RinHI[4] = T0 | (T1 & op_jr) | (T2 & op_jal) | T_INT2 | (T1 & op_rfi) | (T4 & op_br);
     assign RinHI[5] = (T4 & op_ld) | (T4 & op_st);
     assign RinHI[15:6] = 10'b0;
 
