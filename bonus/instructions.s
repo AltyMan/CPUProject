@@ -59,7 +59,7 @@ ldi r13, 0x0100
 and r12, r12, r13
 brnz r12, skip_delay
 
-ldi r8, 0x20           
+ldi r8, 0x40           
 outer_loop: 
     ld r7, 0x88        
 inner_loop: 
@@ -91,7 +91,7 @@ isr_handler:
     and r12, r12, r13
     brnz r12, isr_skip_delay
 
-    ldi r15, 0x20          
+    ldi r15, 0x40          
 isr_outer_delay: 
     ld r14, 0x88           
 isr_inner_delay:
