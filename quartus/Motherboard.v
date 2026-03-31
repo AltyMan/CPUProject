@@ -1,6 +1,6 @@
 `timescale 1ns / 10ps
 
-module Motherboard#(parameter DIVISOR = 25)(
+module Motherboard#(parameter DIVISOR = 3)(
 	input wire CLOCK_50,
 	input wire [1:0] KEY, // key[0] = reset, key[1] = stop
     input wire [7:0] SW,

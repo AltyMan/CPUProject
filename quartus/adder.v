@@ -105,13 +105,13 @@ module CLA32(
 
     genvar i;
     generate
-        for (i = 0; i < 8; i = i + 1) begin
+        for (i = 0; i < 8; i = i + 1) begin : gen_carry
             assign Cblk[i+1] = Gblk[i] | (Pblk[i] & Cblk[i]);
         end
     endgenerate
 
     generate
-        for (i = 0; i < 8; i = i + 1) begin
+        for (i = 0; i < 8; i = i + 1) begin : gen_cla
             cla4 U(
                 .A   (A[4*i +: 4]),
                 .B   (Bx[4*i +: 4]),
