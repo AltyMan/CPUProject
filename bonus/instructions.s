@@ -48,39 +48,66 @@ ldi r3, loop
 ldi r5, 1
 ldi r2, 40
 ei                  
+
 loop: 
 out r6
 ldi r2, -1(r2)
 brzr r2, done
-ld r7, 0x88
 
-loop2: 
-ldi r7, -1(r7)
-nop
-brnz r7, loop2
+in r12
+ldi r13, 0x80
+and r12, r12, r13
+brnz r12, skip_delay
+
+ldi r8, 0x20
+outer_loop: 
+    ld r7, 0x88
+inner_loop: 
+    ldi r7, -1(r7)
+    nop
+    brnz r7, inner_loop
+    ldi r8, -1(r8)
+    brnz r8, outer_loop
+
+skip_delay:
 shr r6, r6, r5
 brnz r6, loop
 ld r6, 0x77
 jr r3
+
 done: 
 di
 ldi r6, 0x63
 out r6
 halt
 
+
 org 0x50
 isr_handler:
     ldi r15, 0xEE
     out r15
     
-    ld r15, 0x88
-isr_delay: 
-    ldi r15, -1(r15)
+    in r12
+    ldi r13, 0x80
+    and r12, r12, r13
+    brnz r12, isr_skip_delay
+
+    ldi r15, 0x20
+isr_outer_delay: 
+    ld r14, 0x88
+isr_inner_delay:
+    ldi r14, -1(r14)
     nop
-    brnz r15, isr_delay
+    brnz r14, isr_inner_delay
+    
+    ldi r15, -1(r15)
+    brnz r15, isr_outer_delay
+    
+isr_skip_delay:
     in r6
     st 0x77, r6
     rfi
+
 
 org 0xB2
 subA: 

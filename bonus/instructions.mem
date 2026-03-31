@@ -52,28 +52,30 @@
 //   loop:
  @31 BB000000 // out r6            
  @32 8917FFFF // ldi r2, -1(r2)    
- @33 A9000008 // brzr r2, done     
- @34 83800088 // ld r7, 0x88       
-//   loop2:
- @35 8BBFFFFF // ldi r7, -1(r7)    
- @36 D0000000 // nop               
- @37 AB8FFFFD // brnz r7, loop2    
- @38 23328000 // shr r6, r6, r5    
- @39 AB0FFFF7 // brnz r6, loop     
- @3A 83000077 // ld r6, 0x77       
- @3B A1800000 // jr r3             
+ @33 A900000F // brzr r2, done     
+ @34 B6000000 // in r12            
+ @35 8E800080 // ldi r13, 0x80     
+ @36 16668000 // and r12, r12, r13 
+ @37 AE080007 // brnz r12, skip_delay
+ @38 8C000020 // ldi r8, 0x20      
+//   outer_loop:
+ @39 83800088 // ld r7, 0x88       
+//   inner_loop:
+ @3A 8BBFFFFF // ldi r7, -1(r7)    
+ @3B D0000000 // nop               
+ @3C AB8FFFFD // brnz r7, inner_loop
+ @3D 8C47FFFF // ldi r8, -1(r8)    
+ @3E AC0FFFFA // brnz r8, outer_loop
+//   skip_delay:
+ @3F 23328000 // shr r6, r6, r5    
+ @40 AB0FFFF0 // brnz r6, loop     
+ @41 83000077 // ld r6, 0x77       
+ @42 A1800000 // jr r3             
 //   done:
- @3C F0000000 // di                
- @3D 8B000063 // ldi r6, 0x63      
- @3E BB000000 // out r6            
- @3F D8000000 // halt              
- @40 00000000
- @41 00000000
- @42 00000000
- @43 00000000
- @44 00000000
- @45 00000000
- @46 00000000
+ @43 F0000000 // di                
+ @44 8B000063 // ldi r6, 0x63      
+ @45 BB000000 // out r6            
+ @46 D8000000 // halt              
  @47 00000000
  @48 00000000
  @49 00000000
@@ -86,21 +88,23 @@
 //   isr_handler:
  @50 8F8000EE // ldi r15, 0xEE     
  @51 BF800000 // out r15           
- @52 87800088 // ld r15, 0x88      
-//   isr_delay:
- @53 8FFFFFFF // ldi r15, -1(r15)  
- @54 D0000000 // nop               
- @55 AF8FFFFD // brnz r15, isr_delay
- @56 B3000000 // in r6             
- @57 93000077 // st 0x77, r6       
- @58 E0000000 // rfi               
- @59 00000000
- @5A 00000000
- @5B 00000000
- @5C 00000000
- @5D 00000000
- @5E 00000000
- @5F 00000000
+ @52 B6000000 // in r12            
+ @53 8E800080 // ldi r13, 0x80     
+ @54 16668000 // and r12, r12, r13 
+ @55 AE080007 // brnz r12, isr_skip_delay
+ @56 8F800020 // ldi r15, 0x20     
+//   isr_outer_delay:
+ @57 87000088 // ld r14, 0x88      
+//   isr_inner_delay:
+ @58 8F77FFFF // ldi r14, -1(r14)  
+ @59 D0000000 // nop               
+ @5A AF0FFFFD // brnz r14, isr_inner_delay
+ @5B 8FFFFFFF // ldi r15, -1(r15)  
+ @5C AF8FFFFA // brnz r15, isr_outer_delay
+//   isr_skip_delay:
+ @5D B3000000 // in r6             
+ @5E 93000077 // st 0x77, r6       
+ @5F E0000000 // rfi               
  @60 00000000
  @61 00000000
  @62 00000000
