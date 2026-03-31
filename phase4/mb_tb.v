@@ -40,7 +40,7 @@ module mb_tb();
 
         // Let the simulation run. 
         // Make sure your data.mem has 0x0005 at address 0x88 instead of 0xFFFF!
-        #5000000; 
+        #5000000;
         
         $display("\n>>> SIMULATION TIMEOUT/FINISHED <<<");
         $finish;
