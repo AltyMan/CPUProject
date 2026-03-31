@@ -1,5 +1,3 @@
-`timescale 1ns / 10ps
-
 module control (
     input wire clock, reset, stop,
     input wire [31:0] IR,

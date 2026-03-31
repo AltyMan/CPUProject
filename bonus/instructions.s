@@ -1,4 +1,6 @@
 org 0
+ldi r1, isr_handler
+mtivr r1
 ldi r5, 0x43
 ldi r5, 6(r5)
 ld r4, 0x89
@@ -67,7 +69,7 @@ out r6
 halt
 
 org 0x50
-isr:
+isr_handler:
     ldi r15, 0xEE
     out r15
     

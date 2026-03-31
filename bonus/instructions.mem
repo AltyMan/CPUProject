@@ -1,72 +1,72 @@
 // Created with SRC-ASM (https://github.com/davlaf/elec374-assembler)
-  @0 8A800043 // ldi r5, 0x43      
-  @1 8AA80006 // ldi r5, 6(r5)     
-  @2 82000089 // ld r4, 0x89       
-  @3 8A200004 // ldi r4, 4(r4)     
-  @4 8027FFF8 // ld r0, -8(r4)     
-  @5 89000004 // ldi r2, 4         
-  @6 8A800087 // ldi r5, 0x87      
-  @7 AA980003 // brmi r5, 3        
-  @8 8AA80005 // ldi r5, 5(r5)     
-  @9 80AFFFFD // ld r1, -3(r5)     
-  @A D0000000 // nop               
-  @B A8900002 // brpl r1, target   
-  @C 89A80007 // ldi r3, 7(r5)     
-  @D 8B9FFFFC // ldi r7, -4(r3)    
+  @0 88800050 // ldi r1, isr_handler
+  @1 F8800000 // mtivr r1          
+  @2 8A800043 // ldi r5, 0x43      
+  @3 8AA80006 // ldi r5, 6(r5)     
+  @4 82000089 // ld r4, 0x89       
+  @5 8A200004 // ldi r4, 4(r4)     
+  @6 8027FFF8 // ld r0, -8(r4)     
+  @7 89000004 // ldi r2, 4         
+  @8 8A800087 // ldi r5, 0x87      
+  @9 AA980003 // brmi r5, 3        
+  @A 8AA80005 // ldi r5, 5(r5)     
+  @B 80AFFFFD // ld r1, -3(r5)     
+  @C D0000000 // nop               
+  @D A8900002 // brpl r1, target   
+  @E 89A80007 // ldi r3, 7(r5)     
+  @F 8B9FFFFC // ldi r7, -4(r3)    
 //   target:
-  @E 03A90000 // add r7, r5, r2    
-  @F 48880003 // addi r1, r1, 3    
- @10 70880000 // neg r1, r1        
- @11 78880000 // not r1, r1        
- @12 5088000F // andi r1, r1, 0xF  
- @13 3A010000 // ror r4, r0, r2    
- @14 58A00005 // ori r1, r4, 5     
- @15 2A090000 // shra r4, r1, r2   
- @16 22A90000 // shr r5, r5, r2    
- @17 928000A3 // st 0xA3, r5       
- @18 42810000 // rol r5, r0, r2    
- @19 1B900000 // or r7, r2, r0     
- @1A 12280000 // and r4, r5, r0    
- @1B 93A00089 // st 0x89(r4), r7   
- @1C 082B8000 // sub r0, r5, r7    
- @1D 32290000 // shl r4, r5, r2    
- @1E 8B800007 // ldi r7, 7         
- @1F 89800019 // ldi r3, 0x19      
- @20 69B80000 // mul r3, r7        
- @21 C0800000 // mfhi r1           
- @22 CB000000 // mflo r6           
- @23 61B80000 // div r3, r7        
- @24 8C380002 // ldi r8, 2(r7)     
- @25 8C9FFFFC // ldi r9, -4(r3)    
- @26 8D300003 // ldi r10, 3(r6)    
- @27 8D880005 // ldi r11, 5(r1)    
- @28 9D000000 // jal r10           
- @29 B3000000 // in r6             
- @2A 93000077 // st 0x77, r6       
- @2B 8980002F // ldi r3, loop      
- @2C 8A800001 // ldi r5, 1         
- @2D 89000028 // ldi r2, 40        
- @2E E8000000 // ei                
+ @10 03A90000 // add r7, r5, r2    
+ @11 48880003 // addi r1, r1, 3    
+ @12 70880000 // neg r1, r1        
+ @13 78880000 // not r1, r1        
+ @14 5088000F // andi r1, r1, 0xF  
+ @15 3A010000 // ror r4, r0, r2    
+ @16 58A00005 // ori r1, r4, 5     
+ @17 2A090000 // shra r4, r1, r2   
+ @18 22A90000 // shr r5, r5, r2    
+ @19 928000A3 // st 0xA3, r5       
+ @1A 42810000 // rol r5, r0, r2    
+ @1B 1B900000 // or r7, r2, r0     
+ @1C 12280000 // and r4, r5, r0    
+ @1D 93A00089 // st 0x89(r4), r7   
+ @1E 082B8000 // sub r0, r5, r7    
+ @1F 32290000 // shl r4, r5, r2    
+ @20 8B800007 // ldi r7, 7         
+ @21 89800019 // ldi r3, 0x19      
+ @22 69B80000 // mul r3, r7        
+ @23 C0800000 // mfhi r1           
+ @24 CB000000 // mflo r6           
+ @25 61B80000 // div r3, r7        
+ @26 8C380002 // ldi r8, 2(r7)     
+ @27 8C9FFFFC // ldi r9, -4(r3)    
+ @28 8D300003 // ldi r10, 3(r6)    
+ @29 8D880005 // ldi r11, 5(r1)    
+ @2A 9D000000 // jal r10           
+ @2B B3000000 // in r6             
+ @2C 93000077 // st 0x77, r6       
+ @2D 89800031 // ldi r3, loop      
+ @2E 8A800001 // ldi r5, 1         
+ @2F 89000028 // ldi r2, 40        
+ @30 E8000000 // ei                
 //   loop:
- @2F BB000000 // out r6            
- @30 8917FFFF // ldi r2, -1(r2)    
- @31 A9000008 // brzr r2, done     
- @32 83800088 // ld r7, 0x88       
+ @31 BB000000 // out r6            
+ @32 8917FFFF // ldi r2, -1(r2)    
+ @33 A9000008 // brzr r2, done     
+ @34 83800088 // ld r7, 0x88       
 //   loop2:
- @33 8BBFFFFF // ldi r7, -1(r7)    
- @34 D0000000 // nop               
- @35 AB8FFFFD // brnz r7, loop2    
- @36 23328000 // shr r6, r6, r5    
- @37 AB0FFFF7 // brnz r6, loop     
- @38 83000077 // ld r6, 0x77       
- @39 A1800000 // jr r3             
+ @35 8BBFFFFF // ldi r7, -1(r7)    
+ @36 D0000000 // nop               
+ @37 AB8FFFFD // brnz r7, loop2    
+ @38 23328000 // shr r6, r6, r5    
+ @39 AB0FFFF7 // brnz r6, loop     
+ @3A 83000077 // ld r6, 0x77       
+ @3B A1800000 // jr r3             
 //   done:
- @3A F0000000 // di                
- @3B 8B000063 // ldi r6, 0x63      
- @3C BB000000 // out r6            
- @3D D8000000 // halt              
- @3E 00000000
- @3F 00000000
+ @3C F0000000 // di                
+ @3D 8B000063 // ldi r6, 0x63      
+ @3E BB000000 // out r6            
+ @3F D8000000 // halt              
  @40 00000000
  @41 00000000
  @42 00000000
@@ -83,7 +83,7 @@
  @4D 00000000
  @4E 00000000
  @4F 00000000
-//   isr:
+//   isr_handler:
  @50 8F8000EE // ldi r15, 0xEE     
  @51 BF800000 // out r15           
  @52 87800088 // ld r15, 0x88      

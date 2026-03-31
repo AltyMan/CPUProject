@@ -1,4 +1,4 @@
-`timescale 1ns / 10ps
+`timescale 1ns / 1ns
 
 module mb_tb();
     // Physical board pins
@@ -12,9 +12,9 @@ module mb_tb();
 
     // Instantiate the Motherboard, OVERRIDING the DIVISOR to 2 for simulation!
     Motherboard #(.DIVISOR(2)) mb (
-        .clock_50mhz(CLOCK_50),
-        .key(KEY),
-        .switch(SW),
+        .CLOCK_50(CLOCK_50),
+        .KEY(KEY),
+        .SW(SW),
         .LEDR(LEDR),
         .HEX0(HEX0),
         .HEX1(HEX1)
@@ -38,11 +38,14 @@ module mb_tb();
         #100;
         KEY[0] = 1; 
 
+        mb.dp.l1_dcache.memory[9'h088] = 32'h00000005; // set to 5 for simulation
+
         // Let the simulation run. 
-        // Make sure your data.mem has 0x0005 at address 0x88 instead of 0xFFFF!
-        #5000000;
+        $display("[%0t ns] --- CPU IS NOW CRUNCHING 0xFFFF. THIS MAY TAKE A FEW SECONDS OF REAL TIME... ---", $time);
         
-        $display("\n>>> SIMULATION TIMEOUT/FINISHED <<<");
+        wait(LEDR[5] == 1'b0); // Wait for the run LED to turn off!
+        
+        $display("\n>>> SIMULATION FINISHED NATURALLY <<<");
         $finish;
     end
 

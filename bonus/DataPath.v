@@ -12,8 +12,10 @@ wire Gra, Grb, Grc, BAout, Cout;
 wire [15:0] RinHI, RoutHI; // Enables/Selects for HI, LO, ZHigh, etc.
 wire IRin, MARin, RZout, RYin, RBin, PCjump, MDRread, CONin;
 
-wire EPCin, EPCout, ISRout;
+wire EPCin, EPCout;
 wire set_IE, clear_IE, IE_out;
+
+wire IVRin, IVRout;
 
 // ALU control signals
 wire [15:0] ALUControl;
@@ -34,8 +36,7 @@ wire [31:0] BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInR3, BusMuxInR4, BusMuxIn
 			BusMuxInR14, BusMuxInR15,
 			BusMuxInHI, BusMuxInLO, BusMuxInZHigh, BusMuxInZLow,
 			BusMuxInPC, BusMuxInMDR, BusMuxInPort, BusMuxInCSignExtended,
-			BusMuxInEPC;
-wire [31:0] BusMuxInISR = 32'h00000050;
+			BusMuxInEPC, BusMuxInIVR;
 
 wire [31:0] BusMuxOut;
 
@@ -84,7 +85,7 @@ SelectEncode encode_unit(
 
 // Reconstruct 32-bit Rin and Rout signals
 wire [31:0] Rin = {RinHI, Renable};
-wire [31:0] Rout = {RoutHI[15:10], ISRout, EPCout, Cout, RoutHI[6:0], Rselect};
+wire [31:0] Rout = {RoutHI[15:10], IVRout, EPCout, Cout, RoutHI[6:0], Rselect};
 
 // Pass the combinational sign-extended value straight to the bus mux
 assign BusMuxInCSignExtended = CSignExtended_Val;
@@ -126,8 +127,10 @@ mar MAR(clear, clock, MARin, BusMuxOut, MAROut);
 
 register RY(clear, clock, RYin, BusMuxOut, Yregout);
 
-epc EPC_reg(clear, clock, EPCin, BusMuxOut, BusMuxInEPC);
-IE IE_flag(clear, clock, set_IE, clear_IE, IE_out);
+epc EPC(clear, clock, EPCin, BusMuxOut, BusMuxInEPC);
+IE IE(clear, clock, set_IE, clear_IE, IE_out);
+
+register IVR(clear, clock, IVRin, BusMuxOut, BusMuxInIVR);
 
 // CON FF
 CON_FF con_ff(
@@ -155,7 +158,7 @@ Bus bus(
 	BusMuxInR12, BusMuxInR13, BusMuxInR14, BusMuxInR15,
 	BusMuxInHI, BusMuxInLO, BusMuxInZHigh, BusMuxInZLow,
 	BusMuxInPC, BusMuxInMDR, BusMuxInPort, BusMuxInCSignExtended,
-	BusMuxInEPC, BusMuxInISR,
+	BusMuxInEPC, BusMuxInIVR,
 	Rout, BusMuxOut
 	);
 
@@ -188,7 +191,7 @@ control CU(
 	.IRQ(CU_IRQ),
     .IE_out(IE_out),
     .EPCin(EPCin), .EPCout(EPCout),
-    .ISRout(ISRout),
+	.IVRin(IVRin), .IVRout(IVRout),
     .set_IE(set_IE), .clear_IE(clear_IE),
 
     .IR(IROut),

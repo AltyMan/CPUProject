@@ -58,14 +58,16 @@ module phase4_tb();
             $fdisplay(log_fd, "R14: %8h | R15: %8h", dp.BusMuxInR14, dp.BusMuxInR15);
             $fdisplay(log_fd, "HI:  %8h | LO:  %8h", dp.BusMuxInHI, dp.BusMuxInLO);
             $fdisplay(log_fd, "MAR: %8h | MDR: %8h", {23'b0, dp.MAROut}, dp.Mdataout);
-            $fdisplay(log_fd, "MEM[0x88]: %8h | MEM[0x89]: %8h | MEM[0xA3]: %8h", 
-                      dp.l1_dcache.memory[9'h088], dp.l1_dcache.memory[9'h089], dp.l1_dcache.memory[9'h0a3]);
+            $fdisplay(log_fd, "MEM[0x88]: %8h | MEM[0x89]: %8h | MEM[0xA3]: %8h | MEM[0x77]: %8h", 
+                      dp.l1_dcache.memory[9'h088], dp.l1_dcache.memory[9'h089], dp.l1_dcache.memory[9'h0a3], dp.l1_dcache.memory[9'h077]);
             $fdisplay(log_fd, "\n");
         end
     endtask
 
     // Main Simulation Block
     initial begin
+        $dumpfile("phase4/tb.vcd");
+        $dumpvars(0, phase4_tb);
         log_fd = $fopen("phase4/sim_log.txt", "w");
         if (log_fd == 0) begin
             $display("ERROR: Could not open phase4/sim_log.txt for writing.");
@@ -80,6 +82,8 @@ module phase4_tb();
         
         #40;
         
+        dp.l1_dcache.memory[9'h088] = 32'h00000005; // set to 5 for simulation
+
         $display("Initial States:");
         $fdisplay(log_fd, "Initial States:");
         print_cpu_state();
@@ -88,7 +92,7 @@ module phase4_tb();
         
         // Failsafe Timeout: Massively increased for the Phase 4 loop!
         // Highly recommend changing MEM[0x88] to 0x0005 during simulation.
-        #500000000; 
+        #5000000000; 
         
         $display("Simulation Timeout Reached");
         $fdisplay(log_fd, "Simulation Timeout Reached");

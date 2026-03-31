@@ -1,11 +1,3 @@
-`include "core/registers.v"
-`include "core/Bus.v"
-`include "core/CONFF.v"
-`include "core/SelectEncode.v"
-`include "core/ram.v"
-`include "core/control.v"
-`include "core/alu/alu.v"
-
 module DataPath(
 	input wire clock, clear, stop,
 	input wire [31:0] InPortData,
@@ -139,7 +131,7 @@ Bus bus(
 	);
 
 // Instruction Cache (Read-Only)
-RAM #(.INIT_FILE("core/instructions.mem")) l1_icache(
+RAM #(.INIT_FILE("quartus/instructions.mem")) l1_icache(
     .clock(clock),
     .read(1'b1), // always read
     .write(1'b0), // never write
@@ -149,7 +141,7 @@ RAM #(.INIT_FILE("core/instructions.mem")) l1_icache(
 );
 
 // Data Cache (Read/Write)
-RAM #(.INIT_FILE("core/data.mem")) l1_dcache(
+RAM #(.INIT_FILE("quartus/data.mem")) l1_dcache(
     .clock(clock),
     .read(RAMread),
     .write(RAMwrite),
@@ -162,7 +154,7 @@ RAM #(.INIT_FILE("core/data.mem")) l1_dcache(
 control CU(
     .clock(clock),
     .reset(clear),
-    .stop(Stop),
+    .stop(stop),
     .IR(IROut),
     .CON_FF(CON_out_internal),
 

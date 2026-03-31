@@ -1,5 +1,3 @@
-`timescale 1ns / 10ps
-
 module ClockDivider#(parameter DIVISOR = 25000000)(
     input wire clk_in,
     input wire reset,

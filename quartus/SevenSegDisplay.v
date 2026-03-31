@@ -1,5 +1,3 @@
-`timescale 1ns / 10ps
-
 module SevenSegDisplay(
     input wire clk,
     input wire [3:0] data,

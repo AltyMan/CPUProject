@@ -55,9 +55,10 @@ opcodes = {
     "brnz":  0b10101,
     "brpl":  0b10101,
     "brmi":  0b10101,
-    "rfi":   0b11100,  # 0x1C
-    "ei":    0b11101,  # 0x1D
-    "di":    0b11110,  # 0x1E
+    "rfi":   0b11100, # 0x1C
+    "ei":    0b11101, # 0x1D
+    "di":    0b11110, # 0x1E
+    "mtivr": 0b11111, # 0x1F
 }
 
 reg_reg_reg = ["add", "sub", "and", "or", "ror", "rol", "shr", "shra", "shl"]
@@ -66,7 +67,7 @@ reg_const = ["brzr", "brnz", "brpl", "brmi"]
 reg_offset_reg = ["ld", "ldi"]
 offset_reg_reg = ["st"]
 reg_reg = ["mul", "div", "not", "neg"]
-reg = ["jal", "jr", "in", "out", "mflo", "mfhi"]
+reg = ["jal", "jr", "in", "out", "mflo", "mfhi", "mtivr"]
 no_args = ["nop", "halt", "rfi", "ei", "di"]
 
 def get_register_number(register_name: str) -> int:
@@ -125,7 +126,7 @@ def get_branch_offset(argument: str, labels: dict[str, int], instruction_number:
         raise InvalidInstructionParsed(f"{str(e)}\nMaybe you misspelled a label?")
 
 def validate_opcode(opcode: int) -> bool:
-    if 0 <= opcode < 0b11111:
+    if 0 <= opcode <= 0b11111:
         return True
     raise InvalidInstructionParsed(f"Opcode outside of range: {opcode}")
 

@@ -16,3 +16,5 @@
 `include "bonus/shra.v"
 `include "bonus/ram.v"
 `include "bonus/DataPath.v"
+`include "bonus/ClockDivider.v"
+`include "bonus/SevenSegDisplay.v"
