@@ -11,23 +11,23 @@ SW[4] => InPortData[4].IN1
 SW[5] => InPortData[5].IN1
 SW[6] => InPortData[6].IN1
 SW[7] => InPortData[7].IN1
-LEDR[5] <= DataPath:dp.run
-HEX0[0] <= SevenSegDisplay:hex0.seg
-HEX0[1] <= SevenSegDisplay:hex0.seg
-HEX0[2] <= SevenSegDisplay:hex0.seg
-HEX0[3] <= SevenSegDisplay:hex0.seg
-HEX0[4] <= SevenSegDisplay:hex0.seg
-HEX0[5] <= SevenSegDisplay:hex0.seg
-HEX0[6] <= SevenSegDisplay:hex0.seg
-HEX0[7] <= SevenSegDisplay:hex0.seg
-HEX1[0] <= SevenSegDisplay:hex1.seg
-HEX1[1] <= SevenSegDisplay:hex1.seg
-HEX1[2] <= SevenSegDisplay:hex1.seg
-HEX1[3] <= SevenSegDisplay:hex1.seg
-HEX1[4] <= SevenSegDisplay:hex1.seg
-HEX1[5] <= SevenSegDisplay:hex1.seg
-HEX1[6] <= SevenSegDisplay:hex1.seg
-HEX1[7] <= SevenSegDisplay:hex1.seg
+LEDR[5] << DataPath:dp.run
+HEX0[0] << SevenSegDisplay:hex0.seg
+HEX0[1] << SevenSegDisplay:hex0.seg
+HEX0[2] << SevenSegDisplay:hex0.seg
+HEX0[3] << SevenSegDisplay:hex0.seg
+HEX0[4] << SevenSegDisplay:hex0.seg
+HEX0[5] << SevenSegDisplay:hex0.seg
+HEX0[6] << SevenSegDisplay:hex0.seg
+HEX0[7] << SevenSegDisplay:hex0.seg
+HEX1[0] << SevenSegDisplay:hex1.seg
+HEX1[1] << SevenSegDisplay:hex1.seg
+HEX1[2] << SevenSegDisplay:hex1.seg
+HEX1[3] << SevenSegDisplay:hex1.seg
+HEX1[4] << SevenSegDisplay:hex1.seg
+HEX1[5] << SevenSegDisplay:hex1.seg
+HEX1[6] << SevenSegDisplay:hex1.seg
+HEX1[7] << SevenSegDisplay:hex1.seg
 
 
 |Motherboard|ClockDivider:clk_div

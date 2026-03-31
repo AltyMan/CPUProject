@@ -1,5 +1,5 @@
 Assembler report for elec374
-Mon Mar 30 20:38:55 2026
+Tue Mar 31 10:29:11 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -39,7 +39,7 @@ on the Quartus Prime software download page.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Mar 30 20:38:55 2026 ;
+; Assembler Status      ; Successful - Tue Mar 31 10:29:11 2026 ;
 ; Revision Name         ; elec374                               ;
 ; Top-level Entity Name ; Motherboard                           ;
 ; Family                ; Cyclone V                             ;
@@ -69,8 +69,8 @@ on the Quartus Prime software download page.
 +----------------+--------------------------------------------------------------------+
 ; Option         ; Setting                                                            ;
 +----------------+--------------------------------------------------------------------+
-; JTAG usercode  ; 0x01BFA6CA                                                         ;
-; Checksum       ; 0x01BFA6CA                                                         ;
+; JTAG usercode  ; 0x01CD7CB5                                                         ;
+; Checksum       ; 0x01CD7CB5                                                         ;
 +----------------+--------------------------------------------------------------------+
 
 
@@ -80,7 +80,7 @@ on the Quartus Prime software download page.
 ; Option             ; Setting                                                        ;
 +--------------------+----------------------------------------------------------------+
 ; JTAG usercode      ; 0x00000000                                                     ;
-; Checksum           ; 0x72404307                                                     ;
+; Checksum           ; 0x722D0E68                                                     ;
 ; Compression Ratio  ; 2                                                              ;
 +--------------------+----------------------------------------------------------------+
 
@@ -91,14 +91,14 @@ on the Quartus Prime software download page.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Mon Mar 30 20:38:44 2026
+    Info: Processing started: Tue Mar 31 10:29:02 2026
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off elec374 -c elec374
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 5142 megabytes
-    Info: Processing ended: Mon Mar 30 20:38:55 2026
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:10
+    Info: Processing ended: Tue Mar 31 10:29:11 2026
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:09
 
 

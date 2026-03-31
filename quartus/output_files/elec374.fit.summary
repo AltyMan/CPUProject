@@ -1,12 +1,12 @@
-Fitter Status : Successful - Mon Mar 30 20:38:38 2026
+Fitter Status : Successful - Tue Mar 31 10:28:55 2026
 Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 Revision Name : elec374
 Top-level Entity Name : Motherboard
 Family : Cyclone V
 Device : 5CEBA4F23C7
 Timing Models : Final
-Logic utilization (in ALMs) : 10,089 / 18,480 ( 55 % )
-Total registers : 17233
+Logic utilization (in ALMs) : 10,059 / 18,480 ( 54 % )
+Total registers : 17238
 Total pins : 28 / 224 ( 13 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 3,153,920 ( 0 % )
