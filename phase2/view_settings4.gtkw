@@ -1,0 +1,44 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Wed Mar 25 02:03:24 2026
+[*]
+[dumpfile] "/Users/amitaltman/Documents/GitHub/CPUProject/phase2/p4tb.vcd"
+[dumpfile_mtime] "Wed Mar 25 02:03:10 2026"
+[dumpfile_size] 111701
+[savefile] "/Users/amitaltman/Documents/GitHub/CPUProject/phase2/view_settings4.gtkw"
+[timestart] 0
+[size] 1920 1027
+[pos] -1 -1
+*-15.000000 228500 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb.
+[treeopen] tb.dp.
+[treeopen] tb.dp.con_ff.
+[sst_width] 255
+[signals_width] 177
+[sst_expanded] 1
+[sst_vpaned_height] 306
+@28
+tb.clock
+tb.clear
+@22
+tb.Present_state[5:0]
+@28
+tb.dp.IR.enable
+@22
+tb.dp.IROut[31:0]
+@28
+tb.dp.R3.enable
+@22
+tb.dp.R3.q[31:0]
+@28
+tb.CONin
+tb.dp.con_ff.CON
+@22
+tb.dp.ZLow.q[31:0]
+@28
+tb.PCjump
+tb.dp.PC.enable
+@22
+tb.dp.PC.pc_q[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

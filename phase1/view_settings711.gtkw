@@ -1,0 +1,101 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Tue Feb 10 16:02:22 2026
+[*]
+[dumpfile] "/Users/amitaltman/Documents/GitHub/CPUProject/phase1/p1tb.vcd"
+[dumpfile_mtime] "Tue Feb 10 16:01:41 2026"
+[dumpfile_size] 51751
+[savefile] "/Users/amitaltman/Documents/GitHub/CPUProject/view_settings711.gtkw"
+[timestart] 0
+[size] 1333 600
+[pos] 92 161
+*-14.000000 251200 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[markername] AA
+[markername] BB
+[markername] CC
+[markername] DD
+[markername] EE
+[markername] FF
+[markername] GG
+[markername] HH
+[markername] II
+[markername] JJ
+[markername] KK
+[markername] LL
+[markername] MM
+[markername] NN
+[markername] OO
+[markername] PP
+[markername] QQ
+[markername] RR
+[markername] SS
+[markername] TT
+[markername] UU
+[markername] VV
+[markername] WW
+[markername] XX
+[markername] YY
+[markername] ZZ
+[treeopen] tb.
+[treeopen] tb.dp.
+[treeopen] tb.dp.HI.
+[treeopen] tb.dp.IR.
+[treeopen] tb.dp.LO.
+[treeopen] tb.dp.MAR.
+[treeopen] tb.dp.MDR.
+[treeopen] tb.dp.PC.
+[treeopen] tb.dp.R0.
+[treeopen] tb.dp.R3.
+[treeopen] tb.dp.R5.
+[treeopen] tb.dp.R7.
+[treeopen] tb.dp.RY.
+[treeopen] tb.dp.ZHigh.
+[treeopen] tb.dp.ZLow.
+[sst_width] 255
+[signals_width] 136
+[sst_expanded] 1
+[sst_vpaned_height] 159
+@28
+tb.clock
+@22
+tb.dp.Rin[31:0]
+tb.dp.Rout[31:0]
+tb.dp.MDR.Mdatain[31:0]
+@28
+tb.dp.MDR.read
+tb.dp.MDR.enable
+tb.dp.R7.enable
+@29
+tb.dp.R7.q[31:0]
+@28
+tb.dp.R0.enable
+tb.dp.R0.q[31:0]
+tb.dp.R4.enable
+@22
+tb.dp.R4.q[31:0]
+@28
+tb.dp.PC.enable
+@22
+tb.dp.PC.q[31:0]
+@28
+tb.dp.MAR.enable
+@22
+tb.dp.MAR.q[31:0]
+@28
+tb.dp.ZLow.enable
+@22
+tb.dp.ZLow.q[31:0]
+@28
+tb.dp.ZHigh.enable
+@22
+tb.dp.ZHigh.q[31:0]
+@28
+tb.dp.IR.enable
+@22
+tb.dp.IR.ir[31:0]
+@28
+tb.dp.RY.enable
+@22
+tb.dp.RY.q[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

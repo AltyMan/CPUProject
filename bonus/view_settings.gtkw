@@ -1,0 +1,61 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Sat Apr  4 00:48:14 2026
+[*]
+[dumpfile] "/Users/amitaltman/Documents/GitHub/CPUProject/bonus/tb.vcd"
+[dumpfile_mtime] "Sat Apr  4 00:44:10 2026"
+[dumpfile_size] 15758840
+[savefile] "/Users/amitaltman/Documents/GitHub/CPUProject/bonus/view_settings.gtkw"
+[timestart] 460100
+[size] 1920 1027
+[pos] -1 -1
+*-16.000000 530100 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] bonus_tb.
+[treeopen] bonus_tb.dp.
+[sst_width] 40
+[signals_width] 220
+[sst_expanded] 0
+[sst_vpaned_height] 404
+@28
+bonus_tb.clock
+bonus_tb.clear
+bonus_tb.stop
+@22
+bonus_tb.ExternalIn[31:0]
+bonus_tb.ExternalOut[31:0]
+@28
+bonus_tb.dp.CU.state[2:0]
+bonus_tb.dp.CU.opcode[4:0]
+@22
+bonus_tb.dp.PC.pc_q[31:0]
+bonus_tb.dp.IR.ir_q[31:0]
+bonus_tb.dp.MAROut[8:0]
+bonus_tb.dp.Mdatain[31:0]
+bonus_tb.dp.Mdataout[31:0]
+@28
+bonus_tb.dp.RAMread
+bonus_tb.dp.RAMwrite
+bonus_tb.dp.InPortStrobe
+bonus_tb.dp.OutPortEnable
+@22
+bonus_tb.dp.BusMuxOut[31:0]
+bonus_tb.dp.R0.q[31:0]
+bonus_tb.dp.R1.q[31:0]
+bonus_tb.dp.R2.q[31:0]
+bonus_tb.dp.R3.q[31:0]
+bonus_tb.dp.R4.q[31:0]
+bonus_tb.dp.R5.q[31:0]
+bonus_tb.dp.R6.q[31:0]
+bonus_tb.dp.R7.q[31:0]
+bonus_tb.dp.R8.q[31:0]
+bonus_tb.dp.R9.q[31:0]
+bonus_tb.dp.R10.q[31:0]
+bonus_tb.dp.R11.q[31:0]
+bonus_tb.dp.R12.q[31:0]
+bonus_tb.dp.R13.q[31:0]
+bonus_tb.dp.R14.q[31:0]
+bonus_tb.dp.R15.q[31:0]
+bonus_tb.dp.HI.q[31:0]
+bonus_tb.dp.LO.q[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

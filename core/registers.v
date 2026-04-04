@@ -151,3 +151,47 @@ always @ (posedge clock)
 	end
 assign OutData = outport_q[DATA_WIDTH-1:0];
 endmodule
+
+module epc #(parameter DATA_WIDTH_IN = 32, DATA_WIDTH_OUT = 32, INIT = 32'h0)(
+    input clear, clock, enable, 
+    input [DATA_WIDTH_IN-1:0] BusMuxOut,
+    output wire [DATA_WIDTH_OUT-1:0] EPCOut
+);
+reg [DATA_WIDTH_IN-1:0] epc_q;
+initial epc_q = INIT;
+
+always @ (posedge clock)
+    begin
+        if (clear) begin
+            epc_q <= INIT;
+        end
+        else if (enable) begin
+            epc_q <= BusMuxOut;
+        end
+    end
+assign EPCOut = epc_q[DATA_WIDTH_OUT-1:0];
+endmodule
+
+module IE #(parameter INIT = 1'b0)(
+    input clear, clock,
+    input set_IE,
+    input clear_IE,
+    output wire IE_out
+);
+reg ie_q;
+initial ie_q = INIT;
+
+always @ (posedge clock)
+    begin
+        if (clear) begin
+            ie_q <= 1'b0;
+        end 
+        else if (clear_IE) begin 
+            ie_q <= 1'b0;
+        end
+        else if (set_IE) begin
+            ie_q <= 1'b1;
+        end
+    end
+assign IE_out = ie_q;
+endmodule

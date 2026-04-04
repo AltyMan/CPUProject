@@ -1,0 +1,39 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*]
+[dumpfile] "/Users/amitaltman/Documents/GitHub/CPUProject/phase2/p6tb.vcd"
+[savefile] "/Users/amitaltman/Documents/GitHub/CPUProject/phase2/view_settings6.gtkw"
+[timestart] 0
+[size] 1512 916
+[pos] -1 -1
+*-15.000000 227920 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb.
+[treeopen] tb.dp.
+[sst_width] 255
+[signals_width] 177
+[sst_expanded] 1
+[sst_vpaned_height] 269
+@28
+tb.clock
+tb.clear
+@22
+tb.Present_state[5:0]
+@28
+tb.dp.HI.enable
+@22
+tb.dp.HI.q[31:0]
+@28
+tb.dp.R5.enable
+@22
+tb.dp.R5.q[31:0]
+@28
+tb.dp.LO.enable
+@22
+tb.dp.LO.q[31:0]
+@28
+tb.dp.R1.enable
+@22
+tb.dp.R1.q[31:0]
+tb.dp.BusMuxOut[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

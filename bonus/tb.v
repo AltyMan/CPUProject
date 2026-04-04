@@ -56,12 +56,14 @@ module bonus_tb();
             $fdisplay(log_fd, "R14: %8h | R15: %8h", dp.BusMuxInR14, dp.BusMuxInR15);
             $fdisplay(log_fd, "HI:  %8h | LO:  %8h | EPC: %8h | IVR: %8h | IE: %b", dp.BusMuxInHI, dp.BusMuxInLO, dp.BusMuxInEPC, dp.BusMuxInIVR, dp.IE_out);
             $fdisplay(log_fd, "MAR: %8h | MDR: %8h", {23'b0, dp.MAROut}, dp.Mdataout);
-            $fdisplay(log_fd, "MEM[0x88]: %8h | MEM[0x89]: %8h | MEM[0xA3]: %8h\n", 
-                      dp.l1_dcache.memory[9'h088], dp.l1_dcache.memory[9'h089], dp.l1_dcache.memory[9'h0a3]);
+            $fdisplay(log_fd, "MEM[0x88]: %8h | MEM[0x89]: %8h | MEM[0xA3]: %8h | MEM[0x77]: %8h\n", 
+                      dp.l1_dcache.memory[9'h088], dp.l1_dcache.memory[9'h089], dp.l1_dcache.memory[9'h0a3], dp.l1_dcache.memory[9'h077]);
         end
     endtask
 
     initial begin
+        $dumpfile("bonus/tb.vcd");
+        $dumpvars(0, bonus_tb);
         log_fd = $fopen("bonus/sim_log.txt", "w");
         if (log_fd == 0) begin
             $display("ERROR: Could not open bonus/sim_log.txt for writing.");
@@ -69,7 +71,7 @@ module bonus_tb();
         end
 
         clear = 1; stop = 0; IRQ = 0;
-        ExternalIn = 32'h000000E0; 
+        ExternalIn = 32'h000001E0; 
         
         repeat(4) @(posedge clock);
         
@@ -82,14 +84,10 @@ module bonus_tb();
         wait(dp.IE_out == 1'b1);
         repeat(50) @(posedge clock);
         
-        $display("\n=======================================================");
-        $display("[%0t ns] --- CHANGING SWITCHES TO 0xAA AND FIRING IRQ ---", $time);
-        $display("=======================================================\n");
-        $fdisplay(log_fd, "\n=======================================================");
-        $fdisplay(log_fd, "[%0t ns] --- CHANGING SWITCHES TO 0xAA AND FIRING IRQ ---", $time);
-        $fdisplay(log_fd, "=======================================================\n");
+        $display("\n[%0t ns] --- CHANGING SWITCHES TO 0xAA AND FIRING IRQ ---\n", $time);
+        $fdisplay(log_fd, "\n[%0t ns] --- CHANGING SWITCHES TO 0xAA AND FIRING IRQ ---\n", $time);
         
-        ExternalIn = 32'h000000AA; 
+        ExternalIn = 32'h000001AA; 
         
         IRQ = 1;
         wait(dp.CU.state == 3'd6); 

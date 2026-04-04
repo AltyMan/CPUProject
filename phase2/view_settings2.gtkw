@@ -1,0 +1,59 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*]
+[dumpfile] "/Users/amitaltman/Documents/GitHub/CPUProject/phase2/p2tb.vcd"
+[savefile] "/Users/amitaltman/Documents/GitHub/CPUProject/phase2/view_settings2.gtkw"
+[timestart] 0
+[size] 1512 916
+[pos] -1 -1
+*-15.000000 227920 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb.
+[treeopen] tb.dp.
+[sst_width] 255
+[signals_width] 177
+[sst_expanded] 1
+[sst_vpaned_height] 269
+@28
+tb.clock
+tb.clear
+@22
+tb.Present_state[5:0]
+tb.dp.ALUControl[15:0]
+@28
+tb.dp.RAMread
+tb.dp.RAMwrite
+@22
+tb.dp.BusMuxOut[31:0]
+@28
+tb.dp.PC.enable
+@22
+tb.dp.PC.pc_q[31:0]
+@28
+tb.dp.MAR.enable
+@22
+tb.dp.MAR.mar_q[31:0]
+@28
+tb.dp.MDR.enable
+tb.dp.MDR.read
+@22
+tb.dp.MDR.Mdatain[31:0]
+@23
+tb.dp.MDR.mdr_q[31:0]
+@28
+tb.dp.IR.enable
+@22
+tb.dp.IR.ir_q[31:0]
+@28
+tb.dp.RY.enable
+@22
+tb.dp.RY.q[31:0]
+@28
+tb.dp.ZLow.enable
+@22
+tb.dp.ZLow.q[31:0]
+@28
+tb.dp.R6.enable
+@22
+tb.dp.R6.q[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

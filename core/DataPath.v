@@ -1,5 +1,6 @@
 module DataPath(
 	input wire clock, clear, stop,
+	input wire IRQ,
 	input wire [31:0] InPortData,
 	output wire [31:0] OutPortData,
 	output wire run
@@ -10,6 +11,12 @@ wire GPR_Rin, GPR_Rout;
 wire Gra, Grb, Grc, BAout, Cout;
 wire [15:0] RinHI, RoutHI; // Enables/Selects for HI, LO, ZHigh, etc.
 wire IRin, MARin, RZout, RYin, RBin, PCjump, MDRread, CONin;
+
+wire EPCin, EPCout;
+wire set_IE, clear_IE, IE_out;
+
+wire IVRin, IVRout;
+
 // ALU control signals
 wire [15:0] ALUControl;
 // Memory/IO
@@ -28,7 +35,8 @@ wire [31:0] BusMuxInR0, BusMuxInR1, BusMuxInR2, BusMuxInR3, BusMuxInR4, BusMuxIn
 			BusMuxInR8, BusMuxInR9, BusMuxInR10, BusMuxInR11, BusMuxInR12, BusMuxInR13,
 			BusMuxInR14, BusMuxInR15,
 			BusMuxInHI, BusMuxInLO, BusMuxInZHigh, BusMuxInZLow,
-			BusMuxInPC, BusMuxInMDR, BusMuxInPort, BusMuxInCSignExtended;
+			BusMuxInPC, BusMuxInMDR, BusMuxInPort, BusMuxInCSignExtended,
+			BusMuxInEPC, BusMuxInIVR;
 
 wire [31:0] BusMuxOut;
 
@@ -45,6 +53,24 @@ wire CON_out_internal;
 wire PCjump_eff;
 assign PCjump_eff = PCjump & CON_out_internal;
 
+reg irq_latched;
+initial irq_latched = 1'b0;
+
+// IRQ latch
+always @(posedge clock or posedge clear) begin
+    if (clear) begin
+        irq_latched <= 1'b0;
+    end
+    else if (EPCin) begin
+        irq_latched <= 1'b0;
+    end
+    else if (IRQ) begin
+        irq_latched <= 1'b1;
+    end
+end
+
+wire CU_IRQ = IRQ | irq_latched;
+
 SelectEncode encode_unit(
 	.IROut(IROut),
 	.Gra(Gra),
@@ -59,7 +85,7 @@ SelectEncode encode_unit(
 
 // Reconstruct 32-bit Rin and Rout signals
 wire [31:0] Rin = {RinHI, Renable};
-wire [31:0] Rout = {RoutHI[15:8], Cout, RoutHI[6:0], Rselect};
+wire [31:0] Rout = {RoutHI[15:10], IVRout, EPCout, Cout, RoutHI[6:0], Rselect};
 
 // Pass the combinational sign-extended value straight to the bus mux
 assign BusMuxInCSignExtended = CSignExtended_Val;
@@ -101,6 +127,11 @@ mar MAR(clear, clock, MARin, BusMuxOut, MAROut);
 
 register RY(clear, clock, RYin, BusMuxOut, Yregout);
 
+epc EPC(clear, clock, EPCin, BusMuxOut, BusMuxInEPC);
+IE IE(clear, clock, set_IE, clear_IE, IE_out);
+
+register IVR(clear, clock, IVRin, BusMuxOut, BusMuxInIVR);
+
 // CON FF
 CON_FF con_ff(
 	.clk(clock),
@@ -127,11 +158,12 @@ Bus bus(
 	BusMuxInR12, BusMuxInR13, BusMuxInR14, BusMuxInR15,
 	BusMuxInHI, BusMuxInLO, BusMuxInZHigh, BusMuxInZLow,
 	BusMuxInPC, BusMuxInMDR, BusMuxInPort, BusMuxInCSignExtended,
+	BusMuxInEPC, BusMuxInIVR,
 	Rout, BusMuxOut
 	);
 
 // Instruction Cache (Read-Only)
-RAM #(.INIT_FILE("quartus/instructions.mem")) l1_icache(
+RAM #(.INIT_FILE("core/instructions.mem")) l1_icache(
     .clock(clock),
     .read(1'b1), // always read
     .write(1'b0), // never write
@@ -141,7 +173,7 @@ RAM #(.INIT_FILE("quartus/instructions.mem")) l1_icache(
 );
 
 // Data Cache (Read/Write)
-RAM #(.INIT_FILE("quartus/data.mem")) l1_dcache(
+RAM #(.INIT_FILE("core/data.mem")) l1_dcache(
     .clock(clock),
     .read(RAMread),
     .write(RAMwrite),
@@ -155,6 +187,13 @@ control CU(
     .clock(clock),
     .reset(clear),
     .stop(stop),
+
+	.IRQ(CU_IRQ),
+    .IE_out(IE_out),
+    .EPCin(EPCin), .EPCout(EPCout),
+	.IVRin(IVRin), .IVRout(IVRout),
+    .set_IE(set_IE), .clear_IE(clear_IE),
+
     .IR(IROut),
     .CON_FF(CON_out_internal),
 

@@ -1,0 +1,48 @@
+[*]
+[*] GTKWave Analyzer settings for Mini SRC Phase 3
+[*]
+[dumpfile] "phase3/phase3_tb.vcd"
+[timestart] 0
+[size] 1400 800
+[pos] -1 -1
+*-18.000000 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] phase3_tb.
+[treeopen] phase3_tb.dp.
+[sst_width] 220
+[signals_width] 220
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@28
+phase3_tb.clock
+phase3_tb.clear
+@22
+phase3_tb.dp.CU.state[2:0]
+@28
+phase3_tb.dp.CU.opcode[4:0]
+@22
+phase3_tb.dp.PC.pc_q[31:0]
+phase3_tb.dp.IR.ir_q[31:0]
+phase3_tb.dp.MAR.mar_q[31:0]
+phase3_tb.dp.Mdataout[31:0]
+@28
+phase3_tb.dp.RAMread
+phase3_tb.dp.RAMwrite
+@22
+phase3_tb.dp.R0.q[31:0]
+phase3_tb.dp.R1.q[31:0]
+phase3_tb.dp.R2.q[31:0]
+phase3_tb.dp.R3.q[31:0]
+phase3_tb.dp.R4.q[31:0]
+phase3_tb.dp.R5.q[31:0]
+phase3_tb.dp.R6.q[31:0]
+phase3_tb.dp.R7.q[31:0]
+phase3_tb.dp.R8.q[31:0]
+phase3_tb.dp.R9.q[31:0]
+phase3_tb.dp.R10.q[31:0]
+phase3_tb.dp.R11.q[31:0]
+phase3_tb.dp.R12.q[31:0]
+phase3_tb.dp.R13.q[31:0]
+phase3_tb.dp.R14.q[31:0]
+phase3_tb.dp.R15.q[31:0]
+phase3_tb.dp.HI.q[31:0]
+phase3_tb.dp.LO.q[31:0]

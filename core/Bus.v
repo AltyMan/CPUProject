@@ -6,6 +6,7 @@ module Bus (
 	input [31:0]BusMuxInR12, input [31:0]BusMuxInR13, input [31:0]BusMuxInR14, input [31:0]BusMuxInR15,
 	input [31:0]BusMuxInHI, input [31:0]BusMuxInLO, input [31:0]BusMuxInZHigh, input [31:0]BusMuxInZLow,
 	input [31:0]BusMuxInPC, input [31:0]BusMuxInMDR, input [31:0]BusMuxInPort, input [31:0]BusMuxInCSignExtended,
+	input [31:0]BusMuxInEPC, input [31:0]BusMuxInIVR,
 	//Encoder
 	input [31:0] Rout, // R0out to R15out, HIout, LOout, ZHighout, ZLowout, PCout, MDRout, InPortout, CSignExtendedout
 
@@ -57,6 +58,8 @@ always @ (*) begin
 		5'd21: q = BusMuxInMDR;
 		5'd22: q = BusMuxInPort;
 		5'd23: q = BusMuxInCSignExtended;
+		5'd24: q = BusMuxInEPC;
+        5'd25: q = BusMuxInIVR;
 		default: q = 32'd0;
 	endcase
 end

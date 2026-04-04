@@ -11,6 +11,9 @@ module phase4_tb();
     wire run;
     
     integer log_fd;
+    integer total_cycles = 0;
+    integer total_instructions = 0;
+    real calculated_cpi;
 
     // Notice we are now using the updated DataPath ports!
     DataPath dp(
@@ -116,11 +119,18 @@ module phase4_tb();
         end
     end
 
+    always @(posedge clock) begin
+        if (!clear) begin
+            total_cycles = total_cycles + 1;
+        end
+    end
+
     // --- THE DIAGNOSTIC LOGGER ---
     always @(negedge clock) begin
         if (!clear) begin
             // 1. Log the start of a new instruction
             if (dp.CU.state == 3'd1) begin
+                total_instructions = total_instructions + 1;
                 $display("\n[%0t ns] FETCH: PC = %03h | IR = %08h", $time, dp.BusMuxInPC, dp.IROut);
                 $fdisplay(log_fd, "\n[%0t ns] FETCH: PC = %03h | IR = %08h", $time, dp.BusMuxInPC, dp.IROut);
             end
@@ -158,6 +168,18 @@ module phase4_tb();
                 $display("\nFinal States:");
                 $fdisplay(log_fd, "\nFinal States:");
                 print_cpu_state();
+
+                calculated_cpi = $itor(total_cycles) / $itor(total_instructions);
+                
+                $display("\nPERFORMANCE METRICS\n");
+                $display("Total Instructions : %0d", total_instructions);
+                $display("Total Clock Cycles : %0d", total_cycles);
+                $display("Average CPI        : %0.2f\n", calculated_cpi);
+                
+                $fdisplay(log_fd, "\nPERFORMANCE METRICS\n");
+                $fdisplay(log_fd, "Total Instructions : %0d", total_instructions);
+                $fdisplay(log_fd, "Total Clock Cycles : %0d", total_cycles);
+                $fdisplay(log_fd, "Average CPI        : %0.2f\n", calculated_cpi);
                 
                 $fclose(log_fd);
                 $finish;

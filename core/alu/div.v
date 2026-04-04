@@ -25,6 +25,9 @@ module nonresdiv #(parameter integer DATA_WIDTH = 32)(
   
   wire signed [DATA_WIDTH:0] M_ext = {1'b0, M_mag}; // Extended M_mag
   always @(*) begin
+    A_reg = 0;
+    Q_reg = 0;
+    i = 0;
     if (M == 0) begin
       Z = {Q_mag, {DATA_WIDTH{1'b1}}}; // Fast exit for div by zero 
     end else begin

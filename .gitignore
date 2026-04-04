@@ -1,6 +1,4 @@
 .vscode/
 *.out
-*.gtkw
-*.vcd
 dump/
 **/.DS_Store
